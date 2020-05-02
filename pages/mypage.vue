@@ -1,24 +1,23 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-
-      <div>
-        <nuxt-link to="/register">Register</nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/signin">SIGN IN!</nuxt-link>
-      </div>
+      <h1 class="title">MyPage</h1>
+      <h2 class="subtitle">{{ user.username }}</h2>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      user: ''
+    }
+  },
+  created() {
+    this.$axios.$get('/mypage/user').then((res) => {
+      this.user = res.name
+    })
   }
 }
 </script>

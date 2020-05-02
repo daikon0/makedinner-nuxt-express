@@ -1,27 +1,11 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-
-      <div>
-        <nuxt-link to="/register">Register</nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/signin">SIGN IN!</nuxt-link>
-      </div>
-    </div>
+    <div>ユーザーネームまたはパスワードが間違っています</div>
+    <nuxt-link to="/signin" class="btn btn-block btn-primary"
+      >やり直す</nuxt-link
+    >
   </div>
 </template>
-
-<script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
-  }
-}
-</script>
 
 <style>
 .container {

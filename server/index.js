@@ -3,6 +3,69 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
+const session = require('express-session')
+const passport = require('passport')
+const bodyParser = require('body-parser')
+const LocalStrategy = require('passport-local').Strategy
+const mypageRouter = require('../routes/mypage')
+const signinRouter = require('../routes/signin')
+const registerRouter = require('../routes/register')
+const db = require('../models/index')
+
+require('dotenv').config()
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+  })
+)
+app.use(passport.initialize())
+app.use(passport.session())
+
+// passportとsessionの紐づけ
+passport.serializeUser(function(username, done) {
+  done(null, username)
+})
+passport.deserializeUser(function(username, done) {
+  done(null, { name: username })
+})
+
+passport.use(
+  'local',
+  new LocalStrategy(
+    {
+      usernameField: 'username',
+      passwordField: 'password'
+    },
+    function(username, password, done) {
+      process.nextTick(() => {
+        db.user
+          .findOne({
+            where: { username, password }
+          })
+          .then((user, err) => {
+            if (err) {
+              return done(err)
+            }
+            if (!user) {
+              return done(null, false, {
+                message: 'usernameまたはpasswordが間違っています'
+              })
+            }
+            return done(null, user)
+          })
+      })
+    }
+  )
+)
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use('/mypage', mypageRouter)
+app.use('/signin', signinRouter)
+app.use('/register', registerRouter)
+
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'

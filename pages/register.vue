@@ -1,27 +1,24 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-
-      <div>
-        <nuxt-link to="/register">Register</nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/signin">SIGN IN!</nuxt-link>
-      </div>
+      <h1 class="title">Register</h1>
+      <h2 class="subtitle">名前とパスワードを入力</h2>
+      <form action="/register" method="post">
+        <div>
+          <label>ユーザー名：</label>
+          <input type="text" name="username" />
+        </div>
+        <div>
+          <label>パスワード：</label>
+          <input type="password" name="password" />
+        </div>
+        <div>
+          <input type="submit" value="ログイン" />
+        </div>
+      </form>
     </div>
   </div>
 </template>
-
-<script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
-  }
-}
-</script>
 
 <style>
 .container {
