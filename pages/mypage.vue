@@ -6,6 +6,11 @@
         <h1 class="title">MyPage</h1>
         <h2 class="subtitle">{{ user.username }}</h2>
       </div>
+      <div>
+        <form action="/signout" method="post">
+          <input type="submit" value="Sign Out" />
+        </form>
+      </div>
     </div>
   </div>
 </template>

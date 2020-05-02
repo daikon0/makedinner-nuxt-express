@@ -11,11 +11,6 @@
         <div>
           <nuxt-link to="/signin">Sign In</nuxt-link>
         </div>
-        <div>
-          <form action="/signout" method="post">
-            <input type="submit" value="Sign Out" />
-          </form>
-        </div>
       </div>
     </div>
   </div>
