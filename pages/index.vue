@@ -1,13 +1,16 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
+  <div>
+    <Header />
+    <div class="container">
+      <div>
+        <logo />
 
-      <div>
-        <nuxt-link to="/register">Register</nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/signin">SIGN IN!</nuxt-link>
+        <div>
+          <nuxt-link to="/register">Register</nuxt-link>
+        </div>
+        <div>
+          <nuxt-link to="/signin">SIGN IN!</nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -15,10 +18,12 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Header from '~/components/Header.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    Header
   }
 }
 </script>

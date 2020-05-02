@@ -1,44 +1,52 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">SignIn</h1>
-      <h2 class="subtitle">名前とパスワードを入力</h2>
-      <form action="/signin" method="post" class="form-group">
-        <div>
-          <label>ユーザー名：</label>
-          <input
-            v-model="username"
-            type="text"
-            name="username"
-            :class="{ error: $v.username.$error, 'form-control': true }"
-            @input="$v.username.$touch()"
-          />
-          <span v-if="$v.username.$error">usernameを入力してください</span>
-        </div>
-        <div>
-          <label>パスワード：</label>
-          <input
-            v-model="password"
-            type="password"
-            name="password"
-            :class="{ error: $v.password.$error, 'form-control': true }"
-            @input="$v.password.$touch()"
-          />
-          <span v-if="!$v.password.minLength"
-            >パスワードは4文字以上で設定してください</span
-          >
-        </div>
-        <div>
-          <input :disabled="$v.$invalid" type="submit" value="ログイン" />
-        </div>
-      </form>
+  <div>
+    <Header />
+    <div class="container">
+      <div>
+        <h1 class="title">SignIn</h1>
+        <h2 class="subtitle">名前とパスワードを入力</h2>
+        <form action="/signin" method="post" class="form-group">
+          <div>
+            <label>ユーザー名：</label>
+            <input
+              v-model="username"
+              type="text"
+              name="username"
+              :class="{ error: $v.username.$error, 'form-control': true }"
+              @input="$v.username.$touch()"
+            />
+            <span v-if="$v.username.$error">usernameを入力してください</span>
+          </div>
+          <div>
+            <label>パスワード：</label>
+            <input
+              v-model="password"
+              type="password"
+              name="password"
+              :class="{ error: $v.password.$error, 'form-control': true }"
+              @input="$v.password.$touch()"
+            />
+            <span v-if="!$v.password.minLength"
+              >パスワードは4文字以上で設定してください</span
+            >
+          </div>
+          <div>
+            <input :disabled="$v.$invalid" type="submit" value="ログイン" />
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { required, minLength } from 'vuelidate/lib/validators'
+import Header from '~/components/Header.vue'
+
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
       username: '',

@@ -1,14 +1,21 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">MyPage</h1>
-      <h2 class="subtitle">{{ user.username }}</h2>
+  <div>
+    <Header />
+    <div class="container">
+      <div>
+        <h1 class="title">MyPage</h1>
+        <h2 class="subtitle">{{ user.username }}</h2>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Header from '~/components/Header.vue'
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
       user: ''
