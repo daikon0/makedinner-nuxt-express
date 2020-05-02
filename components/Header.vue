@@ -7,11 +7,11 @@
       <ul class="navbar-nav">
         <li v-if="user" class="nav-item">
           <nuxt-link to="/logout" class="nav-link">
-            {{ user.username }}をログアウト</nuxt-link
+            {{ user.username }}をサインアウト</nuxt-link
           >
         </li>
         <li v-if="!user" class="nav-item">
-          <nuxt-link to="/signin" class="nav-link">ログイン</nuxt-link>
+          <nuxt-link to="/signin" class="nav-link">Sign In</nuxt-link>
         </li>
       </ul>
     </nav>

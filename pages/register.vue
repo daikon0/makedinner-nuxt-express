@@ -31,7 +31,7 @@
             >
           </div>
           <div>
-            <input :disabled="$v.$invalid" type="submit" value="ログイン" />
+            <input :disabled="$v.$invalid" type="submit" value="登録" />
           </div>
         </form>
       </div>

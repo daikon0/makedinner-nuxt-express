@@ -3,7 +3,7 @@
     <Header />
     <div class="container">
       <div>
-        <h1 class="title">SignIn</h1>
+        <h1 class="title">Sign In</h1>
         <h2 class="subtitle">名前とパスワードを入力</h2>
         <form action="/signin" method="post" class="form-group">
           <div>
@@ -31,7 +31,7 @@
             >
           </div>
           <div>
-            <input :disabled="$v.$invalid" type="submit" value="ログイン" />
+            <input :disabled="$v.$invalid" type="submit" value="Sign In" />
           </div>
         </form>
       </div>
