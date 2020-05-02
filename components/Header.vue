@@ -9,18 +9,3 @@
     </nav>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      user: ''
-    }
-  },
-  created() {
-    this.$axios.$get('/mypage/user').then((res) => {
-      this.user = res.name
-    })
-  }
-}
-</script>

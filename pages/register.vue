@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <div class="container">
       <div>
         <h1 class="title">Register</h1>
@@ -41,12 +40,9 @@
 
 <script>
 import { required, minLength } from 'vuelidate/lib/validators'
-import Header from '~/components/Header.vue'
 
 export default {
-  components: {
-    Header
-  },
+  components: {},
   data() {
     return {
       username: '',
