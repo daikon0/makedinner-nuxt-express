@@ -66,6 +66,11 @@ app.use('/mypage', mypageRouter)
 app.use('/signin', signinRouter)
 app.use('/register', registerRouter)
 
+app.post('/signout', (req, res, next) => {
+  req.logout()
+  res.redirect('/')
+})
+
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'

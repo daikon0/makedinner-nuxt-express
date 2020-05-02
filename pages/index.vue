@@ -9,7 +9,12 @@
           <nuxt-link to="/register">Register</nuxt-link>
         </div>
         <div>
-          <nuxt-link to="/signin">SIGN IN!</nuxt-link>
+          <nuxt-link to="/signin">Sign In</nuxt-link>
+        </div>
+        <div>
+          <form action="/signout" method="post">
+            <input type="submit" value="Sign Out" />
+          </form>
         </div>
       </div>
     </div>

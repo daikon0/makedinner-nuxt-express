@@ -5,11 +5,6 @@
         <nuxt-link to="/" class="navbar-brand nav-link">Makedinner</nuxt-link>
       </div>
       <ul class="navbar-nav">
-        <li v-if="user" class="nav-item">
-          <nuxt-link to="/logout" class="nav-link">
-            {{ user.username }}をサインアウト</nuxt-link
-          >
-        </li>
         <li v-if="!user" class="nav-item">
           <nuxt-link to="/signin" class="nav-link">Sign In</nuxt-link>
         </li>
@@ -29,6 +24,11 @@ export default {
     this.$axios.$get('/mypage/user').then((res) => {
       this.user = res.name
     })
+  },
+  methods: {
+    signout() {
+      this.$axios.$post('/signout')
+    }
   }
 }
 </script>
