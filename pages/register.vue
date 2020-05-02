@@ -3,31 +3,68 @@
     <div>
       <h1 class="title">Register</h1>
       <h2 class="subtitle">名前とパスワードを入力</h2>
-      <form action="/register" method="post">
+      <form action="/register" method="post" class="form-group">
         <div>
           <label>ユーザー名：</label>
-          <input type="text" name="username" />
+          <input
+            v-model="username"
+            type="text"
+            name="username"
+            :class="{ error: $v.username.$error, 'form-control': true }"
+            @input="$v.username.$touch()"
+          />
+          <span v-if="$v.username.$error">usernmaeを入力してください</span>
         </div>
         <div>
           <label>パスワード：</label>
-          <input type="password" name="password" />
+          <input
+            v-model="password"
+            type="password"
+            name="password"
+            :class="{ error: $v.password.$error, 'form-control': true }"
+            @input="$v.password.$touch()"
+          />
+          <span v-if="!$v.password.minLength"
+            >パスワードは4文字以上で設定してください</span
+          >
         </div>
         <div>
-          <input type="submit" value="ログイン" />
+          <input :disabled="$v.$invalid" type="submit" value="ログイン" />
         </div>
       </form>
     </div>
   </div>
 </template>
 
+<script>
+import { required, minLength } from 'vuelidate/lib/validators'
+export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  validations: {
+    username: {
+      required
+    },
+    password: {
+      minLength: minLength(4)
+    }
+  }
+}
+</script>
+
 <style>
+.error {
+  color: #8a0421;
+  border-color: #dd0f3b;
+  background-color: #ffd9d9;
+}
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 .title {

@@ -10,8 +10,8 @@
             v-model="username"
             type="text"
             name="username"
-            @input="$v.username.$touch()"
             :class="{ error: $v.username.$error, 'form-control': true }"
+            @input="$v.username.$touch()"
           />
           <span v-if="$v.username.$error">usernameを入力してください</span>
         </div>
@@ -21,20 +21,15 @@
             v-model="password"
             type="password"
             name="password"
-            @input="$v.password.$touch()"
             :class="{ error: $v.password.$error, 'form-control': true }"
+            @input="$v.password.$touch()"
           />
           <span v-if="!$v.password.minLength"
             >パスワードは4文字以上で設定してください</span
           >
         </div>
         <div>
-          <input
-            :disabled="$v.$invalid"
-            type="submit"
-            value="ログイン"
-            :click="signin"
-          />
+          <input :disabled="$v.$invalid" type="submit" value="ログイン" />
         </div>
       </form>
     </div>
