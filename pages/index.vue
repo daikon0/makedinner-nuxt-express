@@ -10,6 +10,13 @@
         <div>
           <nuxt-link to="/signin">Sign In</nuxt-link>
         </div>
+        <div>
+          <form action="/signin" method="post">
+            <input type="hidden" name="username" value="test" />
+            <input type="hidden" name="password" value="pass" />
+            <button type="submit">ゲストユーザーでSign In</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
