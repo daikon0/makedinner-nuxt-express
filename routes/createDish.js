@@ -23,8 +23,6 @@ const upload = multer({ storage })
 router.post('/', upload.single('dishFile'), (req, res, next) => {
   const fileCheck = req.file
   const dishId = uuid.v4()
-  console.log(req.user)
-  console.log(req.body.dishName)
 
   if (fileCheck === undefined) {
     db.dish
