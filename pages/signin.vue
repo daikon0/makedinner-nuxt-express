@@ -42,6 +42,7 @@
 import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
+  layout: 'signout',
   data() {
     return {
       username: '',

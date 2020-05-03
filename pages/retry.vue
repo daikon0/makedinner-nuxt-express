@@ -9,6 +9,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  layout: 'signout'
+}
+</script>
+
 <style>
 .container {
   margin: 0 auto;
