@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         primaryKey: true
       },
-      dishname: DataTypes.STRING,
+      dishName: DataTypes.STRING,
       dishFile: DataTypes.STRING,
       dishUrl: DataTypes.STRING,
       dishGenre: DataTypes.STRING,
