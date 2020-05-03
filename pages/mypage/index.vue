@@ -6,6 +6,9 @@
         <h2 class="subtitle">{{ user.username }}さん</h2>
       </div>
       <div>
+        <nuxt-link to="/mypage/createDish">料理を追加する</nuxt-link>
+      </div>
+      <div>
         <form action="/signout" method="post">
           <input type="submit" value="Sign Out" />
         </form>
