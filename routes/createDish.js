@@ -12,7 +12,7 @@ const db = require('../models/index')
 
 const storage = s3Storage({
   s3,
-  Bucket: 'sample.makedinner',
+  Bucket: 'sample.makediner',
   ACL: 'public-read',
   resize: {
     height: 350
