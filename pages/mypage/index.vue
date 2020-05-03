@@ -18,15 +18,11 @@
 
 <script>
 export default {
-  data() {
+  async asyncData({ app }) {
+    const user = await app.$axios.$get('/mypage/user')
     return {
-      user: ''
+      user: user.name
     }
-  },
-  created() {
-    this.$axios.$get('/mypage/user').then((res) => {
-      this.user = res.name
-    })
   }
 }
 </script>
