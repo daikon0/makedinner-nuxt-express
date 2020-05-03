@@ -10,6 +10,7 @@ const LocalStrategy = require('passport-local').Strategy
 const mypageRouter = require('../routes/mypage')
 const signinRouter = require('../routes/signin')
 const registerRouter = require('../routes/register')
+const createDishRouter = require('../routes/createDish')
 const db = require('../models/index')
 
 require('dotenv').config()
@@ -65,6 +66,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/mypage', mypageRouter)
 app.use('/signin', signinRouter)
 app.use('/register', registerRouter)
+app.use('/createDish', createDishRouter)
 
 app.post('/signout', (req, res, next) => {
   req.logout()
