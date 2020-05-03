@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <div class="container">
       <div>ユーザーネームまたはパスワードが間違っています</div>
       <nuxt-link to="/signin" class="btn btn-block btn-primary"
@@ -9,15 +8,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import Header from '~/components/Header.vue'
-export default {
-  components: {
-    Header
-  }
-}
-</script>
 
 <style>
 .container {
