@@ -3,6 +3,11 @@
     <ul>
       <li v-for="dish in dishes" :key="dish.dishId">
         <span>{{ dish.dishName }}</span>
+        <nuxt-link
+          :to="{ name: 'mypage-menu-dishId', params: { dishId: dish.dishId } }"
+        >
+          {{ dish.dishId }}
+        </nuxt-link>
       </li>
     </ul>
   </div>

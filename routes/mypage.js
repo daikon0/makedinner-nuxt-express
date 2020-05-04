@@ -22,4 +22,15 @@ router.get('/menu', async (req, res, next) => {
   res.send(dish)
 })
 
+router.get('/menu/:dishId', async (req, res, next) => {
+  const dish = await db.dish
+    .findOne({
+      where: { dishId: req.params.dishId }
+    })
+    .catch((err) => {
+      next(err)
+    })
+  res.send(dish)
+})
+
 module.exports = router
