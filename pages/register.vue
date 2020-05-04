@@ -25,9 +25,9 @@
               :class="{ error: $v.password.$error, 'form-control': true }"
               @input="$v.password.$touch()"
             />
-            <span v-if="!$v.password.minLength"
-              >パスワードは4文字以上で設定してください</span
-            >
+            <span v-if="!$v.password.minLength">
+              パスワードは4文字以上で設定してください
+            </span>
           </div>
           <div>
             <input :disabled="$v.$invalid" type="submit" value="登録" />

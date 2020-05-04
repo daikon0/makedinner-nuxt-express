@@ -2,9 +2,9 @@
   <div>
     <div class="container">
       <div>ユーザーネームまたはパスワードが間違っています</div>
-      <nuxt-link to="/signin" class="btn btn-block btn-primary"
-        >やり直す</nuxt-link
-      >
+      <nuxt-link to="/signin" class="btn btn-block btn-primary">
+        やり直す
+      </nuxt-link>
     </div>
   </div>
 </template>
