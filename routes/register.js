@@ -10,11 +10,15 @@ const db = require('../models/index')
 
 router.post('/', async (req, res, next) => {
   const id = getSecureRandom()
-  await db.user.create({
-    id,
-    username: req.body.username,
-    password: req.body.password
-  })
+  await db.user
+    .create({
+      id,
+      username: req.body.username,
+      password: req.body.password
+    })
+    .catch((err) => {
+      next(err)
+    })
   res.redirect('/')
 })
 

@@ -20,12 +20,12 @@ const storage = s3Storage({
 })
 const upload = multer({ storage })
 
-router.post('/', upload.single('dishFile'), (req, res, next) => {
+router.post('/', upload.single('dishFile'), async (req, res, next) => {
   const fileCheck = req.file
   const dishId = uuid.v4()
 
   if (fileCheck === undefined) {
-    db.dish
+    await db.dish
       .create({
         dishId,
         dishName: req.body.dishName,
@@ -36,11 +36,12 @@ router.post('/', upload.single('dishFile'), (req, res, next) => {
         createdBy: req.user.name.id,
         updatedAt
       })
-      .then(() => {
-        res.redirect('/mypage')
+      .catch((err) => {
+        next(err)
       })
+    res.redirect('/mypage')
   } else {
-    db.dish
+    await db.dish
       .create({
         dishId,
         dishName: req.body.dishName,
@@ -51,9 +52,11 @@ router.post('/', upload.single('dishFile'), (req, res, next) => {
         createdBy: req.user.id,
         updatedAt
       })
-      .then(() => {
-        res.redirect('/menu')
+      .catch((err) => {
+        next(err)
       })
+
+    res.redirect('/menu')
   }
 })
 

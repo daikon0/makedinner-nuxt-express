@@ -11,10 +11,14 @@ router.get('/user', (req, res) => {
 })
 
 router.get('/menu', async (req, res, next) => {
-  const dish = await db.dish.findAll({
-    where: { createdBy: req.user.name.id },
-    order: [['"updatedAt"', 'DESC']]
-  })
+  const dish = await db.dish
+    .findAll({
+      where: { createdBy: req.user.name.id },
+      order: [['"updatedAt"', 'DESC']]
+    })
+    .catch((err) => {
+      next(err)
+    })
   res.send(dish)
 })
 
