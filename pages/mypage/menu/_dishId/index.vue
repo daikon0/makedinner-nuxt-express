@@ -1,10 +1,17 @@
 <template>
   <div>
     <div>
-      {{ $route.params.dishId }}
+      {{ dish.dishName }}
     </div>
     <div>
-      {{ dish.dishName }}
+      <nuxt-link
+        :to="{
+          name: 'mypage-menu-dishId-edit',
+          params: { dishId: dish.dishId }
+        }"
+      >
+        編集する
+      </nuxt-link>
     </div>
   </div>
 </template>
