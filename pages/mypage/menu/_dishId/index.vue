@@ -12,6 +12,7 @@
       >
         編集する
       </nuxt-link>
+      <button type="submit" @click="deleteDish">削除する</button>
     </div>
   </div>
 </template>
@@ -23,6 +24,19 @@ export default {
     const dish = await app.$axios.$get(`/mypage/menu/${dishId}`)
     return {
       dish
+    }
+  },
+  methods: {
+    async deleteDish() {
+      const id = this.$store.$router.app.context.params.dishId
+      await this.$store.$router.app.$axios
+        .$post(`/mypage/menu/${id}/delete`)
+        .then(() => {
+          this.$router.push('/mypage/menu')
+        })
+        .then(() => {
+          this.$router.push('/mypage/menu')
+        })
     }
   }
 }

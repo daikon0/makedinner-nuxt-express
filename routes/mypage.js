@@ -54,4 +54,21 @@ router.post('/menu/:dishId/edit', jsonParser, async (req, res, next) => {
   res.redirect('/mypage/menu')
 })
 
+router.post('/menu/:dishId/delete', async (req, res, next) => {
+  await deleteDish(req.params.dishId).catch((err) => {
+    next(err)
+  })
+  res.redirect('/mypage/menu')
+})
+
+async function deleteDish(dishId, done, err) {
+  const dish = await db.dish.findAll({
+    where: { dishId }
+  })
+  const promises = dish.map((d) => {
+    return d.destroy()
+  })
+  return Promise.all(promises)
+}
+
 module.exports = router
