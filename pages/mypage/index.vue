@@ -11,6 +11,9 @@
         <nuxt-link to="/mypage/createDish">料理を追加する</nuxt-link>
       </div>
       <div>
+        <nuxt-link to="/mypage/selectGenre">今日の献立を決める</nuxt-link>
+      </div>
+      <div>
         <form action="/signout" method="post">
           <input type="submit" value="Sign Out" />
         </form>
