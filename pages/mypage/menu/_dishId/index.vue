@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     async deleteDish() {
-      const id = this.$store.$router.app.context.params.dishId
-      await this.$store.$router.app.$axios
+      const id = this.$store.app.context.params.dishId
+      await this.$axios
         .$post(`/mypage/menu/${id}/delete`)
         .then(() => {
           this.$router.push('/mypage/menu')

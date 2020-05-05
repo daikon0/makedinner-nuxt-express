@@ -27,8 +27,8 @@ export default {
   },
   methods: {
     async edit() {
-      const id = this.$store.$router.app.context.params.dishId
-      await this.$store.$router.app.$axios
+      const id = this.$store.app.context.params.dishId
+      await this.$axios
         .$post(`/mypage/menu/${id}/edit`, {
           dishName: this.dishName,
           dishUrl: this.dishUrl
