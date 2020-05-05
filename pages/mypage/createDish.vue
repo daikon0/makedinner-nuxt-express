@@ -36,7 +36,12 @@
             中華
           </label>
           <label>
-            <input type="radio" name="genre" autocomplete="off" />
+            <input
+              type="radio"
+              name="genre"
+              autocomplete="off"
+              value="western"
+            />
             洋食
           </label>
         </div>
