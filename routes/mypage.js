@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const db = require('../models/index')
 const jsonParser = bodyParser.json()
 
+// user情報取得
 router.get('/user', (req, res) => {
   if (req.user) {
     res.send(req.user)
@@ -12,6 +13,7 @@ router.get('/user', (req, res) => {
   }
 })
 
+// メニュー一覧表示
 router.get('/menu', async (req, res, next) => {
   const dish = await db.dish
     .findAll({
@@ -24,6 +26,7 @@ router.get('/menu', async (req, res, next) => {
   res.send(dish)
 })
 
+// 料理の画面表示
 router.get('/menu/:dishId', async (req, res, next) => {
   const dish = await db.dish
     .findOne({
@@ -35,6 +38,7 @@ router.get('/menu/:dishId', async (req, res, next) => {
   res.send(dish)
 })
 
+// 料理の編集
 router.post('/menu/:dishId/edit', jsonParser, async (req, res, next) => {
   const dish = await db.dish
     .findOne({
@@ -54,6 +58,7 @@ router.post('/menu/:dishId/edit', jsonParser, async (req, res, next) => {
   res.redirect('/mypage/menu')
 })
 
+// 料理の削除
 router.post('/menu/:dishId/delete', async (req, res, next) => {
   await deleteDish(req.params.dishId).catch((err) => {
     next(err)
