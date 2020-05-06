@@ -2,8 +2,17 @@
   <div>
     <ul>
       <li v-for="recipe in recipes" :key="recipe.recipeId">
-        <img :src="recipe.foodImageUrl" />
-        {{ recipe.recipeTitle }}
+        <nuxt-link
+          :to="{
+            name: 'mypage-rakuten-categoryId-recipeId',
+            params: {
+              categoryId: $route.params.categoryId,
+              recipeId: recipe.recipeId
+            }
+          }"
+        >
+          {{ recipe.recipeTitle }}
+        </nuxt-link>
       </li>
     </ul>
   </div>
