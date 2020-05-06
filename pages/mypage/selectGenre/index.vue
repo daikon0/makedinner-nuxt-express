@@ -23,6 +23,7 @@
         </nuxt-link>
       </div>
     </div>
+    <div>{{ errorMessage }}</div>
     <div>{{ maindish.dishName }}</div>
     <div>{{ subdish.dishName }}</div>
     <div>{{ soup.dishName }}</div>
@@ -35,7 +36,8 @@ export default {
     return {
       maindish: '',
       subdish: '',
-      soup: ''
+      soup: '',
+      errorMessage: ''
     }
   },
   beforeRouteUpdate(to, from, next) {
@@ -50,9 +52,21 @@ export default {
           genre: params
         }
       })
-      this.maindish = dish.main
-      this.subdish = dish.sub
-      this.soup = dish.soup
+      if (
+        dish.main === undefined ||
+        dish.sub === undefined ||
+        dish.soup === undefined
+      ) {
+        this.maindish = ''
+        this.subdish = ''
+        this.soup = ''
+        this.errorMessage = '料理をもっと登録しよう！'
+      } else {
+        this.maindish = dish.main
+        this.subdish = dish.sub
+        this.soup = dish.soup
+        this.errorMessage = ''
+      }
     }
   }
 }
