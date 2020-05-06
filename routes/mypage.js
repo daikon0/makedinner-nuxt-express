@@ -89,6 +89,7 @@ router.get('/selectGenre', async (req, res, next) => {
   res.send(dish)
 })
 
+// ジャンルが選択された際に料理を渡す
 async function selectDish(req, genre, role) {
   const dish = await db.dish.findAll({
     where: {
