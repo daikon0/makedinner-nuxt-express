@@ -50,7 +50,6 @@ export default {
           genre: params
         }
       })
-      console.log(dish.main)
       this.maindish = dish.main
       this.subdish = dish.sub
       this.soup = dish.soup
