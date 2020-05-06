@@ -1,6 +1,19 @@
 <template>
   <div>
     <div>{{ recipe.recipeTitle }}</div>
+    <div>
+      <nuxt-link
+        :to="{
+          name: 'mypage-rakuten-categoryId-recipeId-edit',
+          params: {
+            categoryId: $route.params.categoryId,
+            recipeId: $route.params.recipeId
+          }
+        }"
+      >
+        登録する
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
