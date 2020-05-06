@@ -76,4 +76,36 @@ async function deleteDish(dishId, done, err) {
   return Promise.all(promises)
 }
 
+router.get('/selectGenre', async (req, res, next) => {
+  const genre = req.query.genre
+  const maindish = await selectDish(req, genre, 'main')
+  const subdish = await selectDish(req, genre, 'sub')
+  const soup = await selectDish(req, genre, 'soup')
+  const dish = {
+    main: maindish,
+    sub: subdish,
+    soup
+  }
+  res.send(dish)
+})
+
+async function selectDish(req, genre, role) {
+  const dish = await db.dish.findAll({
+    where: {
+      dishGenre: genre,
+      createdBy: req.user.name.id,
+      dishRole: role
+    }
+  })
+  const dishArray = []
+  dish.forEach((dish) => {
+    dishArray.push(dish)
+  })
+  return romdomDish(dishArray)
+}
+
+function romdomDish(dishArray) {
+  return dishArray[Math.floor(Math.random() * dishArray.length)]
+}
+
 module.exports = router
