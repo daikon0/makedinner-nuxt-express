@@ -1,8 +1,22 @@
 const express = require('express')
 const router = express.Router()
-const bodyParser = require('body-parser')
+
+const multer = require('multer')
+const s3Storage = require('multer-sharp-s3')
+const aws = require('aws-sdk')
+aws.config.update({ region: 'ap-northeast-1' })
+const s3 = new aws.S3()
+const storage = s3Storage({
+  s3,
+  Bucket: 'sample.makediner',
+  ACL: 'public-read',
+  resize: {
+    height: 350
+  }
+})
+const upload = multer({ storage })
+
 const db = require('../models/index')
-const jsonParser = bodyParser.json()
 
 // user情報取得
 router.get('/user', (req, res) => {
@@ -39,7 +53,7 @@ router.get('/menu/:dishId', async (req, res, next) => {
 })
 
 // 料理の編集
-router.post('/menu/:dishId/edit', jsonParser, async (req, res, next) => {
+router.post('/menu/:dishId/edit', async (req, res, next) => {
   const dish = await db.dish
     .findOne({
       where: { dishId: req.params.dishId }
@@ -56,6 +70,21 @@ router.post('/menu/:dishId/edit', jsonParser, async (req, res, next) => {
       next(err)
     })
   res.redirect('/mypage/menu')
+})
+
+// 画像の編集処理
+router.post('/editFile', upload.single('dishFile'), async (req, res, next) => {
+  const dish = await db.dish.findOne({
+    where: { dishId: req.body.dishId }
+  })
+  dish
+    .update({
+      dishFile: req.file.Location || null
+    })
+    .catch((err) => {
+      next(err)
+    })
+  res.redirect('/mypage')
 })
 
 // 料理の削除

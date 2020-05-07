@@ -6,6 +6,14 @@
     <div>
       <nuxt-link
         :to="{
+          name: 'mypage-menu-dishId-editImage',
+          params: { dishId: dish.dishId }
+        }"
+      >
+        画像を変える
+      </nuxt-link>
+      <nuxt-link
+        :to="{
           name: 'mypage-menu-dishId-edit',
           params: { dishId: dish.dishId }
         }"
