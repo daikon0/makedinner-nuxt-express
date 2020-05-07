@@ -28,15 +28,15 @@
 
 <script>
 export default {
+  fetch({ store, redirect }) {
+    if (!store.state.auth) {
+      return redirect('/')
+    }
+  },
   async asyncData({ app }) {
     const user = await app.$axios.$get('/routes/mypage/user')
     return {
       user: user.name
-    }
-  },
-  fetch({ store, redirect }) {
-    if (!store.state.auth) {
-      return redirect('/')
     }
   }
 }
