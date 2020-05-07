@@ -6,7 +6,7 @@ const router = express.Router()
 router.post(
   '/',
   passport.authenticate('local', {
-    successRedirect: '/mypage',
+    successRedirect: '/callback',
     failureRedirect: '/retry',
     session: true
   })

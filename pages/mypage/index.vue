@@ -2,6 +2,7 @@
   <div>
     <div class="container">
       <div>
+        <h2>{{ $store.state.user.name }}</h2>
         <h2 class="subtitle">{{ user.username }}さん</h2>
       </div>
       <div>
@@ -31,6 +32,11 @@ export default {
     const user = await app.$axios.$get('/mypage/user')
     return {
       user: user.name
+    }
+  },
+  fetch({ store, redirect }) {
+    if (!store.state.auth) {
+      return redirect('/')
     }
   }
 }
