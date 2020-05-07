@@ -4,7 +4,7 @@
       <div>
         <h1 class="title">Sign In</h1>
         <h2 class="subtitle">名前とパスワードを入力</h2>
-        <form action="/signin" method="post" class="form-group">
+        <form action="/routes/signin" method="post" class="form-group">
           <div>
             <label>ユーザー名：</label>
             <input

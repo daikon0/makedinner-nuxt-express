@@ -3,7 +3,7 @@
     <div>
       <h1>画像を変える</h1>
       <form
-        action="/mypage/editFile"
+        action="/routes/mypage/editFile"
         method="post"
         class="form-group"
         enctype="multipart/form-data"

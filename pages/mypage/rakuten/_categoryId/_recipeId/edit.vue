@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <h1>料理を追加する</h1>
-      <form action="/createDish" method="post" class="form-group">
+      <form action="/routes/createDish" method="post" class="form-group">
         <div>
           <label>料理名</label>
           <input type="text" name="dishName" :value="recipe.recipeTitle" />

@@ -64,10 +64,10 @@ passport.use(
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use('/mypage', mypageRouter)
-app.use('/signin', signinRouter)
-app.use('/register', registerRouter)
-app.use('/createDish', createDishRouter)
+app.use('/routes/mypage', mypageRouter)
+app.use('/routes/signin', signinRouter)
+app.use('/routes/register', registerRouter)
+app.use('/routes/createDish', createDishRouter)
 
 app.get('/aacallback', (req, res, next) => {
   res.json({ user: req.user })

@@ -29,7 +29,7 @@
 export default {
   async asyncData({ app }) {
     const dishId = app.context.params.dishId
-    const dish = await app.$axios.$get(`/mypage/menu/${dishId}`)
+    const dish = await app.$axios.$get(`/routes/mypage/menu/${dishId}`)
     return {
       dish
     }
@@ -38,7 +38,7 @@ export default {
     async deleteDish() {
       const id = this.$store.app.context.params.dishId
       await this.$axios
-        .$post(`/mypage/menu/${id}/delete`)
+        .$post(`/routes/mypage/menu/${id}/delete`)
         .then(() => {
           this.$router.push('/mypage/menu')
         })

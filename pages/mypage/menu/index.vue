@@ -16,7 +16,7 @@
 <script>
 export default {
   async asyncData({ app }) {
-    const dishes = await app.$axios.$get('/mypage/menu')
+    const dishes = await app.$axios.$get('/routes/mypage/menu')
     return {
       dishes
     }
