@@ -63,6 +63,7 @@ passport.use(
 )
 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use('/mypage', mypageRouter)
 app.use('/signin', signinRouter)
 app.use('/register', registerRouter)
