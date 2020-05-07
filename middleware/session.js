@@ -6,7 +6,7 @@ export default async ({ store, route, redirect }) => {
   }
 
   if (route.path !== '/callback') {
-    const res = await axios.get('/aacallback')
+    const res = await axios.get('/routes/callback')
     if (res.data.user) {
       const user = {
         id: res.data.user.name.id,

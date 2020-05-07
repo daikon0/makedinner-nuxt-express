@@ -12,6 +12,7 @@ const signinRouter = require('../routes/signin')
 const registerRouter = require('../routes/register')
 const createDishRouter = require('../routes/createDish')
 const signoutRouter = require('../routes/signout')
+const callbackRouter = require('../routes/callback')
 const db = require('../models/index')
 
 require('dotenv').config()
@@ -70,10 +71,7 @@ app.use('/routes/signin', signinRouter)
 app.use('/routes/signout', signoutRouter)
 app.use('/routes/register', registerRouter)
 app.use('/routes/createDish', createDishRouter)
-
-app.get('/aacallback', (req, res, next) => {
-  res.json({ user: req.user })
-})
+app.use('/routes/callback', callbackRouter)
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
