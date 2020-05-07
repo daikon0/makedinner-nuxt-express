@@ -11,7 +11,7 @@
           <nuxt-link to="/signin">Sign In</nuxt-link>
         </div>
         <div>
-          <form action="/routes/signin" method="post">
+          <form action="/routes/auth/local" method="post">
             <input type="hidden" name="username" value="test" />
             <input type="hidden" name="password" value="pass" />
             <button type="submit">ゲストユーザーでSign In</button>
