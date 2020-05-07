@@ -3,7 +3,7 @@
     <div class="container">
       <h1>料理を追加する</h1>
       <form
-        action="/createDish"
+        action="/routes/createDish"
         method="post"
         class="form-group"
         enctype="multipart/form-data"

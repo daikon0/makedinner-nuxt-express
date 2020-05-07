@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     async setDish(params) {
-      const dish = await this.$axios.$get(`/mypage/selectGenre`, {
+      const dish = await this.$axios.$get(`/routes/mypage/selectGenre`, {
         params: {
           genre: params
         }

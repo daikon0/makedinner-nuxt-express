@@ -29,7 +29,7 @@ export default {
     async edit() {
       const id = this.$store.app.context.params.dishId
       await this.$axios
-        .$post(`/mypage/menu/${id}/edit`, {
+        .$post(`/routes/mypage/menu/${id}/edit`, {
           dishName: this.dishName,
           dishUrl: this.dishUrl
         })

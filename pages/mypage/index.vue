@@ -18,7 +18,7 @@
         <nuxt-link to="/mypage/selectGenre">今日の献立を決める</nuxt-link>
       </div>
       <div>
-        <form action="/signout" method="post">
+        <form action="/routes/signout" method="post">
           <input type="submit" value="Sign Out" />
         </form>
       </div>
@@ -28,15 +28,15 @@
 
 <script>
 export default {
-  async asyncData({ app }) {
-    const user = await app.$axios.$get('/mypage/user')
-    return {
-      user: user.name
-    }
-  },
   fetch({ store, redirect }) {
     if (!store.state.auth) {
       return redirect('/')
+    }
+  },
+  async asyncData({ app }) {
+    const user = await app.$axios.$get('/routes/mypage/user')
+    return {
+      user: user.name
     }
   }
 }

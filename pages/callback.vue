@@ -12,7 +12,7 @@ export default {
     }
   },
   async mounted() {
-    const res = await this.$axios.get('/aacallback')
+    const res = await this.$axios.get('/routes/callback')
     console.log(res)
     const user = {
       id: res.data.user.name.id,
