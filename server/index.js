@@ -69,6 +69,10 @@ app.use('/signin', signinRouter)
 app.use('/register', registerRouter)
 app.use('/createDish', createDishRouter)
 
+app.get('/aacallback', (req, res, next) => {
+  res.json({ user: req.user })
+})
+
 app.post('/signout', (req, res, next) => {
   req.logout()
   res.redirect('/')
