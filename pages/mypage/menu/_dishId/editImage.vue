@@ -23,7 +23,6 @@
 export default {
   asyncData({ app }) {
     const dishId = app.context.params.dishId
-    console.log(dishId)
     return {
       dishId
     }
