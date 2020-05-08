@@ -4,6 +4,18 @@ export default async ({ store, route, redirect }) => {
   if (store.state.auth) {
     return
   }
+  if (route.path === '/') {
+    return
+  }
+  if (route.path === '/signin') {
+    return
+  }
+  if (route.path === '/register') {
+    return
+  }
+  if (route.path === '/retry') {
+    return
+  }
 
   if (route.path !== '/callback') {
     const res = await axios.get('/routes/callback')
@@ -13,11 +25,8 @@ export default async ({ store, route, redirect }) => {
         name: res.data.user.name.username
       }
       store.commit('login', user)
-      if (route.path === '/') {
-        return redirect('/mypage')
-      }
-    } else if (route.path !== '/') {
-      return redirect('/')
+    } else if (route.path !== 'signin') {
+      return redirect('/signin')
     }
   }
 }
