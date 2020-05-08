@@ -1,23 +1,29 @@
 <template>
-  <div>
+  <v-app>
     <div class="container">
       <div>
         <div>
-          <nuxt-link to="/register">Register</nuxt-link>
+          <v-btn class="my-3" rounded color="info" to="/register">
+            Register
+          </v-btn>
         </div>
         <div>
-          <nuxt-link to="/signin">Sign In</nuxt-link>
+          <v-btn class="my-3" rounded color="info" to="/signin">
+            Sign In
+          </v-btn>
         </div>
         <div>
-          <form action="/routes/auth/local" method="post">
+          <form class="my-3" action="/routes/auth/local" method="post">
             <input type="hidden" name="username" value="test" />
             <input type="hidden" name="password" value="pass" />
-            <button type="submit">ゲストユーザーでSign In</button>
+            <v-btn rounded color="info" type="submit">
+              ゲストユーザーでSign In
+            </v-btn>
           </form>
         </div>
       </div>
     </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -25,36 +31,3 @@ export default {
   layout: 'signout'
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
