@@ -1,5 +1,53 @@
 <template>
-  <div>
+  <v-card class="mx-auto overflow-hidden" height="1000">
+    <v-app-bar color="deep-purple">
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Make Dinner</v-toolbar-title>
+    </v-app-bar>
+    <nuxt />
+
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list nav dense>
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+          <v-list-item to="/mypage">
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item to="/mypage/menu">
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Menu</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item to="/mypage/selectGenre">
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>MakeDinner</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+  </v-card>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    drawer: false
+  })
+}
+</script>
+
+<!-- <div>
     <nav class="navbar navvbar-light bg-light">
       <div class="navbar-header">
         <nuxt-link to="/mypage" class="navbar-brand nav-link">
@@ -8,55 +56,4 @@
       </div>
     </nav>
     <nuxt />
-  </div>
-</template>
-
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-</style>
+  </div> -->
