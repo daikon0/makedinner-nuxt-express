@@ -2,8 +2,6 @@
   <div>
     <div class="container">
       <div>
-        <logo />
-
         <div>
           <nuxt-link to="/register">Register</nuxt-link>
         </div>
@@ -23,12 +21,8 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 export default {
-  layout: 'signout',
-  components: {
-    Logo
-  }
+  layout: 'signout'
 }
 </script>
 
