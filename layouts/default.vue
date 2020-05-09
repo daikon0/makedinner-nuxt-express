@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-card class="overflow-hidden" height="1000">
-      <v-app-bar color="info">
+      <v-app-bar color="info" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
         <v-toolbar-title>Make Dinner</v-toolbar-title>
