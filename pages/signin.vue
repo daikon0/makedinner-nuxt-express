@@ -24,15 +24,19 @@
                         counter="8"
                         @click:append="show1 = !show1"
                       ></v-text-field>
+                    </v-form>
+                    <form action="/routes/auth/local" method="post">
+                      <input type="hidden" name="username" :value="username" />
+                      <input type="hidden" name="password" :value="password" />
                       <v-btn
                         :disabled="!username || !(password.length >= 8)"
                         text
                         class="my-5"
-                        @click="submit"
+                        type="submit"
                       >
                         Sign In
                       </v-btn>
-                    </v-form>
+                    </form>
                   </v-card-text>
                 </v-col>
               </v-row>
@@ -65,18 +69,6 @@ export default {
       required: (value) => !!value || '必ず入力してください',
       limit_length: (value) =>
         value.length >= 8 || '8文字以上で入力してください'
-    }
-  },
-  methods: {
-    async submit() {
-      await this.$axios
-        .$post('/routes/auth/local', {
-          username: this.username,
-          password: this.password
-        })
-        .then((res) => {
-          this.$router.push('/mypage')
-        })
     }
   }
 }
