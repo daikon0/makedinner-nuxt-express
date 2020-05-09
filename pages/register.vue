@@ -1,96 +1,74 @@
 <template>
-  <div>
-    <div class="container">
-      <div>
-        <h1 class="title">Register</h1>
-        <h2 class="subtitle">名前とパスワードを入力</h2>
-        <form action="/routes/register" method="post" class="form-group">
-          <div>
-            <label>ユーザー名：</label>
-            <input
-              v-model="username"
-              type="text"
-              name="username"
-              :class="{ error: $v.username.$error, 'form-control': true }"
-              @input="$v.username.$touch()"
-            />
-            <span v-if="$v.username.$error">usernmaeを入力してください</span>
-          </div>
-          <div>
-            <label>パスワード：</label>
-            <input
-              v-model="password"
-              type="password"
-              name="password"
-              :class="{ error: $v.password.$error, 'form-control': true }"
-              @input="$v.password.$touch()"
-            />
-            <span v-if="!$v.password.minLength">
-              パスワードは4文字以上で設定してください
-            </span>
-          </div>
-          <div>
-            <input :disabled="$v.$invalid" type="submit" value="登録" />
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+  <v-app>
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col cols="12" md="8">
+          <v-card class="mt-5">
+            <div>
+              <v-row justify="center">
+                <v-col cols="12" md="8">
+                  <v-card-title>Register</v-card-title>
+                  <v-card-text>
+                    <v-form ref="test_form">
+                      <v-text-field
+                        v-model="username"
+                        label="usernmae"
+                        :rules="[required]"
+                      ></v-text-field>
+                      <v-text-field
+                        v-model="password"
+                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                        :type="show1 ? 'text' : 'password'"
+                        label="password"
+                        :rules="[required, limit_length]"
+                        counter="8"
+                        @click:append="show1 = !show1"
+                      ></v-text-field>
+                      <v-btn
+                        :disabled="!username || !(password.length >= 8)"
+                        text
+                        class="my-5"
+                        @click="submit"
+                      >
+                        Register
+                      </v-btn>
+                    </v-form>
+                  </v-card-text>
+                </v-col>
+              </v-row>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
-import { required, minLength } from 'vuelidate/lib/validators'
-
 export default {
   layout: 'signout',
-  components: {},
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      show1: false,
+      success: false,
+      required: (value) => !!value || '必ず入力してください',
+      limit_length: (value) =>
+        value.length >= 8 || '8文字以上で入力してください'
     }
   },
-  validations: {
-    username: {
-      required
-    },
-    password: {
-      minLength: minLength(4)
+  methods: {
+    async submit() {
+      await this.$axios
+        .$post('/routes/register', {
+          username: this.username,
+          password: this.password
+        })
+        .then((res) => {
+          this.$router.push('/')
+        })
     }
   }
 }
 </script>
-
-<style>
-.error {
-  color: #8a0421;
-  border-color: #dd0f3b;
-  background-color: #ffd9d9;
-}
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
