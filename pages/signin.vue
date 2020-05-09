@@ -38,6 +38,15 @@
               </v-row>
             </div>
           </v-card>
+          <div class="text-center my-5">
+            <form action="/routes/auth/local" method="post">
+              <input type="hidden" name="username" value="test" />
+              <input type="hidden" name="password" value="pass" />
+              <v-btn class="ma-2" tile color="info" type="submit">
+                ゲストユーザーでSign In
+              </v-btn>
+            </form>
+          </div>
         </v-col>
       </v-row>
     </v-container>
