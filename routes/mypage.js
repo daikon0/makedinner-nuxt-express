@@ -18,15 +18,6 @@ const upload = multer({ storage })
 
 const db = require('../models/index')
 
-// user情報取得
-router.get('/user', (req, res) => {
-  if (req.user) {
-    res.send(req.user)
-  } else {
-    res.redirect('/signin')
-  }
-})
-
 // メニュー一覧表示
 router.get('/menu', async (req, res, next) => {
   const dish = await db.dish

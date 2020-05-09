@@ -3,7 +3,6 @@
     <div class="container">
       <div>
         <h2>{{ $store.state.user.name }}</h2>
-        <h2 class="subtitle">{{ user.username }}さん</h2>
       </div>
       <div>
         <nuxt-link to="/mypage/menu">あなたの料理一覧</nuxt-link>
@@ -26,22 +25,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  fetch({ store, redirect }) {
-    if (!store.state.auth) {
-      return redirect('/')
-    }
-  },
-  async asyncData({ app }) {
-    const user = await app.$axios.$get('/routes/mypage/user')
-    return {
-      user: user.name
-    }
-  }
-}
-</script>
-
 <style>
 .container {
   margin: 0 auto;
@@ -61,7 +44,7 @@ export default {
 .subtitle {
   font-weight: 300;
   font-size: 42px;
-  color: #526488;
+  color: #506081;
   word-spacing: 5px;
   padding-bottom: 15px;
 }
