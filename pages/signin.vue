@@ -12,9 +12,12 @@
             ></v-text-field>
             <v-text-field
               v-model="password"
+              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              :type="show1 ? 'text' : 'password'"
               label="password"
               :rules="[required, limit_length]"
               counter="8"
+              @click:append="show1 = !show1"
             ></v-text-field>
           </v-form>
         </v-card-text>
@@ -41,6 +44,7 @@ export default {
     return {
       username: '',
       password: '',
+      show1: false,
       success: false,
       required: (value) => !!value || '必ず入力してください',
       limit_length: (value) =>
