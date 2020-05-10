@@ -39,7 +39,7 @@ router.post('/', upload.single('dishFile'), async (req, res, next) => {
       .catch((err) => {
         next(err)
       })
-    res.redirect('/mypage')
+    res.redirect('/mypage/menu')
   } else {
     await db.dish
       .create({
@@ -49,14 +49,14 @@ router.post('/', upload.single('dishFile'), async (req, res, next) => {
         dishUrl: req.body.dishUrl || '(未設定)',
         dishGenre: req.body.genre,
         dishRole: req.body.role,
-        createdBy: req.user.id,
+        createdBy: req.user.name.id,
         updatedAt
       })
       .catch((err) => {
         next(err)
       })
 
-    res.redirect('/menu')
+    res.redirect('/mypage/menu')
   }
 })
 
