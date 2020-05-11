@@ -19,10 +19,10 @@ const storage = s3Storage({
   }
 })
 const upload = multer({ storage })
+const dishId = uuid.v4()
 
 router.post('/', upload.single('dishFile'), async (req, res, next) => {
   const fileCheck = req.file
-  const dishId = uuid.v4()
 
   if (fileCheck === undefined) {
     await db.dish
@@ -58,6 +58,25 @@ router.post('/', upload.single('dishFile'), async (req, res, next) => {
 
     res.redirect('/mypage/menu')
   }
+})
+
+router.post('/rakuten', async (req, res, next) => {
+  await db.dish
+    .create({
+      dishId,
+      dishName: req.body.dishName,
+      dishFile: req.body.dishFile,
+      dishUrl: req.body.dishUrl || '(未設定)',
+      dishGenre: req.body.dishGenre,
+      dishRole: req.body.dishRole,
+      createdBy: req.user.name.id,
+      updatedAt
+    })
+    .catch((err) => {
+      next(err)
+    })
+
+  res.redirect('/mypage/menu')
 })
 
 module.exports = router
