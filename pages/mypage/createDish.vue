@@ -6,7 +6,7 @@
           <v-card class="mt-5">
             <div>
               <v-row justify="center">
-                <v-col cols="12" md="8">
+                <v-col>
                   <v-card-title>料理を登録する</v-card-title>
                   <v-card-text>
                     <v-form ref="test_form">
