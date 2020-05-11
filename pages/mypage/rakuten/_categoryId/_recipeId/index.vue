@@ -37,7 +37,11 @@
                   <p class="mb-3" v-text="recipe.recipeDescription"></p>
                 </v-card-text>
                 <v-btn color="info" rounded class="ma-3">
-                  <a :href="recipe.recipeUrl" class="white--text align-end">
+                  <a
+                    :href="recipe.recipeUrl"
+                    target="_blank"
+                    class="white--text align-end"
+                  >
                     レシピを見る
                   </a>
                 </v-btn>
