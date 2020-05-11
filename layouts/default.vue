@@ -18,21 +18,42 @@
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Home</v-list-item-title>
+              <v-list-item-title>ホーム</v-list-item-title>
             </v-list-item>
 
             <v-list-item to="/mypage/menu">
               <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Menu</v-list-item-title>
+              <v-list-item-title>メニュー</v-list-item-title>
             </v-list-item>
 
             <v-list-item to="/mypage/selectGenre">
               <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>MakeDinner</v-list-item-title>
+              <v-list-item-title>夕飯を決める</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item to="/mypage/createDish">
+              <v-list-item-icon>
+                <v-icon>mdi-account</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>料理を登録する</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item to="/mypage/rakuten">
+              <v-list-item-icon>
+                <v-icon>mdi-account</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>他のレシピを見る</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item @click="signout">
+              <v-list-item-icon>
+                <v-icon>mdi-account</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>ログアウト</v-list-item-title>
             </v-list-item>
           </v-list-item-group>
         </v-list>
@@ -46,7 +67,13 @@ export default {
   data: () => ({
     drawer: false,
     group: ''
-  })
+  }),
+  methods: {
+    async signout() {
+      await this.$axios.post('/routes/signout')
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 
