@@ -40,12 +40,12 @@
                       enctype="multipart/form-data"
                     >
                       <v-file-input
-                        @change="getFile"
                         type="file"
                         name="dishFile"
                         label="File input"
                         filled
                         prepend-icon="mdi-camera"
+                        @change="getFile"
                       ></v-file-input>
                       <input type="hidden" name="dishName" :value="dishName" />
                       <input type="hidden" name="dishUrl" :value="dishUrl" />
