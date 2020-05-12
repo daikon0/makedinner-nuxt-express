@@ -18,10 +18,10 @@
                     color="primary"
                   >
                     <v-list-item-avatar v-if="dish.dishFile" size="80">
-                      <img :src="dish.dishFile" alt="" />
+                      <img :src="dish.dishFile" alt="dish" />
                     </v-list-item-avatar>
                     <v-list-item-avatar v-else size="80">
-                      XXX
+                      <img :src="img" alt="no-image" />
                     </v-list-item-avatar>
 
                     <v-list-item-content>
@@ -46,7 +46,8 @@ export default {
   async asyncData({ app }) {
     const dishes = await app.$axios.$get('/routes/mypage/menu')
     return {
-      dishes
+      dishes,
+      img: require('@/static/no-image.png')
     }
   }
 }
