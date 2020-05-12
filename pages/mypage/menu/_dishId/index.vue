@@ -1,28 +1,67 @@
 <template>
-  <div>
+  <v-app>
     <div>
-      {{ dish.dishName }}
+      <v-container fluid>
+        <v-row justify="center">
+          <v-col cols="12" md="6">
+            <v-card>
+              <div v-if="dish.dishFile" class="subheading">
+                <v-img
+                  class="white--text align-end"
+                  :src="dish.dishFile"
+                  max-height="500"
+                >
+                  <v-card-title v-text="dish.dishName"></v-card-title>
+                </v-img>
+              </div>
+              <div v-else>
+                <v-img class="align-end" :src="img" max-height="500">
+                  <v-card-title v-text="dish.dishName"></v-card-title>
+                </v-img>
+              </div>
+              <div class="grey lighten-2">
+                <v-btn color="info" rounded class="ma-3">
+                  <a
+                    :href="dish.dishUrl"
+                    target="_blank"
+                    class="white--text align-end"
+                  >
+                    レシピを見る
+                  </a>
+                </v-btn>
+                <v-btn
+                  :to="{
+                    name: 'mypage-menu-dishId-edit',
+                    params: { dishId: dish.dishId }
+                  }"
+                  color="info"
+                  rounded
+                  class="ma-3"
+                >
+                  編集する
+                </v-btn>
+
+                <v-btn
+                  :to="{
+                    name: 'mypage-menu-dishId-editImage',
+                    params: { dishId: dish.dishId }
+                  }"
+                  color="info"
+                  rounded
+                  class="ma-3"
+                >
+                  画像を変える
+                </v-btn>
+                <v-btn color="info" rounded class="ma-3" @click="deleteDish">
+                  削除する
+                </v-btn>
+              </div>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
-    <div>
-      <nuxt-link
-        :to="{
-          name: 'mypage-menu-dishId-editImage',
-          params: { dishId: dish.dishId }
-        }"
-      >
-        画像を変える
-      </nuxt-link>
-      <nuxt-link
-        :to="{
-          name: 'mypage-menu-dishId-edit',
-          params: { dishId: dish.dishId }
-        }"
-      >
-        編集する
-      </nuxt-link>
-      <button type="submit" @click="deleteDish">削除する</button>
-    </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -31,21 +70,23 @@ export default {
     const dishId = app.context.params.dishId
     const dish = await app.$axios.$get(`/routes/mypage/menu/${dishId}`)
     return {
-      dish
+      dish,
+      img: require('@/static/no-image.png')
     }
   },
   methods: {
     async deleteDish() {
       const id = this.$store.app.context.params.dishId
-      await this.$axios
-        .$post(`/routes/mypage/menu/${id}/delete`)
-        .then(() => {
-          this.$router.push('/mypage/menu')
-        })
-        .then(() => {
-          this.$router.push('/mypage/menu')
-        })
+      await this.$axios.$post(`/routes/mypage/menu/${id}/delete`).then(() => {
+        this.$router.push('/mypage/menu')
+      })
     }
   }
 }
 </script>
+
+<style>
+a {
+  text-decoration: none;
+}
+</style>
