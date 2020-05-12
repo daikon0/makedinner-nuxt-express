@@ -1,39 +1,44 @@
 <template>
   <v-app>
     <div>
-      <v-list subheader>
-        <v-subheader>dishes!!</v-subheader>
-        <v-list-item
-          v-for="dish in dishes"
-          :key="dish.dishId"
-          :to="{ name: 'mypage-menu-dishId', params: { dishId: dish.dishId } }"
-        >
-          <v-list-item-avatar v-if="dish.dishFile">
-            <img :src="dish.dishFile" alt="" />
-          </v-list-item-avatar>
-          <v-list-item-avatar v-else>
-            X
-          </v-list-item-avatar>
+      <v-container fluid>
+        <v-row justify="center">
+          <v-col cols="12" md="8">
+            <v-card>
+              <v-list subheader class="ma-3" rounded>
+                <v-subheader class="ma-3">料理一覧</v-subheader>
+                <v-list-item-group>
+                  <v-list-item
+                    v-for="dish in dishes"
+                    :key="dish.dishId"
+                    :to="{
+                      name: 'mypage-menu-dishId',
+                      params: { dishId: dish.dishId }
+                    }"
+                    color="primary"
+                  >
+                    <v-list-item-avatar v-if="dish.dishFile" size="80">
+                      <img :src="dish.dishFile" alt="" />
+                    </v-list-item-avatar>
+                    <v-list-item-avatar v-else size="80">
+                      XXX
+                    </v-list-item-avatar>
 
-          <v-list-item-content>
-            <v-list-item-title v-text="dish.dishName"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+                    <v-list-item-content>
+                      <v-list-item-title
+                        class="subtitle-1"
+                        v-text="dish.dishName"
+                      ></v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
   </v-app>
-  <!-- <div>
-    <ul>
-      <li v-for="dish in dishes" :key="dish.dishId">
-        <span>{{ dish.dishName }}</span>
-        <nuxt-link
-          :to="{ name: 'mypage-menu-dishId', params: { dishId: dish.dishId } }"
-        >
-          {{ dish.dishId }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </div> -->
 </template>
 
 <script>
