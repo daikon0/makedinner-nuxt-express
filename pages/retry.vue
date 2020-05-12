@@ -6,18 +6,24 @@
           <v-col cols="12" md="7">
             <v-alert
               class="ma-8"
+              icon="mdi-shield-lock-outline"
+              text
               outlined
-              type="warning"
+              type="error"
               prominent
               elevation="10"
             >
               username または password が違います
             </v-alert>
             <div class="ma-8 pt-8">
-              <v-btn block color="info" dark to="/signin">やり直す</v-btn>
+              <v-btn block color="info" dark elevation="10" to="/signin">
+                やり直す
+              </v-btn>
             </div>
             <div class="ma-8 pt-3">
-              <v-btn block color="indigo" dark to="/">TOPへ戻る</v-btn>
+              <v-btn block color="indigo" dark to="/" elevation="10">
+                TOPへ戻る
+              </v-btn>
             </div>
           </v-col>
         </v-row>
