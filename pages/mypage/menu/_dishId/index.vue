@@ -20,7 +20,7 @@
                 </v-img>
               </div>
               <div class="grey lighten-2">
-                <v-btn color="info" rounded class="ma-3">
+                <v-btn v-if="dish.dishUrl" color="info" rounded class="ma-3">
                   <a
                     :href="dish.dishUrl"
                     target="_blank"
