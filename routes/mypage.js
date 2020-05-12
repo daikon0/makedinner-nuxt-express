@@ -39,6 +39,7 @@ router.get('/menu/:dishId', async (req, res, next) => {
     })
     .catch((err) => {
       next(err)
+      return res.status(404)
     })
   res.send(dish)
 })
