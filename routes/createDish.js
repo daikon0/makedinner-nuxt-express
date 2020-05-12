@@ -23,14 +23,13 @@ const dishId = uuid.v4()
 
 router.post('/', upload.single('dishFile'), async (req, res, next) => {
   const fileCheck = req.file
-
   if (fileCheck === undefined) {
     await db.dish
       .create({
         dishId,
         dishName: req.body.dishName,
         dishFile: null,
-        dishUrl: req.body.dishUrl || '(未設定)',
+        dishUrl: req.body.dishUrl,
         dishGenre: req.body.genre,
         dishRole: req.body.role,
         createdBy: req.user.name.id,
@@ -46,7 +45,7 @@ router.post('/', upload.single('dishFile'), async (req, res, next) => {
         dishId,
         dishName: req.body.dishName,
         dishFile: req.file.Location || null,
-        dishUrl: req.body.dishUrl || '(未設定)',
+        dishUrl: req.body.dishUrl,
         dishGenre: req.body.genre,
         dishRole: req.body.role,
         createdBy: req.user.name.id,
@@ -66,7 +65,7 @@ router.post('/rakuten', async (req, res, next) => {
       dishId,
       dishName: req.body.dishName,
       dishFile: req.body.dishFile,
-      dishUrl: req.body.dishUrl || '(未設定)',
+      dishUrl: req.body.dishUrl,
       dishGenre: req.body.dishGenre,
       dishRole: req.body.dishRole,
       createdBy: req.user.name.id,
