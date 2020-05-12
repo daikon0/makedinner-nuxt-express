@@ -1,12 +1,29 @@
 <template>
-  <div>
-    <div class="container">
-      <div>ユーザーネームまたはパスワードが間違っています</div>
-      <nuxt-link to="/signin" class="btn btn-block btn-primary">
-        やり直す
-      </nuxt-link>
+  <v-app>
+    <div>
+      <v-container fluid>
+        <v-row justify="center">
+          <v-col cols="12" md="7">
+            <v-alert
+              class="ma-8"
+              outlined
+              type="warning"
+              prominent
+              elevation="10"
+            >
+              username または password が違います
+            </v-alert>
+            <div class="ma-8 pt-8">
+              <v-btn block color="info" dark to="/signin">やり直す</v-btn>
+            </div>
+            <div class="ma-8 pt-3">
+              <v-btn block color="indigo" dark to="/">TOPへ戻る</v-btn>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -14,36 +31,3 @@ export default {
   layout: 'signout'
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
