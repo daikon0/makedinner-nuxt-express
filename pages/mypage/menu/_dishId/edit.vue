@@ -44,6 +44,9 @@ export default {
       required: (value) => !!value || '必ず入力してください'
     }
   },
+  created() {
+    this.$store.commit('uploadTitle', this.dish.dishName + 'を編集')
+  },
   methods: {
     async edit() {
       const id = this.$store.app.context.params.dishId

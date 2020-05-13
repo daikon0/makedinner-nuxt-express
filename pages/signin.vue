@@ -70,6 +70,9 @@ export default {
       limit_length: (value) =>
         value.length >= 8 || '8文字以上で入力してください'
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', 'ログイン')
   }
 }
 </script>

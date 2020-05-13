@@ -49,6 +49,9 @@ export default {
     return {
       categories
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', 'カテゴリー')
   }
 }
 </script>

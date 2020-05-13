@@ -26,6 +26,9 @@ export default {
     return {
       dishId
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', '画像の変更')
   }
 }
 </script>

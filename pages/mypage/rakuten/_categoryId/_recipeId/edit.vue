@@ -92,6 +92,9 @@ export default {
       dishGenre: '',
       dishRole: ''
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', this.recipe.recipeTitle)
   }
 }
 </script>

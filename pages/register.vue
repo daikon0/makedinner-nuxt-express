@@ -58,6 +58,9 @@ export default {
         value.length >= 8 || '8文字以上で入力してください'
     }
   },
+  created() {
+    this.$store.commit('uploadTitle', '新規登録')
+  },
   methods: {
     async submit() {
       await this.$axios

@@ -85,6 +85,9 @@ export default {
       recipe: recipe[0],
       endname: 'さん'
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', this.recipe.recipeTitle)
   }
 }
 </script>

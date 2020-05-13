@@ -34,6 +34,9 @@
 
 <script>
 export default {
-  layout: 'signout'
+  layout: 'signout',
+  created() {
+    this.$store.commit('uploadTitle', 'Not Found')
+  }
 }
 </script>
