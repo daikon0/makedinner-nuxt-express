@@ -33,7 +33,7 @@
 <script>
 export default {
   created() {
-    this.$store.commit('uploadTitle', 'H O M E')
+    this.$store.commit('uploadTitle', 'ホーム')
   }
 }
 </script>
