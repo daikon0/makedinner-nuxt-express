@@ -45,7 +45,6 @@
                         label="File input"
                         filled
                         prepend-icon="mdi-camera"
-                        @change="getFile"
                       ></v-file-input>
                       <input type="hidden" name="dishName" :value="dishName" />
                       <input type="hidden" name="dishUrl" :value="dishUrl" />
@@ -57,7 +56,6 @@
                       <input type="hidden" name="dishRole" :value="dishRole" />
                       <v-btn
                         :disabled="!dishName || !dishGenre || !dishRole"
-                        text
                         class="my-5"
                         type="submit"
                       >
