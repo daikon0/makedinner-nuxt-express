@@ -30,8 +30,8 @@ router.post('/', upload.single('dishFile'), async (req, res, next) => {
         dishName: req.body.dishName,
         dishFile: null,
         dishUrl: req.body.dishUrl,
-        dishGenre: req.body.genre,
-        dishRole: req.body.role,
+        dishGenre: req.body.dishGenre,
+        dishRole: req.body.dishRole,
         createdBy: req.user.name.id,
         updatedAt
       })
