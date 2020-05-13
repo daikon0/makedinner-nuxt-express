@@ -30,7 +30,6 @@
                       <input type="hidden" name="password" :value="password" />
                       <v-btn
                         :disabled="!username || !(password.length >= 8)"
-                        text
                         class="my-5"
                         type="submit"
                       >
