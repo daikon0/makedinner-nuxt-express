@@ -76,7 +76,7 @@ router.post('/editFile', upload.single('dishFile'), async (req, res, next) => {
     .catch((err) => {
       next(err)
     })
-  res.redirect('/mypage')
+  res.redirect('/mypage/menu')
 })
 
 // 料理の削除
