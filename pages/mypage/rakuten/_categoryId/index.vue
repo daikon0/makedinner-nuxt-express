@@ -43,13 +43,27 @@ export default {
   async asyncData({ app }) {
     const secret = process.env.RAKUTEN_SECRET
     const categoryId = app.context.params.categoryId
+
+    // URLのIDを使い、カテゴリーの名前を取得しtitleに反映させる
+    const category = await app.$axios.$get(
+      `https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=${secret}&categoryType=large`
+    )
+    const categories = category.result.large
+    const title = categories.filter((item) => {
+      if (item.categoryId === categoryId) return true
+    })
+
     const recipe = await app.$axios.$get(
       `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=${secret}&categoryId=${categoryId}`
     )
     const recipes = recipe.result
     return {
-      recipes
+      recipes,
+      title: title[0].categoryName
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', this.title)
   }
 }
 </script>

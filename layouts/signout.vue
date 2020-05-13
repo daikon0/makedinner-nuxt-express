@@ -4,7 +4,7 @@
       <v-app-bar color="info" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
-        <v-toolbar-title>Make Dinner</v-toolbar-title>
+        <v-toolbar-title>{{ $store.state.title }}</v-toolbar-title>
       </v-app-bar>
       <nuxt />
 

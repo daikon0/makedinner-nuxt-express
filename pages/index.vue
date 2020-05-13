@@ -28,6 +28,9 @@
 
 <script>
 export default {
-  layout: 'signout'
+  layout: 'signout',
+  created() {
+    this.$store.commit('uploadTitle', '今晩の献立　〜Make Dinner〜')
+  }
 }
 </script>

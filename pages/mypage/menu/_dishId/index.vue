@@ -74,6 +74,9 @@ export default {
       img: require('@/static/no-image.png')
     }
   },
+  created() {
+    this.$store.commit('uploadTitle', this.dish.dishName)
+  },
   methods: {
     async deleteDish() {
       const id = this.$store.app.context.params.dishId

@@ -29,3 +29,11 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  created() {
+    this.$store.commit('uploadTitle', 'H O M E')
+  }
+}
+</script>

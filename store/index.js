@@ -1,4 +1,5 @@
 export const state = () => ({
+  title: '',
   user: null,
   auth: false
 })
@@ -11,5 +12,8 @@ export const mutations = {
   logout(state) {
     state.auth = false
     state.user = null
+  },
+  uploadTitle(state, title) {
+    state.title = title
   }
 }

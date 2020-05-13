@@ -85,6 +85,9 @@ export default {
       dishRole: '',
       required: (value) => !!value || '必ず入力してください'
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', '登録する')
   }
 }
 </script>

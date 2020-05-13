@@ -49,6 +49,9 @@ export default {
       dishes,
       img: require('@/static/no-image.png')
     }
+  },
+  created() {
+    this.$store.commit('uploadTitle', 'メニュー')
   }
 }
 </script>

@@ -4,7 +4,7 @@
       <v-app-bar color="info" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
-        <v-toolbar-title>Make Dinner</v-toolbar-title>
+        <v-toolbar-title>{{ $store.state.title }}</v-toolbar-title>
       </v-app-bar>
       <nuxt />
 
@@ -76,14 +76,3 @@ export default {
   }
 }
 </script>
-
-<!-- <div>
-    <nav class="navbar navvbar-light bg-light">
-      <div class="navbar-header">
-        <nuxt-link to="/mypage" class="navbar-brand nav-link">
-          Makedinner
-        </nuxt-link>
-      </div>
-    </nav>
-    <nuxt />
-  </div> -->

@@ -143,6 +143,9 @@ export default {
       img: require('@/static/no-image.png')
     }
   },
+  created() {
+    this.$store.commit('uploadTitle', '今日の献立')
+  },
   beforeRouteUpdate(to, from, next) {
     // this.dish = to.query.genre
     this.setDish(to.query.genre)
