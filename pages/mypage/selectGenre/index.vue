@@ -31,7 +31,7 @@
                   洋 食
                 </v-btn>
                 <v-btn
-                  color="pink lighten-1"
+                  color="pink lighten-2"
                   elevation="3"
                   outlined
                   block
@@ -59,71 +59,16 @@
         </v-row>
       </v-container>
       <div v-if="maindish">
-        <v-container class="grey lighten-5">
+        <v-container>
           <v-row justify="center">
             <v-col cols="8" md="4">
-              <v-card>
-                <div v-if="maindish.dishFile" class="subheading">
-                  <v-img
-                    class="white--text align-end"
-                    :src="maindish.dishFile"
-                    max-height="500"
-                  >
-                    <v-card-title v-text="maindish.dishName"></v-card-title>
-                  </v-img>
-                  <v-btn block color="info" dark>
-                    <a
-                      :href="maindish.dishUrl"
-                      target="_blank"
-                      class="white--text align-end"
-                    >
-                      レシピを見る
-                    </a>
-                  </v-btn>
-                </div>
-                <div v-else>
-                  <v-img class="align-end" :src="img" max-height="500">
-                    <v-card-title v-text="maindish.dishName"></v-card-title>
-                  </v-img>
-                </div>
-              </v-card>
-            </v-col>
-
-            <v-col cols="8" md="4">
-              <v-card>
-                <div v-if="subdish.dishFile" class="subheading">
-                  <v-img
-                    class="white--text align-end"
-                    :src="subdish.dishFile"
-                    max-height="500"
-                  >
-                    <v-card-title v-text="subdish.dishName"></v-card-title>
-                  </v-img>
-                </div>
-                <div v-else>
-                  <v-img class="align-end" :src="img" max-height="500">
-                    <v-card-title v-text="subdish.dishName"></v-card-title>
-                  </v-img>
-                </div>
-              </v-card>
+              <Dish :dish="maindish" />
             </v-col>
             <v-col cols="8" md="4">
-              <v-card>
-                <div v-if="soup.dishFile" class="subheading">
-                  <v-img
-                    class="white--text align-end"
-                    :src="soup.dishFile"
-                    max-height="500"
-                  >
-                    <v-card-title v-text="soup.dishName"></v-card-title>
-                  </v-img>
-                </div>
-                <div v-else>
-                  <v-img class="align-end" :src="img" max-height="500">
-                    <v-card-title v-text="soup.dishName"></v-card-title>
-                  </v-img>
-                </div>
-              </v-card>
+              <Dish :dish="subdish" />
+            </v-col>
+            <v-col cols="8" md="4">
+              <Dish :dish="soup" />
             </v-col>
           </v-row>
         </v-container>
@@ -133,7 +78,11 @@
 </template>
 
 <script>
+import Dish from '@/components/Dish'
 export default {
+  components: {
+    Dish
+  },
   data: () => {
     return {
       maindish: '',
