@@ -21,6 +21,7 @@
               </div>
               <div class="grey lighten-2">
                 <v-btn v-if="dish.dishUrl" color="info" rounded class="ma-3">
+                  <v-icon>mdi-apple-airplay</v-icon>
                   <a
                     :href="dish.dishUrl"
                     target="_blank"
@@ -38,7 +39,8 @@
                   rounded
                   class="ma-3"
                 >
-                  編集する
+                  <v-icon>mdi-pencil</v-icon>
+                  <div class="ma-1">編集する</div>
                 </v-btn>
 
                 <v-btn
@@ -50,10 +52,12 @@
                   rounded
                   class="ma-3"
                 >
-                  画像を変える
+                  <v-icon>mdi-image-edit</v-icon>
+                  <div class="ma-1">画像を変える</div>
                 </v-btn>
                 <v-btn color="info" rounded class="ma-3" @click="deleteDish">
-                  削除する
+                  <v-icon>mdi-trash-can-outline</v-icon>
+                  <div class="ma-1">削除する</div>
                 </v-btn>
               </div>
             </v-card>

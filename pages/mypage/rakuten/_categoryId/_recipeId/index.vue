@@ -15,7 +15,8 @@
               }"
               @click="submit"
             >
-              戻る
+              <v-icon>mdi-keyboard-backspace</v-icon>
+              <div class="ma-1">戻る</div>
             </v-btn>
             <v-card>
               <div class="subheading">

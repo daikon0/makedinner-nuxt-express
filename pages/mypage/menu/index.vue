@@ -6,7 +6,10 @@
           <v-col cols="12" md="8">
             <v-card>
               <v-list subheader class="ma-3" rounded>
-                <v-subheader class="ma-3">料理一覧</v-subheader>
+                <v-subheader class="ma-3">
+                  <v-icon>mdi-pasta</v-icon>
+                  <div class="ma-2">料理一覧</div>
+                </v-subheader>
                 <v-list-item-group>
                   <v-list-item
                     v-for="dish in dishes"

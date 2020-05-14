@@ -4,7 +4,8 @@
       <v-row justify="center">
         <v-col cols="12" md="8">
           <v-btn class="my-3" color="info" to="/mypage">
-            戻る
+            <v-icon>mdi-keyboard-backspace</v-icon>
+            <div class="ma-1">戻る</div>
           </v-btn>
           <v-card class="mt-5">
             <div>
