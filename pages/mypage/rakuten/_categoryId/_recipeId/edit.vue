@@ -19,12 +19,12 @@
                         v-model="recipe.recipeUrl"
                         label="レシピのURL"
                       ></v-text-field>
-                      <v-radio-group v-model="dishGenre" :rules="[reqired]" row>
+                      <v-radio-group v-model="dishGenre" row>
                         <v-radio label="和食" value="japan"></v-radio>
                         <v-radio label="洋食" value="western"></v-radio>
                         <v-radio label="中華" value="china"></v-radio>
                       </v-radio-group>
-                      <v-radio-group v-model="dishRole" :rules="[required]" row>
+                      <v-radio-group v-model="dishRole" row>
                         <v-radio label="主菜" value="main"></v-radio>
                         <v-radio label="副菜" value="sub"></v-radio>
                         <v-radio label="汁物" value="soup"></v-radio>
@@ -90,7 +90,8 @@ export default {
     return {
       recipe: recipe[0],
       dishGenre: '',
-      dishRole: ''
+      dishRole: '',
+      required: (value) => !!value || '必ず入力してください'
     }
   },
   created() {

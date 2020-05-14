@@ -1,5 +1,6 @@
 export const state = () => ({
   title: '',
+  loading: false,
   user: null,
   auth: false
 })
@@ -15,5 +16,11 @@ export const mutations = {
   },
   uploadTitle(state, title) {
     state.title = title
+  },
+  submit(state) {
+    state.loading = true
+  },
+  reload(state) {
+    state.loading = false
   }
 }

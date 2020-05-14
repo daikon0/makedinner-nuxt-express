@@ -58,6 +58,7 @@
                         :disabled="!dishName || !dishGenre || !dishRole"
                         class="my-5"
                         type="submit"
+                        @click="prevent"
                       >
                         登録する
                       </v-btn>
@@ -77,6 +78,7 @@
 export default {
   data() {
     return {
+      submit: false,
       dishName: '',
       dishUrl: '',
       dishGenre: '',
@@ -86,6 +88,14 @@ export default {
   },
   created() {
     this.$store.commit('uploadTitle', '登録する')
+  },
+  methods: {
+    prevent() {
+      if (this.submit) {
+        return event.preventDefault()
+      }
+      this.submit = true
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container">
+  <v-app>
+    <div v-if="!$store.state.loading" class="container">
       <div>
         <h2>{{ $store.state.user.name }}さん</h2>
       </div>
@@ -10,7 +10,13 @@
         </v-btn>
       </div>
       <div>
-        <v-btn class="my-3" rounded color="info" to="/mypage/rakuten">
+        <v-btn
+          class="my-3"
+          rounded
+          color="info"
+          to="/mypage/rakuten"
+          @click="submit"
+        >
           楽天レシピから料理を見つける
         </v-btn>
       </div>
@@ -27,13 +33,24 @@
         </div>
       </div>
     </div>
-  </div>
+    <Loading v-if="$store.state.loading" />
+  </v-app>
 </template>
 
 <script>
+import Loading from '@/components/Loading'
 export default {
+  components: {
+    Loading
+  },
   created() {
     this.$store.commit('uploadTitle', 'ホーム')
+    this.$store.commit('reload')
+  },
+  methods: {
+    submit() {
+      this.$store.commit('submit')
+    }
   }
 }
 </script>
