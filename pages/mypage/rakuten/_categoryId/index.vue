@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container fluid>
+    <v-container v-if="!$store.state.loading" fluid>
       <v-row justify="center">
         <v-col cols="12" md="8">
           <v-card class="mt-5">
@@ -18,6 +18,7 @@
                       recipeId: recipe.recipeId
                     }
                   }"
+                  @click="submit"
                 >
                   <v-list-item-avatar size="100">
                     <img :src="recipe.mediumImageUrl" alt="" />
@@ -35,11 +36,16 @@
         </v-col>
       </v-row>
     </v-container>
+    <Loading v-if="$store.state.loading" />
   </v-app>
 </template>
 
 <script>
+import Loading from '@/components/Loading'
 export default {
+  components: {
+    Loading
+  },
   async asyncData({ app }) {
     const secret = process.env.RAKUTEN_SECRET
     const categoryId = app.context.params.categoryId
@@ -64,6 +70,12 @@ export default {
   },
   created() {
     this.$store.commit('uploadTitle', this.title)
+    this.$store.commit('reload')
+  },
+  methods: {
+    submit() {
+      this.$store.commit('submit')
+    }
   }
 }
 </script>
