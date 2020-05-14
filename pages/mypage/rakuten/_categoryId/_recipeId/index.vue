@@ -1,9 +1,22 @@
 <template>
   <v-app>
-    <div>
+    <div v-if="!$store.state.loading">
       <v-container fluid>
         <v-row justify="center">
           <v-col cols="12" md="6">
+            <v-btn
+              class="my-3"
+              color="info"
+              :to="{
+                name: 'mypage-rakuten-categoryId',
+                params: {
+                  categoryId: $route.params.categoryId
+                }
+              }"
+              @click="submit"
+            >
+              戻る
+            </v-btn>
             <v-card>
               <div class="subheading">
                 <v-img
@@ -65,11 +78,16 @@
         </v-row>
       </v-container>
     </div>
+    <Loading v-if="$store.state.loading" />
   </v-app>
 </template>
 
 <script>
+import Loading from '@/components/Loading'
 export default {
+  components: {
+    Loading
+  },
   async asyncData({ app }) {
     const secret = process.env.RAKUTEN_SECRET
     const categoryId = app.context.params.categoryId
@@ -88,6 +106,12 @@ export default {
   },
   created() {
     this.$store.commit('uploadTitle', this.recipe.recipeTitle)
+    this.$store.commit('reload')
+  },
+  methods: {
+    submit() {
+      this.$store.commit('submit')
+    }
   }
 }
 </script>

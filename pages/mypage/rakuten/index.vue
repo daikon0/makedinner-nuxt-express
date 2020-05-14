@@ -3,6 +3,9 @@
     <v-container v-if="!$store.state.loading" fluid>
       <v-row justify="center">
         <v-col cols="12" md="8">
+          <v-btn class="my-3" color="info" to="/mypage">
+            戻る
+          </v-btn>
           <v-card class="mt-5">
             <div>
               <v-row justify="center">
