@@ -27,7 +27,7 @@
         <div>
           <form action="/routes/signout" method="post">
             <v-btn type="submit" class="my-3" rounded color="info">
-              Sign Out
+              ログアウト
             </v-btn>
           </form>
         </div>
@@ -44,7 +44,7 @@ export default {
     Loading
   },
   created() {
-    this.$store.commit('uploadTitle', 'ホーム')
+    this.$store.commit('uploadTitle', '今晩の献立　〜Make Dinner〜')
     this.$store.commit('reload')
   },
   methods: {

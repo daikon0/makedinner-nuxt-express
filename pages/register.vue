@@ -2,12 +2,12 @@
   <v-app>
     <v-container fluid>
       <v-row justify="center">
-        <v-col cols="12" md="8">
+        <v-col cols="12" md="6" sm="8">
           <v-card class="mt-5">
             <div>
               <v-row justify="center">
-                <v-col cols="12" md="8">
-                  <v-card-title>Register</v-card-title>
+                <v-col cols="12" md="10">
+                  <v-card-title>Make Dinner</v-card-title>
                   <v-card-text>
                     <v-form ref="test_form">
                       <v-text-field
@@ -25,12 +25,13 @@
                         @click:append="show1 = !show1"
                       ></v-text-field>
                       <v-btn
+                        block
+                        large
                         :disabled="!username || !(password.length >= 8)"
-                        text
                         class="my-5"
                         @click="submit"
                       >
-                        Register
+                        登録する
                       </v-btn>
                     </v-form>
                   </v-card-text>

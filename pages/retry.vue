@@ -15,14 +15,10 @@
             >
               username または password が違います
             </v-alert>
-            <div class="ma-8 pt-8">
-              <v-btn block color="info" dark elevation="10" to="/signin">
+            <div class="ma-10 pt-10">
+              <v-btn block color="info" dark elevation="15" to="/">
                 やり直す
-              </v-btn>
-            </div>
-            <div class="ma-8 pt-3">
-              <v-btn block color="indigo" dark to="/" elevation="10">
-                TOPへ戻る
+                <v-icon>mdi-replay</v-icon>
               </v-btn>
             </div>
           </v-col>
