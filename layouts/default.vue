@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-card class="overflow-hidden">
+    <v-card class="overflow-hidden" min-height="650">
       <v-app-bar color="info" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
