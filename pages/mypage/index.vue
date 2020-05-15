@@ -21,7 +21,7 @@
                             自分の料理一覧を表示します。
                           </v-list-item-subtitle>
                         </v-list-item-content>
-                        <v-list-item-avatar tile size="100" color="red">
+                        <v-list-item-avatar tile size="100">
                           <v-img :src="menu_img"></v-img>
                         </v-list-item-avatar>
                       </v-list-item>
