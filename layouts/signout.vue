@@ -16,23 +16,31 @@
           >
             <v-list-item to="/">
               <v-list-item-icon>
-                <v-icon>mdi-home</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Home</v-list-item-title>
-            </v-list-item>
-
-            <v-list-item to="/signin">
-              <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Sign In</v-list-item-title>
+              <v-list-item-title>ログイン</v-list-item-title>
             </v-list-item>
+
+            <form action="/routes/auth/local" method="post">
+              <button type="hidden">
+                <input type="hidden" name="username" value="test" />
+                <input type="hidden" name="password" value="pass" />
+                <v-list-item>
+                  <v-list-item-icon>
+                    <v-icon>mdi-shield-account</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-title>
+                    ゲストユーザーでログイン
+                  </v-list-item-title>
+                </v-list-item>
+              </button>
+            </form>
 
             <v-list-item to="/register">
               <v-list-item-icon>
                 <v-icon>mdi-account-plus-outline</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Register</v-list-item-title>
+              <v-list-item-title>新規登録</v-list-item-title>
             </v-list-item>
           </v-list-item-group>
         </v-list>
