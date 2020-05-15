@@ -1,38 +1,103 @@
 <template>
   <v-app>
-    <div v-if="!$store.state.loading" class="container">
-      <div>
-        <h2>{{ $store.state.user.name }}さん</h2>
-      </div>
-      <div>
-        <v-btn class="my-3" rounded color="info" to="/mypage/createDish">
-          料理を追加する
-        </v-btn>
-      </div>
-      <div>
-        <v-btn
-          class="my-3"
-          rounded
-          color="info"
-          to="/mypage/rakuten"
-          @click="submit"
-        >
-          楽天レシピから料理を見つける
-        </v-btn>
-      </div>
-      <div>
-        <v-btn class="my-3" rounded color="info" to="/mypage/selectGenre">
-          今日の献立を決める
-        </v-btn>
-        <div>
-          <form action="/routes/signout" method="post">
-            <v-btn type="submit" class="my-3" rounded color="info">
-              ログアウト
-            </v-btn>
-          </form>
-        </div>
-      </div>
-    </div>
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col>
+          <v-card elevation="5">
+            <div v-if="!$store.state.loading" class="container">
+              <p class="ma-3 title">
+                ようこそ、{{ $store.state.user.name }}さん
+              </p>
+              <v-container>
+                <v-row justify="center">
+                  <v-col cols="10" md="6">
+                    <v-card class="mx-auto" outlined elevation="5">
+                      <v-list-item three-line>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline mb-2 a">
+                            料理一覧
+                          </v-list-item-title>
+                          <v-list-item-subtitle>
+                            自分の料理一覧を表示します。
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-avatar tile size="100" color="red">
+                          <v-img :src="menu_img"></v-img>
+                        </v-list-item-avatar>
+                      </v-list-item>
+                      <v-divider></v-divider>
+                      <v-btn block to="/mypage/menu">料理一覧</v-btn>
+                    </v-card>
+                  </v-col>
+
+                  <v-col cols="10" md="6">
+                    <v-card class="mx-auto" outlined elevation="5">
+                      <v-list-item three-line>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline mb-2">
+                            追加する
+                          </v-list-item-title>
+                          <v-list-item-subtitle>
+                            新しい料理を追加します。
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-avatar tile size="100" color="grey">
+                          <v-img :src="add_img"></v-img>
+                        </v-list-item-avatar>
+                      </v-list-item>
+                      <v-divider></v-divider>
+                      <v-btn block to="/mypage/createDish">追加する</v-btn>
+                    </v-card>
+                  </v-col>
+
+                  <v-col cols="10" md="6">
+                    <v-card class="mx-auto" outlined elevation="5">
+                      <v-list-item three-line>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline mb-2">
+                            探す
+                          </v-list-item-title>
+                          <v-list-item-subtitle>
+                            他のレシピを探して登録しましょう。
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-avatar tile size="100" color="grey">
+                          <v-img :src="find_img"></v-img>
+                        </v-list-item-avatar>
+                      </v-list-item>
+                      <v-divider></v-divider>
+                      <v-btn block to="/mypage/rakuten" @click="submit">
+                        見つける
+                      </v-btn>
+                    </v-card>
+                  </v-col>
+
+                  <v-col cols="10" md="6">
+                    <v-card class="mx-auto" outlined elevation="5">
+                      <v-list-item three-line>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline mb-2">
+                            献立
+                          </v-list-item-title>
+                          <v-list-item-subtitle>
+                            自分の料理から今晩の献立を決めましょう。
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-avatar tile size="100" color="grey">
+                          <v-img :src="select_img"></v-img>
+                        </v-list-item-avatar>
+                      </v-list-item>
+                      <v-divider></v-divider>
+                      <v-btn block to="/mypage/selectGenre">決める</v-btn>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
     <Loading v-if="$store.state.loading" />
   </v-app>
 </template>
@@ -42,6 +107,14 @@ import Loading from '@/components/Loading'
 export default {
   components: {
     Loading
+  },
+  data() {
+    return {
+      add_img: require('@/static/desk.jpg'),
+      find_img: require('@/static/coffee.jpg'),
+      select_img: require('@/static/dish.jpg'),
+      menu_img: require('@/static/book.jpg')
+    }
   },
   created() {
     this.$store.commit('uploadTitle', '今晩の献立　〜Make Dinner〜')
