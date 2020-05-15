@@ -40,7 +40,7 @@
                   class="ma-3"
                 >
                   <v-icon>mdi-pencil</v-icon>
-                  <div class="ma-1">編集する</div>
+                  <div class="ma-1">編集</div>
                 </v-btn>
 
                 <v-btn
@@ -57,7 +57,7 @@
                 </v-btn>
                 <v-btn color="info" rounded class="ma-3" @click="deleteDish">
                   <v-icon>mdi-trash-can-outline</v-icon>
-                  <div class="ma-1">削除する</div>
+                  <div class="ma-1">削除</div>
                 </v-btn>
               </div>
             </v-card>

@@ -7,7 +7,10 @@
             <div>
               <v-row justify="center">
                 <v-col cols="12" md="10">
-                  <v-card-title>Make Dinner</v-card-title>
+                  <v-card-title>
+                    <v-icon large>mdi-nuxt</v-icon>
+                    Make Dinner
+                  </v-card-title>
                   <v-card-text>
                     <v-form ref="test_form">
                       <v-text-field

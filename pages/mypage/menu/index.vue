@@ -29,7 +29,7 @@
 
                     <v-list-item-content>
                       <v-list-item-title
-                        class="subtitle-1"
+                        class="subtitle-1 mx-6"
                         v-text="dish.dishName"
                       ></v-list-item-title>
                     </v-list-item-content>
