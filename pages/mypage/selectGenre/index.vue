@@ -61,13 +61,13 @@
       <div v-if="maindish">
         <v-container>
           <v-row justify="center">
-            <v-col cols="8" md="4">
+            <v-col cols="12" md="4">
               <Dish :dish="maindish" />
             </v-col>
-            <v-col cols="8" md="4">
+            <v-col cols="12" md="4">
               <Dish :dish="subdish" />
             </v-col>
-            <v-col cols="8" md="4">
+            <v-col cols="12" md="4">
               <Dish :dish="soup" />
             </v-col>
           </v-row>
@@ -89,7 +89,7 @@ export default {
       subdish: '',
       soup: '',
       errorMessage: '',
-      img: require('@/static/no-image.png')
+      img: require('@/static/no-image.jpeg')
     }
   },
   created() {

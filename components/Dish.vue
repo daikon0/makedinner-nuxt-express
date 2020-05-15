@@ -36,7 +36,7 @@ export default {
   },
   data: () => {
     return {
-      img: require('@/static/no-image.png')
+      img: require('@/static/no-image.jpeg')
     }
   }
 }

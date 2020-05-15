@@ -75,7 +75,7 @@ export default {
     const dish = await app.$axios.$get(`/routes/mypage/menu/${dishId}`)
     return {
       dish,
-      img: require('@/static/no-image.png')
+      img: require('@/static/no-image.jpeg')
     }
   },
   created() {
