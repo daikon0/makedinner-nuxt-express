@@ -7,9 +7,6 @@ export default async ({ store, route, redirect }) => {
   if (route.path === '/') {
     return
   }
-  if (route.path === '/signin') {
-    return
-  }
   if (route.path === '/register') {
     return
   }
@@ -25,8 +22,8 @@ export default async ({ store, route, redirect }) => {
         name: res.data.user.name.username
       }
       store.commit('login', user)
-    } else if (route.path !== 'signin') {
-      return redirect('/signin')
+    } else if (route.path !== '/') {
+      return redirect('/')
     }
   }
 }
