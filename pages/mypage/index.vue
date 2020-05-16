@@ -10,7 +10,7 @@
               </p>
               <v-container>
                 <v-row justify="center">
-                  <v-col cols="10" md="6">
+                  <v-col class="my-3" cols="10" md="6">
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
@@ -30,7 +30,7 @@
                     </v-card>
                   </v-col>
 
-                  <v-col cols="10" md="6">
+                  <v-col class="my-3" cols="10" md="6">
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
@@ -50,7 +50,7 @@
                     </v-card>
                   </v-col>
 
-                  <v-col cols="10" md="6">
+                  <v-col class="my-3" cols="10" md="6">
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
@@ -72,7 +72,7 @@
                     </v-card>
                   </v-col>
 
-                  <v-col cols="10" md="6">
+                  <v-col class="my-3" cols="10" md="6">
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
