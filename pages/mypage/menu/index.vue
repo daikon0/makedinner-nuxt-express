@@ -4,7 +4,7 @@
       <v-container fluid>
         <v-row justify="center">
           <v-col cols="12" md="8">
-            <v-card>
+            <v-card elevation="5">
               <v-list subheader class="ma-3" rounded>
                 <v-subheader class="ma-3">
                   <v-icon>mdi-pasta</v-icon>
