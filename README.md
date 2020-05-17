@@ -1,6 +1,6 @@
 # makedinner-nuxt-express
 
-> My good Nuxt.js project
+> My top-notch Nuxt.js project
 
 ## Build Setup
 
