@@ -11,7 +11,7 @@ Vue.use(Vuetify)
 localVue.use(Vuex)
 localVue.use(Vuetify)
 
-describe('pages/retry.vue', () => {
+describe('pages/index.vue', () => {
   let wrapper
   let vuetify
 
