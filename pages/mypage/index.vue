@@ -5,8 +5,8 @@
         <v-col>
           <v-card elevation="5">
             <div v-if="!$store.state.loading" class="container">
-              <p class="ma-3 title">
-                ようこそ、{{ $store.state.user.name }}さん
+              <p id="name" class="ma-3 title">
+                ようこそ、{{ $store.getters.username.name }}さん
               </p>
               <v-container>
                 <v-row justify="center">

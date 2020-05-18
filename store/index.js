@@ -6,7 +6,8 @@ export const state = () => ({
 })
 
 export const getters = {
-  title: (state) => state.title
+  title: (state) => state.title,
+  username: (state) => state.user
 }
 
 export const mutations = {
