@@ -24,8 +24,12 @@ describe('pages/retry.vue', () => {
       vuetify
     })
   })
-  test('フォームに入力でき、入力された値がbindされている', () => {
+
+  test('条件を満たした入力がないとボタンを押せない', () => {
     expect(wrapper.find('.v-btn').props().disabled).toBe(true)
+  })
+
+  test('フォームに入力でき、入力された値がbindされている', () => {
     wrapper.find('#username').setValue('username')
     wrapper.find('#password').setValue('password')
     expect(wrapper.vm.username).toBe('username')
