@@ -11,11 +11,13 @@
                   <v-card-text>
                     <v-form ref="test_form">
                       <v-text-field
+                        id="username"
                         v-model="username"
                         label="usernmae"
                         :rules="[required]"
                       ></v-text-field>
                       <v-text-field
+                        id="password"
                         v-model="password"
                         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                         :type="show1 ? 'text' : 'password'"
@@ -60,7 +62,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', '新規登録')
+    this.$store.dispatch('setTitle', '新規登録')
   },
   methods: {
     async submit() {
