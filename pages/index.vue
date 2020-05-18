@@ -33,9 +33,20 @@
                       action="/routes/auth/local"
                       method="post"
                     >
-                      <input type="hidden" name="username" :value="username" />
-                      <input type="hidden" name="password" :value="password" />
+                      <input
+                        id="username"
+                        type="hidden"
+                        name="username"
+                        v-model="username"
+                      />
+                      <input
+                        id="password"
+                        type="hidden"
+                        name="password"
+                        v-model="password"
+                      />
                       <v-btn
+                        id="login"
                         block
                         large
                         :disabled="!username || !(password.length >= 8)"
@@ -93,7 +104,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', '今晩の献立　〜Make Dinner〜')
+    this.$store.dispatch('setTitle', '今晩の献立　〜Make Dinner〜')
   }
 }
 </script>
