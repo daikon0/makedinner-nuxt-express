@@ -32,7 +32,7 @@
 export default {
   layout: 'signout',
   created() {
-    this.$store.commit('uploadTitle', 'Not Found')
+    this.$store.dispatch('setTitle', 'Not Found')
   }
 }
 </script>

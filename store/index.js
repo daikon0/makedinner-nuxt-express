@@ -5,6 +5,10 @@ export const state = () => ({
   auth: false
 })
 
+export const getters = {
+  title: (state) => state.title
+}
+
 export const mutations = {
   login(state, payload) {
     state.auth = true
@@ -24,3 +28,11 @@ export const mutations = {
     state.loading = false
   }
 }
+
+export const actions = {
+  setTitle(context, title) {
+    context.commit('uploadTitle', title)
+  }
+}
+
+export default { state, getters, mutations, actions }
