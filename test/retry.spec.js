@@ -29,7 +29,7 @@ describe('pages/retry.vue', () => {
       router
     })
   })
-  test('aaaa', () => {
+  test('トップページへ戻る導線が存在する', () => {
     expect(wrapper.find('.v-btn').props().to).toBe('/')
   })
 })
