@@ -35,15 +35,15 @@
                     >
                       <input
                         id="username"
+                        v-model="username"
                         type="hidden"
                         name="username"
-                        v-model="username"
                       />
                       <input
                         id="password"
+                        v-model="password"
                         type="hidden"
                         name="password"
-                        v-model="password"
                       />
                       <v-btn
                         id="login"
