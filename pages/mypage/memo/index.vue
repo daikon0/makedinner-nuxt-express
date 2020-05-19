@@ -72,15 +72,6 @@ export default {
           location.reload()
         })
     }
-    // async add() {
-    //   await this.$axios
-    //     .$post('/routes/memo', {
-    //       name: this.name
-    //     })
-    //     .then(() => {
-    //       this.$router.push('/mypage/menu')
-    //     })
-    // }
   }
 }
 </script>
