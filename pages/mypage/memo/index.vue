@@ -46,6 +46,7 @@
                       </v-btn>
                     </form>
                     <v-btn @click="deleteAll">
+                      <v-icon>mdi-reload</v-icon>
                       リセット
                     </v-btn>
                   </v-card-text>
