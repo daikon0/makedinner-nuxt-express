@@ -37,11 +37,12 @@
                       <v-text-field
                         v-model="name"
                         label="メモする"
+                        :rules="[required]"
                       ></v-text-field>
                     </v-form>
                     <form action="/routes/memo" method="post">
                       <input type="hidden" name="name" :value="name" />
-                      <v-btn class="my-5" type="submit">
+                      <v-btn :disabled="!name" class="my-5" type="submit">
                         追加
                       </v-btn>
                     </form>
@@ -71,7 +72,8 @@ export default {
   data() {
     return {
       name: '',
-      memos: []
+      memos: [],
+      required: (value) => !!value || '入力しないと追加ボタンを押せません'
     }
   },
   created() {
