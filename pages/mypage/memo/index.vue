@@ -9,6 +9,19 @@
                 <v-col>
                   <v-card-title>お買い物メモ一覧</v-card-title>
                   <v-card-text>
+                    <v-list-item-group>
+                      <v-list-item
+                        v-for="memo in memos"
+                        :key="memo.id"
+                        @click="edit(memo.id)"
+                      >
+                        <v-list-item-content>
+                          <v-list-item-title
+                            v-text="memo.name"
+                          ></v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list-item-group>
                     <v-form>
                       <v-text-field
                         v-model="name"
@@ -34,15 +47,31 @@
 
 <script>
 export default {
+  async asyncData({ app }) {
+    const memos = await app.$axios.$get('/routes/memo')
+    return {
+      memos
+    }
+  },
   data() {
     return {
-      name: ''
+      name: '',
+      memos: []
     }
   },
   created() {
     this.$store.dispatch('setTitle', 'メモ')
   },
   methods: {
+    async edit(id) {
+      await this.$axios
+        .$post('/routes/memo/edit', {
+          memoId: id
+        })
+        .then(() => {
+          location.reload()
+        })
+    }
     // async add() {
     //   await this.$axios
     //     .$post('/routes/memo', {
