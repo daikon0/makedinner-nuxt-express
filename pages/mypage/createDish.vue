@@ -11,11 +11,13 @@
                   <v-card-text>
                     <v-form ref="test_form">
                       <v-text-field
+                        id="dishName"
                         v-model="dishName"
                         label="料理名"
                         :rules="[required]"
                       ></v-text-field>
                       <v-text-field
+                        id="dishUrl"
                         v-model="dishUrl"
                         label="レシピのURL"
                       ></v-text-field>
