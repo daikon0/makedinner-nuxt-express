@@ -91,6 +91,26 @@
                       <v-btn block to="/mypage/selectGenre">決める</v-btn>
                     </v-card>
                   </v-col>
+
+                  <v-col class="my-3" cols="10" md="6">
+                    <v-card class="mx-auto" outlined elevation="5">
+                      <v-list-item three-line>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline mb-2">
+                            メモ
+                          </v-list-item-title>
+                          <v-list-item-subtitle>
+                            自分の料理から今晩の献立を決めましょう。
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-avatar tile size="100" color="grey">
+                          <v-img :src="select_img"></v-img>
+                        </v-list-item-avatar>
+                      </v-list-item>
+                      <v-divider></v-divider>
+                      <v-btn block to="/mypage/memo">決める</v-btn>
+                    </v-card>
+                  </v-col>
                 </v-row>
               </v-container>
             </div>
