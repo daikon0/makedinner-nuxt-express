@@ -45,6 +45,9 @@
                         追加
                       </v-btn>
                     </form>
+                    <v-btn @click="deleteAll">
+                      リセット
+                    </v-btn>
                   </v-card-text>
                 </v-col>
               </v-row>
@@ -91,6 +94,11 @@ export default {
         .then(() => {
           location.reload()
         })
+    },
+    async deleteAll() {
+      await this.$axios.$post('/routes/memo/deleteAll').then(() => {
+        location.reload()
+      })
     }
   }
 }
