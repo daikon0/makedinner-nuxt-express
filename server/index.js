@@ -12,6 +12,7 @@ const createDishRouter = require('../routes/createDish')
 const signoutRouter = require('../routes/signout')
 const callbackRouter = require('../routes/callback')
 const authRouter = require('../routes/auth')
+const memoRouter = require('../routes/memo')
 
 require('dotenv').config()
 
@@ -33,6 +34,7 @@ app.use('/routes/register', registerRouter)
 app.use('/routes/createDish', createDishRouter)
 app.use('/routes/callback', callbackRouter)
 app.use('/routes/auth', authRouter)
+app.use('/routes/memo', memoRouter)
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
