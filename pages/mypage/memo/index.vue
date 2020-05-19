@@ -10,16 +10,27 @@
                   <v-card-title>お買い物メモ一覧</v-card-title>
                   <v-card-text>
                     <v-list-item-group>
-                      <v-list-item
-                        v-for="memo in memos"
-                        :key="memo.id"
-                        @click="edit(memo.id)"
-                      >
+                      <v-list-item v-for="memo in memos" :key="memo.id">
                         <v-list-item-content>
                           <v-list-item-title
+                            v-if="memo.done"
+                            class="line"
+                            @click="edit(memo.id)"
+                            v-text="memo.name"
+                          ></v-list-item-title>
+                          <v-list-item-title
+                            v-else
+                            @click="edit(memo.id)"
                             v-text="memo.name"
                           ></v-list-item-title>
                         </v-list-item-content>
+                        <v-list-item-action>
+                          <v-btn icon @click="memoDelete(memo.id)">
+                            <v-icon large color="grey lighten-1">
+                              mdi-trash-can-outline
+                            </v-icon>
+                          </v-btn>
+                        </v-list-item-action>
                       </v-list-item>
                     </v-list-item-group>
                     <v-form>
@@ -71,7 +82,22 @@ export default {
         .then(() => {
           location.reload()
         })
+    },
+    async memoDelete(id) {
+      await this.$axios
+        .$post('/routes/memo/delete', {
+          memoId: id
+        })
+        .then(() => {
+          location.reload()
+        })
     }
   }
 }
 </script>
+
+<style>
+.line {
+  text-decoration: line-through;
+}
+</style>
