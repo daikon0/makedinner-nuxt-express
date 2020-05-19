@@ -19,7 +19,12 @@
                     v-model="dishUrl"
                     label="レシピのURL"
                   ></v-text-field>
-                  <v-btn id="btn" class="my-5" :disabled="!dishName" @click="edit">
+                  <v-btn
+                    id="btn"
+                    class="my-5"
+                    :disabled="!dishName"
+                    @click="edit"
+                  >
                     変更する
                   </v-btn>
                 </v-form>
