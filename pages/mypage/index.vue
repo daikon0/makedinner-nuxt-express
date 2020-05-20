@@ -100,15 +100,15 @@
                             メモ
                           </v-list-item-title>
                           <v-list-item-subtitle>
-                            自分の料理から今晩の献立を決めましょう。
+                            お買い物メモ。必要な材料をメモしておきましょう。
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
-                          <v-img :src="select_img"></v-img>
+                          <v-img :src="memo_img"></v-img>
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v-btn block to="/mypage/memo">決める</v-btn>
+                      <v-btn block to="/mypage/memo">メモする</v-btn>
                     </v-card>
                   </v-col>
                 </v-row>
@@ -133,7 +133,8 @@ export default {
       add_img: require('@/static/desk.jpg'),
       find_img: require('@/static/coffee.jpg'),
       select_img: require('@/static/dish.jpg'),
-      menu_img: require('@/static/book.jpg')
+      menu_img: require('@/static/book.jpg'),
+      memo_img: require('@/static/note.jpg')
     }
   },
   created() {
