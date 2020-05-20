@@ -2,12 +2,17 @@ export const state = () => ({
   title: '',
   loading: false,
   user: null,
-  auth: false
+  auth: false,
+  rice: {
+    name: 'yakiniku',
+    recipe: 'aaaaaaaaaa'
+  }
 })
 
 export const getters = {
   title: (state) => state.title,
-  username: (state) => state.user
+  username: (state) => state.user,
+  rice: (state) => state.rice
 }
 
 export const mutations = {
