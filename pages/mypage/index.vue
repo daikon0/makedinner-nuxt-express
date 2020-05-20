@@ -120,7 +120,7 @@
                             お手軽
                           </v-list-item-title>
                           <v-list-item-subtitle>
-                            今日の献立は手軽に済ませたい時に、おすすめのレシピを提案します。
+                            今日の献立を手軽に済ませたい時に、おすすめの一品レシピを提案します。
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
