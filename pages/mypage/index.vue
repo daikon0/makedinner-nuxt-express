@@ -117,18 +117,18 @@
                       <v-list-item three-line>
                         <v-list-item-content>
                           <v-list-item-title class="headline mb-2">
-                            サクッと
+                            お手軽
                           </v-list-item-title>
                           <v-list-item-subtitle>
-                            お買い物メモ。必要な材料をメモしておきましょう。
+                            今日の献立は手軽に済ませたい時に、おすすめのレシピを提案します。
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
-                          <v-img :src="memo_img"></v-img>
+                          <v-img :src="onedish_img"></v-img>
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v-btn block to="/mypage/oneDish">メモする</v-btn>
+                      <v-btn block to="/mypage/oneDish">見る</v-btn>
                     </v-card>
                   </v-col>
                 </v-row>
@@ -154,7 +154,8 @@ export default {
       find_img: require('@/static/coffee.jpg'),
       select_img: require('@/static/dish.jpg'),
       menu_img: require('@/static/book.jpg'),
-      memo_img: require('@/static/note.jpg')
+      memo_img: require('@/static/note.jpg'),
+      onedish_img: require('@/static/onedish.jpeg')
     }
   },
   created() {
