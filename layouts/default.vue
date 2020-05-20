@@ -49,6 +49,13 @@
               <v-list-item-title>他のレシピを見る</v-list-item-title>
             </v-list-item>
 
+            <v-list-item to="/mypage/memo">
+              <v-list-item-icon>
+                <v-icon>mdi-note-text-outline</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>メモを見る</v-list-item-title>
+            </v-list-item>
+
             <v-list-item @click="signout">
               <v-list-item-icon>
                 <v-icon>mdi-account-arrow-right</v-icon>
