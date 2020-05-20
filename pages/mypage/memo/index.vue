@@ -10,43 +10,57 @@
                   <v-card-title>お買い物メモ一覧</v-card-title>
                   <v-card-text>
                     <v-list-item-group>
-                      <v-list-item v-for="memo in memos" :key="memo.id">
-                        <v-list-item-content>
-                          <v-list-item-title
-                            v-if="memo.done"
-                            class="line"
-                            @click="edit(memo.id)"
-                            v-text="memo.name"
-                          ></v-list-item-title>
-                          <v-list-item-title
-                            v-else
-                            @click="edit(memo.id)"
-                            v-text="memo.name"
-                          ></v-list-item-title>
-                        </v-list-item-content>
-                        <v-list-item-action>
-                          <v-btn icon @click="memoDelete(memo.id)">
-                            <v-icon large color="grey lighten-1">
-                              mdi-trash-can-outline
-                            </v-icon>
-                          </v-btn>
-                        </v-list-item-action>
-                      </v-list-item>
+                      <template v-for="(memo, index) in memos">
+                        <v-list-item :key="memo.id">
+                          <v-list-item-action>
+                            <v-checkbox
+                              :input-value="memo.done"
+                              @click="edit(memo.id)"
+                            ></v-checkbox>
+                          </v-list-item-action>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              v-if="memo.done"
+                              class="line title"
+                              @click="edit(memo.id)"
+                              v-text="memo.name"
+                            ></v-list-item-title>
+                            <v-list-item-title
+                              v-else
+                              class="title"
+                              @click="edit(memo.id)"
+                              v-text="memo.name"
+                            ></v-list-item-title>
+                          </v-list-item-content>
+                          <v-list-item-action>
+                            <v-btn icon @click="memoDelete(memo.id)">
+                              <v-icon large color="grey lighten-1">
+                                mdi-trash-can-outline
+                              </v-icon>
+                            </v-btn>
+                          </v-list-item-action>
+                        </v-list-item>
+                        <v-divider
+                          v-if="index + 1 < memos.length"
+                          :key="index"
+                        ></v-divider>
+                      </template>
                     </v-list-item-group>
-                    <v-form>
+                    <v-form class="mt-6">
                       <v-text-field
                         v-model="name"
-                        label="メモする"
+                        label="材料を記入"
                         :rules="[required]"
                       ></v-text-field>
                     </v-form>
-                    <form action="/routes/memo" method="post">
+                    <form class="d-inline" action="/routes/memo" method="post">
                       <input type="hidden" name="name" :value="name" />
-                      <v-btn :disabled="!name" class="my-5" type="submit">
-                        追加
+                      <v-btn :disabled="!name" class="ma-5" type="submit">
+                        <v-icon>mdi-pencil-plus</v-icon>
+                        追加する
                       </v-btn>
                     </form>
-                    <v-btn @click="deleteAll">
+                    <v-btn class="ml-3 d-inline" @click="deleteAll">
                       <v-icon>mdi-reload</v-icon>
                       リセット
                     </v-btn>
