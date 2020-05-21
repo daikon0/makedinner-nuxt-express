@@ -14,7 +14,7 @@
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
-                          <v-list-item-title class="headline mb-2 a">
+                          <v-list-item-title class="title my-2">
                             料理一覧
                           </v-list-item-title>
                           <v-list-item-subtitle>
@@ -34,7 +34,7 @@
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
-                          <v-list-item-title class="headline mb-2">
+                          <v-list-item-title class="title my-2">
                             追加する
                           </v-list-item-title>
                           <v-list-item-subtitle>
@@ -54,7 +54,7 @@
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
-                          <v-list-item-title class="headline mb-2">
+                          <v-list-item-title class="title my-2">
                             探す
                           </v-list-item-title>
                           <v-list-item-subtitle>
@@ -66,9 +66,9 @@
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v-btn block to="/mypage/rakuten" @click="submit">
+                      <v- block to="/mypage/rakuten" @click="submit">
                         見つける
-                      </v-btn>
+                      </v->
                     </v-card>
                   </v-col>
 
@@ -76,7 +76,7 @@
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
-                          <v-list-item-title class="headline mb-2">
+                          <v-list-item-title class="title my-2">
                             献立
                           </v-list-item-title>
                           <v-list-item-subtitle>
@@ -96,7 +96,7 @@
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
-                          <v-list-item-title class="headline mb-2">
+                          <v-list-item-title class="title my-2">
                             メモ
                           </v-list-item-title>
                           <v-list-item-subtitle>
@@ -116,7 +116,7 @@
                     <v-card class="mx-auto" outlined elevation="5">
                       <v-list-item three-line>
                         <v-list-item-content>
-                          <v-list-item-title class="headline mb-2">
+                          <v-list-item-title class="title my-2">
                             お手軽
                           </v-list-item-title>
                           <v-list-item-subtitle>

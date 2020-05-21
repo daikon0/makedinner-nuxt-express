@@ -75,7 +75,7 @@
           <v-card class="my-5 text-center" elevation="5">
             <div class="pa-1">
               <div class="pt-3">
-                <p>
+                <p class="subtitle-2">
                   <v-icon class="pb-1">mdi-help-circle-outline</v-icon>
                   アカウントをお持ちではないですか？
                   <a href="/register">登録する</a>
