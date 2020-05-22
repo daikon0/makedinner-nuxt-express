@@ -61,8 +61,8 @@
                   <v-divider></v-divider>
                   <div class="text-center my-5">
                     <form action="/routes/auth/local" method="post">
-                      <input type="hidden" name="username" value="test" />
-                      <input type="hidden" name="password" value="pass" />
+                      <input type="hidden" name="username" value="GuestUser" />
+                      <input type="hidden" name="password" value="GuestPass" />
                       <input type="hidden" name="_csrf" :value="csrf" />
                       <v-btn class="mt-9" tile color="info" large type="submit">
                         <v-icon>mdi-shield-account</v-icon>

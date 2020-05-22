@@ -23,8 +23,8 @@
 
             <form action="/routes/auth/local" method="post">
               <button type="hidden">
-                <input type="hidden" name="username" value="test" />
-                <input type="hidden" name="password" value="pass" />
+                <input type="hidden" name="username" value="GusetUser" />
+                <input type="hidden" name="password" value="GusetPass" />
                 <v-list-item>
                   <v-list-item-icon>
                     <v-icon>mdi-shield-account</v-icon>
