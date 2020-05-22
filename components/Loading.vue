@@ -2,7 +2,7 @@
   <v-app>
     <v-row justify="center" align-content="center">
       <div class="space"></div>
-      <div class="text-center">
+      <div>
         <v-progress-circular
           indeterminate
           :size="70"
