@@ -17,7 +17,7 @@
     "username": "postgres",
     "password": "postgres",
     "database": "makedinner_nuxt_express",
-    "host": "127.0.0.1",
+    "host": "makedinner-infra-web.cja6aknbrseo.ap-northeast-1.rds.amazonaws.com",
     "dialect": "postgres"
   }
 }
