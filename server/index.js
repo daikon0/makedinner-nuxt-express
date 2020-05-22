@@ -8,6 +8,8 @@ app.use(helmet())
 const session = require('express-session')
 const passport = require('passport')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+
 const mypageRouter = require('../routes/mypage')
 const registerRouter = require('../routes/register')
 const createDishRouter = require('../routes/createDish')
@@ -16,6 +18,7 @@ const callbackRouter = require('../routes/callback')
 const authRouter = require('../routes/auth')
 const memoRouter = require('../routes/memo')
 const rakutenRouter = require('../routes/rakuten')
+const csrfRouter = require('../routes/csrf')
 
 require('dotenv').config()
 
@@ -31,6 +34,8 @@ app.use(passport.session())
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(cookieParser())
+
 app.use('/routes/mypage', mypageRouter)
 app.use('/routes/signout', signoutRouter)
 app.use('/routes/register', registerRouter)
@@ -39,6 +44,7 @@ app.use('/routes/callback', callbackRouter)
 app.use('/routes/auth', authRouter)
 app.use('/routes/memo', memoRouter)
 app.use('/routes/rakuten', rakutenRouter)
+app.use('/routes/csrf', csrfRouter)
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
