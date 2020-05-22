@@ -67,7 +67,7 @@ export default {
   methods: {
     async submit() {
       await this.$axios
-        .$post('/routes/register', {
+        .$post(window.location.origin + '/routes/register', {
           username: this.username,
           password: this.password
         })
