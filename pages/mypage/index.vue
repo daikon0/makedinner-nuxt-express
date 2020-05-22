@@ -66,9 +66,9 @@
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v- block to="/mypage/rakuten" @click="submit">
+                      <v-btn block to="/mypage/rakuten" @click="submit">
                         見つける
-                      </v->
+                      </v-btn>
                     </v-card>
                   </v-col>
 
