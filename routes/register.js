@@ -4,11 +4,15 @@ function getSecureRandom() {
   const hex = buff.toString('hex')
   return parseInt(hex, 16)
 }
+
+const csrf = require('csurf')
+const csrfProtection = csrf({ cookie: true })
+
 const express = require('express')
 const router = express.Router()
 const db = require('../models/index')
 
-router.post('/', async (req, res, next) => {
+router.post('/', csrfProtection, async (req, res, next) => {
   const id = getSecureRandom()
   await db.user
     .create({

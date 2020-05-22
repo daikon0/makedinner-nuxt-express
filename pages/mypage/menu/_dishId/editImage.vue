@@ -23,6 +23,7 @@
                       @change="hasFile"
                     ></v-file-input>
                     <input type="hidden" name="dishId" :value="dishId" />
+                    <input type="hidden" name="_csrf" :value="csrf" />
                     <v-btn class="my-5" type="submit" :disabled="!file">
                       変更する
                     </v-btn>
@@ -39,11 +40,13 @@
 
 <script>
 export default {
-  asyncData({ app }) {
+  async asyncData({ app }) {
     const dishId = app.context.params.dishId
+    const csrf = await app.$axios.$get('/routes/csrf')
     return {
       dishId,
       file: '',
+      csrf,
       required: (value) => !!value || '画像を選択してください'
     }
   },

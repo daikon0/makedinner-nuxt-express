@@ -1,5 +1,9 @@
 const express = require('express')
 const router = express.Router()
+
+const csrf = require('csurf')
+const csrfProtection = csrf({ cookie: true })
+
 const db = require('../models/index')
 
 router.get('/', async (req, res, next) => {
@@ -14,7 +18,7 @@ router.get('/', async (req, res, next) => {
   res.send(memos)
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', csrfProtection, async (req, res, next) => {
   await db.memo
     .create({
       name: req.body.name,
@@ -29,7 +33,7 @@ router.post('/', async (req, res, next) => {
     })
 })
 
-router.post('/edit', async (req, res, next) => {
+router.post('/edit', csrfProtection, async (req, res, next) => {
   const memo = await db.memo
     .findOne({
       where: { id: req.body.memoId }
@@ -47,14 +51,14 @@ router.post('/edit', async (req, res, next) => {
   res.redirect('/mypage/memo')
 })
 
-router.post('/delete', async (req, res, next) => {
+router.post('/delete', csrfProtection, async (req, res, next) => {
   await deleteMemo(req.body.memoId).catch((err) => {
     next(err)
   })
   res.redirect('/mypage/memo')
 })
 
-router.post('/deleteAll', async (req, res, next) => {
+router.post('/deleteAll', csrfProtection, async (req, res, next) => {
   await deleteAll(req.user.name.id).catch((err) => {
     next(err)
   })

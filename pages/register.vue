@@ -50,6 +50,12 @@
 <script>
 export default {
   layout: 'signout',
+  async asyncData({ app }) {
+    const csrf = await app.$axios.$get('/routes/csrf')
+    return {
+      csrf
+    }
+  },
   data() {
     return {
       username: '',
@@ -69,7 +75,8 @@ export default {
       await this.$axios
         .$post(window.location.origin + '/routes/register', {
           username: this.username,
-          password: this.password
+          password: this.password,
+          _csrf: this.csrf
         })
         .then((res) => {
           this.$router.push('/')

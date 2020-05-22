@@ -73,9 +73,11 @@ export default {
   async asyncData({ app }) {
     const dishId = app.context.params.dishId
     const dish = await app.$axios.$get(`/routes/mypage/menu/${dishId}`)
+    const csrf = await app.$axios.$get('/routes/csrf')
     return {
       dish,
-      img: require('@/static/no-image.jpeg')
+      img: require('@/static/no-image.jpeg'),
+      csrf
     }
   },
   created() {
@@ -84,9 +86,13 @@ export default {
   methods: {
     async deleteDish() {
       const id = this.$store.app.context.params.dishId
-      await this.$axios.$post(`/routes/mypage/menu/${id}/delete`).then(() => {
-        this.$router.push('/mypage/menu')
-      })
+      await this.$axios
+        .$post(`/routes/mypage/menu/${id}/delete`, {
+          _csrf: this.csrf
+        })
+        .then(() => {
+          this.$router.push('/mypage/menu')
+        })
     }
   }
 }

@@ -45,6 +45,7 @@
                         type="hidden"
                         name="password"
                       />
+                      <input type="hidden" name="_csrf" :value="csrf" />
                       <v-btn
                         id="login"
                         block
@@ -62,6 +63,7 @@
                     <form action="/routes/auth/local" method="post">
                       <input type="hidden" name="username" value="test" />
                       <input type="hidden" name="password" value="pass" />
+                      <input type="hidden" name="_csrf" :value="csrf" />
                       <v-btn class="mt-9" tile color="info" large type="submit">
                         <v-icon>mdi-shield-account</v-icon>
                         ゲストユーザーでログイン
@@ -92,6 +94,12 @@
 <script>
 export default {
   layout: 'signout',
+  async asyncData({ app }) {
+    const csrf = await app.$axios.$get('/routes/csrf')
+    return {
+      csrf
+    }
+  },
   data() {
     return {
       username: '',
