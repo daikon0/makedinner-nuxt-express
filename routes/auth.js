@@ -2,9 +2,6 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
-const csrf = require('csurf')
-const csrfProtection = csrf({ cookie: true })
-
 const LocalStrategy = require('passport-local').Strategy
 
 const db = require('../models/index')
@@ -12,7 +9,6 @@ const db = require('../models/index')
 localAuth()
 router.post(
   '/local',
-  csrfProtection,
   passport.authenticate('local', {
     successRedirect: '/callback',
     failureRedirect: '/retry',
