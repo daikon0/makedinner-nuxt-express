@@ -60,6 +60,7 @@ export default {
     return {
       username: '',
       password: '',
+      csrf: '',
       show1: false,
       success: false,
       required: (value) => !!value || '必ず入力してください',

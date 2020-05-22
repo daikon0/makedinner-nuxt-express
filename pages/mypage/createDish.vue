@@ -92,6 +92,7 @@ export default {
       dishUrl: '',
       dishGenre: '',
       dishRole: '',
+      csrf: '',
       required: (value) => !!value || '必ず入力してください'
     }
   },
