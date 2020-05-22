@@ -67,6 +67,7 @@
                         :value="dishGenre"
                       />
                       <input type="hidden" name="dishRole" :value="dishRole" />
+                      <input type="hidden" name="_csrf" :value="csrf" />
                       <v-btn
                         :disabled="
                           !recipe.recipeTitle || !dishGenre || !dishRole
@@ -107,10 +108,12 @@ export default {
     const recipe = recipes.filter((item) => {
       if (item.recipeId === recipeId) return true
     })
+    const csrf = await app.$axios.$get('/routes/csrf')
     return {
       recipe: recipe[0],
       dishGenre: '',
       dishRole: '',
+      csrf,
       required: (value) => !!value || '必ず入力してください'
     }
   },

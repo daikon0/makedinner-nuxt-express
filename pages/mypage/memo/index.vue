@@ -55,6 +55,7 @@
                     </v-form>
                     <form class="d-inline" action="/routes/memo" method="post">
                       <input type="hidden" name="name" :value="name" />
+                      <input type="hidden" name="_csrf" :value="csrf" />
                       <v-btn :disabled="!name" class="ma-5" type="submit">
                         <v-icon>mdi-pencil-plus</v-icon>
                         追加する
@@ -79,8 +80,10 @@
 export default {
   async asyncData({ app }) {
     const memos = await app.$axios.$get('/routes/memo')
+    const csrf = await app.$axios.$get('/routes/csrf')
     return {
-      memos
+      memos,
+      csrf
     }
   },
   data() {
@@ -97,7 +100,8 @@ export default {
     async edit(id) {
       await this.$axios
         .$post('/routes/memo/edit', {
-          memoId: id
+          memoId: id,
+          _csrf: this.csrf
         })
         .then(() => {
           location.reload()
@@ -106,16 +110,21 @@ export default {
     async memoDelete(id) {
       await this.$axios
         .$post('/routes/memo/delete', {
-          memoId: id
+          memoId: id,
+          _csrf: this.csrf
         })
         .then(() => {
           location.reload()
         })
     },
     async deleteAll() {
-      await this.$axios.$post('/routes/memo/deleteAll').then(() => {
-        location.reload()
-      })
+      await this.$axios
+        .$post('/routes/memo/deleteAll', {
+          _csrf: this.csrf
+        })
+        .then(() => {
+          location.reload()
+        })
     }
   }
 }

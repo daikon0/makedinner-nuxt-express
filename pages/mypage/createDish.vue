@@ -56,6 +56,7 @@
                         :value="dishGenre"
                       />
                       <input type="hidden" name="dishRole" :value="dishRole" />
+                      <input type="hidden" name="_csrf" :value="csrf" />
                       <v-btn
                         :disabled="!dishName || !dishGenre || !dishRole"
                         class="my-5"
@@ -78,6 +79,12 @@
 
 <script>
 export default {
+  async asyncData({ app }) {
+    const csrf = await app.$axios.$get('/routes/csrf')
+    return {
+      csrf
+    }
+  },
   data() {
     return {
       submit: false,

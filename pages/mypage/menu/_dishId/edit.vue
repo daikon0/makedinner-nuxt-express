@@ -42,9 +42,11 @@ export default {
   async asyncData({ app }) {
     const dishId = app.context.params.dishId
     const dish = await app.$axios.$get(`/routes/mypage/menu/${dishId}`)
+    const csrf = await app.$axios.$get('/routes/csrf')
     return {
       dishName: dish.dishName,
-      dishUrl: dish.dishUrl
+      dishUrl: dish.dishUrl,
+      csrf
     }
   },
   data() {
@@ -63,7 +65,8 @@ export default {
       await this.$axios
         .$post(`/routes/mypage/menu/${id}/edit`, {
           dishName: this.dishName,
-          dishUrl: this.dishUrl
+          dishUrl: this.dishUrl,
+          _csrf: this.csrf
         })
         .then(() => {
           this.$router.push('/mypage/menu')

@@ -1,5 +1,9 @@
 const express = require('express')
 const router = express.Router()
+
+const csrf = require('csurf')
+const csrfProtection = csrf({ cookie: true })
+
 const uuid = require('uuid')
 const updatedAt = new Date()
 const multer = require('multer')
@@ -20,46 +24,51 @@ const storage = s3Storage({
 })
 const upload = multer({ storage })
 
-router.post('/', upload.single('dishFile'), async (req, res, next) => {
-  const fileCheck = req.file
-  const dishId = uuid.v4()
-  if (fileCheck === undefined) {
-    await db.dish
-      .create({
-        dishId,
-        dishName: req.body.dishName,
-        dishFile: null,
-        dishUrl: req.body.dishUrl,
-        dishGenre: req.body.dishGenre,
-        dishRole: req.body.dishRole,
-        createdBy: req.user.name.id,
-        updatedAt
-      })
-      .catch((err) => {
-        next(err)
-      })
-    res.redirect('/mypage/menu')
-  } else {
-    await db.dish
-      .create({
-        dishId,
-        dishName: req.body.dishName,
-        dishFile: req.file.Location || null,
-        dishUrl: req.body.dishUrl,
-        dishGenre: req.body.dishGenre,
-        dishRole: req.body.dishRole,
-        createdBy: req.user.name.id,
-        updatedAt
-      })
-      .catch((err) => {
-        next(err)
-      })
+router.post(
+  '/',
+  upload.single('dishFile'),
+  csrfProtection,
+  async (req, res, next) => {
+    const fileCheck = req.file
+    const dishId = uuid.v4()
+    if (fileCheck === undefined) {
+      await db.dish
+        .create({
+          dishId,
+          dishName: req.body.dishName,
+          dishFile: null,
+          dishUrl: req.body.dishUrl,
+          dishGenre: req.body.dishGenre,
+          dishRole: req.body.dishRole,
+          createdBy: req.user.name.id,
+          updatedAt
+        })
+        .catch((err) => {
+          next(err)
+        })
+      res.redirect('/mypage/menu')
+    } else {
+      await db.dish
+        .create({
+          dishId,
+          dishName: req.body.dishName,
+          dishFile: req.file.Location || null,
+          dishUrl: req.body.dishUrl,
+          dishGenre: req.body.dishGenre,
+          dishRole: req.body.dishRole,
+          createdBy: req.user.name.id,
+          updatedAt
+        })
+        .catch((err) => {
+          next(err)
+        })
 
-    res.redirect('/mypage/menu')
+      res.redirect('/mypage/menu')
+    }
   }
-})
+)
 
-router.post('/rakuten', async (req, res, next) => {
+router.post('/rakuten', csrfProtection, async (req, res, next) => {
   const dishId = uuid.v4()
   await db.dish
     .create({
