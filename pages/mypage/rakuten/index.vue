@@ -50,11 +50,7 @@ export default {
     Loading
   },
   async asyncData({ app }) {
-    const secret = process.env.RAKUTEN_SECRET
-    const category = await app.$axios.$get(
-      `https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=${secret}&categoryType=large`
-    )
-    const categories = category.result.large
+    const categories = await app.$axios.$get('/routes/rakuten')
     return {
       categories
     }
