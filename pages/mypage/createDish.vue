@@ -7,7 +7,7 @@
             <div>
               <v-row justify="center">
                 <v-col>
-                  <v-card-title>料理を登録する</v-card-title>
+                  <v-card-title id="title">料理を登録する</v-card-title>
                   <v-card-text>
                     <v-form ref="test_form">
                       <v-text-field
