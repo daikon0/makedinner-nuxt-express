@@ -14,10 +14,12 @@ localVue.use(Vuetify)
 describe('pages/mypage/createDish.vue', () => {
   let wrapper
   let vuetify
+  // let mock
 
   beforeEach(() => {
     wrapper = null
     vuetify = new Vuetify()
+    // mock = jest.fn()
     wrapper = mount(CreateDishPage, {
       store: new Vuex.Store(cloneDeep(store)),
       localVue,
@@ -41,11 +43,15 @@ describe('pages/mypage/createDish.vue', () => {
     expect(radios.length).toBe(6)
   })
 
-  // test('priventをクリックするとsubmitがtrueに変更される', () => {
-  //   expect(wrapper.vm.submit).toBe(false)
-  //   wrapper.find('.v-btn').setProps({ disabled: false })
-  //   expect(wrapper.find('.v-btn').props().disabled).toBe(false)
-  //   wrapper.find('.v-btn').trigger('click')
-  //   expect(wrapper.vm.submit).toBe(true)
+  test('priventをクリックするとsubmitがtrueに変更される', () => {
+    expect(wrapper.vm.submit).toBe(false)
+    wrapper.vm.prevent()
+    expect(wrapper.vm.submit).toBe(true)
+  })
+
+  // test('a', () => {
+  //   wrapper.setMethods({ prevent: mock })
+  //   wrapper.vm.prevent()
+  //   expect(mock).toHaveBeenCalled()
   // })
 })
