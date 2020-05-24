@@ -1,5 +1,7 @@
 # makedinner-nuxt-express
 
+[![CircleCI](https://circleci.com/gh/daikon0/makedinner-nuxt-express.svg?style=svg)](https://circleci.com/gh/daikon0/makedinner-nuxt-express)
+
 > My top-notch Nuxt.js project
 
 ## Build Setup
