@@ -10,13 +10,19 @@ export default {
     }
   },
   async mounted() {
-    const res = await this.$axios.get('/routes/callback')
-    const user = {
-      id: res.data.user.name.id,
-      name: res.data.user.name.username
-    }
+    const user = await this.getUser()
+    // const user = {
+    //   id: res.data.user.name.id,
+    //   name: res.data.user.name.username
+    // }
     this.$store.commit('login', user)
     this.$router.push('/mypage')
+  },
+  methods: {
+    async getUser() {
+      const res = await this.$axios.get('/routes/callback')
+      return { id: res.data.user.name.id, name: res.data.user.name.username }
+    }
   }
 }
 </script>
