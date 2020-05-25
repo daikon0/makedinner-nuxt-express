@@ -60,4 +60,8 @@ describe('pages/mypage/memo/index.vue', () => {
     wrapper.find('#name').setValue('testname')
     expect(wrapper.vm.name).toBe('testname')
   })
+
+  test('条件を満たした入力がないとボタンを押せない', () => {
+    expect(wrapper.find('#addButton').props().disabled).toBe(true)
+  })
 })
