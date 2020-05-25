@@ -1,10 +1,20 @@
+
 # makedinner-nuxt-express
+
 
 [![CircleCI](https://circleci.com/gh/daikon0/makedinner-nuxt-express.svg?style=svg)](https://circleci.com/gh/daikon0/makedinner-nuxt-express)
 
-> My top-notch Nuxt.js project
+### 使用技術　　
+- Nuxt
+- Express
+
+## URL
+https://makedinner-infra.work
 
 ## Build Setup
+
+
+> My top-notch Nuxt.js project
 
 ```bash
 # install dependencies
