@@ -6,6 +6,7 @@
 > 夕飯の献立を決めてくれるアプリケーションです。
 
 ## 使用技術
+開発環境 : ubuntu18.04
 - Nuxt.js(SPA, SSR)
 - Express
 - Vuetify
