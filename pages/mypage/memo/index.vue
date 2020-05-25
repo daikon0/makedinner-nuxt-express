@@ -62,7 +62,12 @@
                     <form class="d-inline" action="/routes/memo" method="post">
                       <input type="hidden" name="name" :value="name" />
                       <input type="hidden" name="_csrf" :value="csrf" />
-                      <v-btn id="addButton" :disabled="!name" class="ma-5" type="submit">
+                      <v-btn
+                        id="addButton"
+                        :disabled="!name"
+                        class="ma-5"
+                        type="submit"
+                      >
                         <v-icon>mdi-pencil-plus</v-icon>
                         追加する
                       </v-btn>
