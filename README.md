@@ -13,7 +13,7 @@
 - Express
 - Vuetify
 - Nginx
-- AWS(EC2, RDS, S3, VPC, Route53, ELB, ACM)
+- AWS(EC2, RDS, S3, VPC, Route53, ALB, ACM)
 - Docker
 - Jest
 - CircleCi
