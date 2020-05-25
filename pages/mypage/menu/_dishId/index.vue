@@ -11,7 +11,10 @@
                   :src="dish.dishFile"
                   max-height="500"
                 >
-                  <v-card-title v-text="dish.dishName"></v-card-title>
+                  <v-card-title
+                    class="font-weight-black"
+                    v-text="dish.dishName"
+                  ></v-card-title>
                 </v-img>
               </div>
               <div v-else>
