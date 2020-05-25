@@ -6,7 +6,7 @@
           <v-card elevation="5">
             <div v-if="!$store.state.loading" class="container">
               <p id="name" class="ma-3 title">
-                ようこそ、{{ $store.getters.username.name }}さん
+                ようこそ、{{ $store.getters.username }}さん
               </p>
               <v-container>
                 <v-row justify="center">
@@ -22,11 +22,11 @@
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100">
-                          <v-img :src="menu_img"></v-img>
+                          <img src="~/assets/book.jpg" alt="menu-image" />
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v-btn block to="/mypage/menu">料理一覧</v-btn>
+                      <v-btn id="toMenu" block to="/mypage/menu">料理一覧</v-btn>
                     </v-card>
                   </v-col>
 
@@ -42,7 +42,7 @@
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
-                          <v-img :src="add_img"></v-img>
+                          <img src="~/assets/desk.jpg" alt="menu-image" />
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
@@ -62,11 +62,11 @@
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
-                          <v-img :src="find_img"></v-img>
+                          <img src="~/assets/coffee.jpg" alt="menu-image" />
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v-btn block to="/mypage/rakuten" @click="submit">
+                      <v-btn id="toRakuten" block to="/mypage/rakuten" @click="submit">
                         見つける
                       </v-btn>
                     </v-card>
@@ -84,7 +84,7 @@
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
-                          <v-img :src="select_img"></v-img>
+                          <img src="~/assets/dish.jpg" alt="menu-image" />
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
@@ -104,7 +104,7 @@
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
-                          <v-img :src="memo_img"></v-img>
+                          <img src="~/assets/note.jpg" alt="menu-image" />
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
@@ -124,7 +124,7 @@
                           </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-avatar tile size="100" color="grey">
-                          <v-img :src="onedish_img"></v-img>
+                          <img src="~/assets/onedish.jpeg" alt="menu-image" />
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
@@ -138,7 +138,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <Loading v-if="$store.state.loading" />
+    <Loading id="load" v-if="$store.state.loading" />
   </v-app>
 </template>
 
@@ -148,16 +148,24 @@ export default {
   components: {
     Loading
   },
-  data() {
-    return {
-      add_img: require('@/static/desk.jpg'),
-      find_img: require('@/static/coffee.jpg'),
-      select_img: require('@/static/dish.jpg'),
-      menu_img: require('@/static/book.jpg'),
-      memo_img: require('@/static/note.jpg'),
-      onedish_img: require('@/static/onedish.jpeg')
-    }
-  },
+  // data() {
+  //   return {
+  //     add_img: '',
+  //     find_img: '',
+  //     select_img: '',
+  //     menu_img: '',
+  //     memo_img: '',
+  //     onedish_img: ''
+  //   }
+  // },
+  // mounted() {
+  //   this.add_img = require('@/static/desk.jpg')
+  //   this.find_img = require('@/static/coffee.jpg')
+  //   this.select_img = require('@/static/dish.jpg')
+  //   this.menu_img = require('@/static/book.jpg')
+  //   this.memo_img = require('@/static/note.jpg')
+  //   this.onedish_img = require('@/static/onedish.jpeg')
+  // },
   created() {
     this.$store.commit('uploadTitle', '今晩の献立　〜Make Dinner〜')
     this.$store.commit('reload')
