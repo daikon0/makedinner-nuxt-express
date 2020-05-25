@@ -15,7 +15,7 @@ export default {
     //   id: res.data.user.name.id,
     //   name: res.data.user.name.username
     // }
-    this.$store.commit('login', user)
+    this.$store.dispatch('setUser', user)
     this.$router.push('/mypage')
   },
   methods: {

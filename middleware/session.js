@@ -21,7 +21,7 @@ export default async ({ store, route, redirect }) => {
         id: res.data.user.name.id,
         name: res.data.user.name.username
       }
-      store.commit('login', user)
+      store.dispatch('setUser', user)
     } else if (route.path !== '/') {
       return redirect('/')
     }

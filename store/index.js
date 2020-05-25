@@ -38,6 +38,9 @@ export const mutations = {
 }
 
 export const actions = {
+  setUser(context, user) {
+    context.commit('login', user)
+  },
   setTitle(context, title) {
     context.commit('uploadTitle', title)
   }
