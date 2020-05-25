@@ -11,9 +11,9 @@ export const state = () => ({
 
 export const getters = {
   title: (state) => state.title,
+  loading: (state) => state.loading,
   username: (state) => state.user.name,
-  rice: (state) => state.rice,
-  loading: (state) => state.loading
+  rice: (state) => state.rice
 }
 
 export const mutations = {
