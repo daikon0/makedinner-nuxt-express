@@ -1,7 +1,7 @@
 export const state = () => ({
   title: '',
   loading: false,
-  user: null,
+  user: { name: '', id: '' },
   auth: false,
   rice: {
     name: 'yakiniku',
@@ -11,7 +11,7 @@ export const state = () => ({
 
 export const getters = {
   title: (state) => state.title,
-  username: (state) => state.user,
+  username: (state) => state.user.name,
   rice: (state) => state.rice
 }
 
