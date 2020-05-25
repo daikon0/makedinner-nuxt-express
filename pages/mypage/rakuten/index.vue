@@ -56,7 +56,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', 'カテゴリー')
+    this.$store.dispatch('setTitle', 'カテゴリー')
     this.$store.dispatch('reset')
   },
   methods: {

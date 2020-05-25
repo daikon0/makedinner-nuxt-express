@@ -84,7 +84,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', this.dish.dishName)
+    this.$store.dispatch('setTitle', this.dish.dishName)
   },
   methods: {
     async deleteDish() {

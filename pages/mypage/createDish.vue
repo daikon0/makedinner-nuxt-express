@@ -97,7 +97,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', '登録する')
+    this.$store.dispatch('setTitle', '登録する')
   },
   methods: {
     prevent() {

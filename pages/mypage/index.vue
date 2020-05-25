@@ -174,7 +174,7 @@ export default {
   //   this.onedish_img = require('@/static/onedish.jpeg')
   // },
   created() {
-    this.$store.commit('uploadTitle', '今晩の献立　〜Make Dinner〜')
+    this.$store.dispatch('setTitle', '今晩の献立　〜Make Dinner〜')
     this.$store.dispatch('reset')
   },
   methods: {

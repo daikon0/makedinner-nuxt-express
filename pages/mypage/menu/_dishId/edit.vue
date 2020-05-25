@@ -57,7 +57,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', this.dishName + 'を編集')
+    this.$store.dispatch('setTitle', this.dishName + 'を編集')
   },
   methods: {
     async edit() {

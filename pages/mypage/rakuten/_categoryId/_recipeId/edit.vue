@@ -118,7 +118,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', this.recipe.recipeTitle)
+    this.$store.dispatch('setTitle', this.recipe.recipeTitle)
     this.$store.dispatch('reset')
   },
   methods: {

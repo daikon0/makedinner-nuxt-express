@@ -72,7 +72,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', this.title)
+    this.$store.dispatch('setTitle', this.title)
     this.$store.dispatch('reset')
   },
   methods: {

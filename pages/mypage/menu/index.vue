@@ -54,7 +54,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', 'メニュー')
+    this.$store.dispatch('setTitle', 'メニュー')
   }
 }
 </script>

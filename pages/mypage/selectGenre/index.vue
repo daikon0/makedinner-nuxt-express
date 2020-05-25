@@ -93,7 +93,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', '今日の献立')
+    this.$store.dispatch('setTitle', '今日の献立')
   },
   beforeRouteUpdate(to, from, next) {
     // this.dish = to.query.genre

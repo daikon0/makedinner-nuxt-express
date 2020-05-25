@@ -51,7 +51,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('uploadTitle', '画像の変更')
+    this.$store.dispatch('setTitle', '画像の変更')
   },
   methods: {
     hasFile(file) {
