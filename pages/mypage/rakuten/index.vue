@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container v-if="!$store.state.loading" fluid>
+    <v-container v-if="!$store.getters.loading" fluid>
       <v-row justify="center">
         <v-col cols="12" md="8">
           <v-btn class="my-3" color="info" to="/mypage">
@@ -39,7 +39,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <Loading v-if="$store.state.loading" />
+    <Loading v-if="$store.getters.loading" />
   </v-app>
 </template>
 

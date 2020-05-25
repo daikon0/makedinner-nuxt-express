@@ -4,7 +4,7 @@
       <v-row justify="center">
         <v-col>
           <v-card elevation="5">
-            <div v-if="!$store.state.loading" class="container">
+            <div v-if="!$store.getters.loading" class="container">
               <p id="name" class="ma-3 title">
                 ようこそ、{{ $store.getters.username }}さん
               </p>
@@ -145,7 +145,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <Loading v-if="$store.state.loading" />
+    <Loading v-if="$store.getters.loading" />
   </v-app>
 </template>
 

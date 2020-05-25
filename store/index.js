@@ -12,7 +12,8 @@ export const state = () => ({
 export const getters = {
   title: (state) => state.title,
   username: (state) => state.user.name,
-  rice: (state) => state.rice
+  rice: (state) => state.rice,
+  loading: (state) => state.loading
 }
 
 export const mutations = {

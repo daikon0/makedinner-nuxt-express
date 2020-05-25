@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div v-if="!$store.state.loading">
+    <div v-if="!$store.getters.loading">
       <v-container fluid>
         <v-row justify="center">
           <v-col cols="12" md="6">
@@ -79,7 +79,7 @@
         </v-row>
       </v-container>
     </div>
-    <Loading v-if="$store.state.loading" />
+    <Loading v-if="$store.getters.loading" />
   </v-app>
 </template>
 
