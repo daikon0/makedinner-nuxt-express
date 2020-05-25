@@ -43,6 +43,9 @@ export const actions = {
   },
   setTitle(context, title) {
     context.commit('uploadTitle', title)
+  },
+  setLoading(context) {
+    context.commit('submit')
   }
 }
 

@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$store.commit('submit')
+      this.$store.dispatch('setLoading')
     }
   }
 }

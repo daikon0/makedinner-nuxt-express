@@ -70,6 +70,7 @@
                     }
                   }"
                   class="ma-3"
+                  @click="submit"
                 >
                   保存する
                 </v-btn>
@@ -111,7 +112,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$store.commit('submit')
+      this.$store.dispatch('setLoading')
     }
   }
 }
