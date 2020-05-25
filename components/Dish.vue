@@ -16,7 +16,7 @@
             <v-card-title v-text="dish.dishName"></v-card-title>
           </v-img>
         </div>
-        <v-btn block color="info" dark>
+        <v-btn v-if="dish.dishUrl" block color="info" dark>
           <a :href="dish.dishUrl" target="_blank" class="white--text align-end">
             レシピを見る
           </a>
