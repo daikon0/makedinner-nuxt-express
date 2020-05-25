@@ -13,6 +13,7 @@ export const getters = {
   title: (state) => state.title,
   loading: (state) => state.loading,
   username: (state) => state.user.name,
+  auth: (state) => state.auth,
   rice: (state) => state.rice
 }
 

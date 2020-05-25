@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default async ({ store, route, redirect }) => {
-  if (store.state.auth) {
+  if (store.getters.auth) {
     return
   }
   if (route.path === '/') {
