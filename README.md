@@ -5,6 +5,9 @@
 
 > 夕飯の献立を決めてくれるアプリケーションです。
 
+![make_dinner](https://user-images.githubusercontent.com/54714572/82800992-8bcea180-9eb7-11ea-9aeb-21fbb9883e8c.gif)
+
+
 ## 使用技術
 開発環境 : ubuntu18.04
 - Nuxt.js(SPA, SSR)
