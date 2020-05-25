@@ -14,6 +14,7 @@
                         <v-list-item :key="memo.id">
                           <v-list-item-action>
                             <v-checkbox
+                              id="edit"
                               :input-value="memo.done"
                               @click="edit(memo.id)"
                             ></v-checkbox>
@@ -33,7 +34,11 @@
                             ></v-list-item-title>
                           </v-list-item-content>
                           <v-list-item-action>
-                            <v-btn icon @click="memoDelete(memo.id)">
+                            <v-btn
+                              id="delete"
+                              icon
+                              @click="memoDelete(memo.id)"
+                            >
                               <v-icon large color="grey lighten-1">
                                 mdi-trash-can-outline
                               </v-icon>
@@ -48,6 +53,7 @@
                     </v-list-item-group>
                     <v-form class="mt-6">
                       <v-text-field
+                        id="name"
                         v-model="name"
                         label="材料を記入"
                         :rules="[required]"
@@ -61,7 +67,11 @@
                         追加する
                       </v-btn>
                     </form>
-                    <v-btn class="ml-3 d-inline" @click="deleteAll">
+                    <v-btn
+                      id="deleteAll"
+                      class="ml-3 d-inline"
+                      @click="deleteAll"
+                    >
                       <v-icon>mdi-reload</v-icon>
                       リセット
                     </v-btn>
@@ -90,7 +100,8 @@ export default {
     return {
       name: '',
       memos: [],
-      required: (value) => !!value || '入力しないと追加ボタンを押せません'
+      required: (value) => !!value || '入力しないと追加ボタンを押せません',
+      csrf: ''
     }
   },
   created() {

@@ -26,7 +26,9 @@
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v-btn id="toMenu" block to="/mypage/menu">料理一覧</v-btn>
+                      <v-btn id="toMenu" block to="/mypage/menu">
+                        料理一覧
+                      </v-btn>
                     </v-card>
                   </v-col>
 
@@ -66,7 +68,12 @@
                         </v-list-item-avatar>
                       </v-list-item>
                       <v-divider></v-divider>
-                      <v-btn id="toRakuten" block to="/mypage/rakuten" @click="submit">
+                      <v-btn
+                        id="toRakuten"
+                        block
+                        to="/mypage/rakuten"
+                        @click="submit"
+                      >
                         見つける
                       </v-btn>
                     </v-card>
@@ -138,7 +145,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <Loading id="load" v-if="$store.state.loading" />
+    <Loading v-if="$store.state.loading" />
   </v-app>
 </template>
 
