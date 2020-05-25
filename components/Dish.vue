@@ -6,13 +6,13 @@
           <v-img
             class="white--text align-end"
             :src="dish.dishFile"
-            min-height="400"
+            height="400"
           >
             <v-card-title v-text="dish.dishName"></v-card-title>
           </v-img>
         </div>
         <div v-else>
-          <v-img class="align-end" :src="img" min-height="400">
+          <v-img class="align-end" :src="img" height="400">
             <v-card-title v-text="dish.dishName"></v-card-title>
           </v-img>
         </div>
