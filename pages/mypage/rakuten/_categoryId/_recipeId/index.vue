@@ -108,7 +108,7 @@ export default {
   },
   created() {
     this.$store.commit('uploadTitle', this.recipe.recipeTitle)
-    this.$store.commit('reload')
+    this.$store.dispatch('reset')
   },
   methods: {
     submit() {

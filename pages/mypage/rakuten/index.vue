@@ -57,7 +57,7 @@ export default {
   },
   created() {
     this.$store.commit('uploadTitle', 'カテゴリー')
-    this.$store.commit('reload')
+    this.$store.dispatch('reset')
   },
   methods: {
     submit() {

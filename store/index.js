@@ -46,6 +46,9 @@ export const actions = {
   },
   setLoading(context) {
     context.commit('submit')
+  },
+  reset(context) {
+    context.commit('reload')
   }
 }
 

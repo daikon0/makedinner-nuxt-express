@@ -73,7 +73,7 @@ export default {
   },
   created() {
     this.$store.commit('uploadTitle', this.title)
-    this.$store.commit('reload')
+    this.$store.dispatch('reset')
   },
   methods: {
     submit() {

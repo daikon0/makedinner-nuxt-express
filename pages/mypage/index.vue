@@ -175,7 +175,7 @@ export default {
   // },
   created() {
     this.$store.commit('uploadTitle', '今晩の献立　〜Make Dinner〜')
-    this.$store.commit('reload')
+    this.$store.dispatch('reset')
   },
   methods: {
     submit() {
