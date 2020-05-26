@@ -12,6 +12,7 @@
 - Nuxt.js(SPA, SSR)
 - Express
 - Vuetify
+- PostgreSQL
 - Nginx
 - AWS(EC2, RDS, S3, VPC, Route53, ALB, ACM)
 - Docker
@@ -30,5 +31,5 @@ https://makedinner-infra.work
 - お買い物用メモ
 
 ## 制作背景
-毎日違うメニューの献立を考えることが苦痛でした。  
+毎日違うメニューの献立を考えることが苦痛でした。
 この苦痛は主婦の方などの多くの方々の悩みでもあると考え、その悩みを解決すべく制作いたしました。
