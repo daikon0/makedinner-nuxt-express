@@ -31,6 +31,7 @@ router.post(
   async (req, res, next) => {
     const fileCheck = req.file
     const dishId = uuid.v4()
+    // fileをnullにしている
     if (fileCheck === undefined) {
       await db.dish
         .create({
@@ -48,6 +49,7 @@ router.post(
         })
       res.redirect('/mypage/menu')
     } else {
+      // fileあり
       await db.dish
         .create({
           dishId,
