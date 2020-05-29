@@ -11,10 +11,6 @@ export default {
   },
   async mounted() {
     const user = await this.getUser()
-    // const user = {
-    //   id: res.data.user.name.id,
-    //   name: res.data.user.name.username
-    // }
     this.$store.dispatch('setUser', user)
     this.$router.push('/mypage')
   },
