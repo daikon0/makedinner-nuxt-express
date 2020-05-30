@@ -70,6 +70,7 @@ router.post(
   }
 )
 
+// 楽天はFileが必ずあるのでfileCheckしない
 router.post('/rakuten', csrfProtection, async (req, res, next) => {
   const dishId = uuid.v4()
   await db.dish
