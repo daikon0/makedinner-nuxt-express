@@ -155,24 +155,6 @@ export default {
   components: {
     Loading
   },
-  // data() {
-  //   return {
-  //     add_img: '',
-  //     find_img: '',
-  //     select_img: '',
-  //     menu_img: '',
-  //     memo_img: '',
-  //     onedish_img: ''
-  //   }
-  // },
-  // mounted() {
-  //   this.add_img = require('@/static/desk.jpg')
-  //   this.find_img = require('@/static/coffee.jpg')
-  //   this.select_img = require('@/static/dish.jpg')
-  //   this.menu_img = require('@/static/book.jpg')
-  //   this.memo_img = require('@/static/note.jpg')
-  //   this.onedish_img = require('@/static/onedish.jpeg')
-  // },
   created() {
     this.$store.dispatch('setTitle', '今晩の献立　〜Make Dinner〜')
     this.$store.dispatch('reset')
