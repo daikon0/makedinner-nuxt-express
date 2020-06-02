@@ -70,6 +70,7 @@ export default {
     this.dishes = this.res
   },
   methods: {
+    // クリックされたボタンのジャンルだけをdishに渡す
     all() {
       this.dishes = this.res
     },
