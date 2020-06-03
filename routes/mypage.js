@@ -131,10 +131,10 @@ async function selectDish(req, genre, role) {
   dish.forEach((dish) => {
     dishArray.push(dish)
   })
-  return romdomDish(dishArray)
+  return rondomDish(dishArray)
 }
 
-function romdomDish(dishArray) {
+function rondomDish(dishArray) {
   return dishArray[Math.floor(Math.random() * dishArray.length)]
 }
 
