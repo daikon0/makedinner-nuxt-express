@@ -45,6 +45,7 @@
                             </v-btn>
                           </v-list-item-action>
                         </v-list-item>
+                        <!--最後の行には下線をひかない-->
                         <v-divider
                           v-if="index + 1 < memos.length"
                           :key="index"
