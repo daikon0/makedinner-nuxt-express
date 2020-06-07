@@ -120,16 +120,12 @@ router.get('/selectGenre', async (req, res, next) => {
 
 // ジャンルが選択された際に料理を渡す
 async function selectDish(req, genre, role) {
-  const dish = await db.dish.findAll({
+  const dishArray = await db.dish.findAll({
     where: {
       dishGenre: genre,
       createdBy: req.user.name.id,
       dishRole: role
     }
-  })
-  const dishArray = []
-  dish.forEach((dish) => {
-    dishArray.push(dish)
   })
   return rondomDish(dishArray)
 }
