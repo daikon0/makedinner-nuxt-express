@@ -96,7 +96,6 @@ export default {
     this.$store.dispatch('setTitle', '今日の献立')
   },
   beforeRouteUpdate(to, from, next) {
-    // this.dish = to.query.genre
     this.setDish(to.query.genre)
     next()
   },
