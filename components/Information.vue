@@ -1,6 +1,6 @@
 <template>
   <v-col class="my-3" cols="10" md="6">
-    <v-card class="mx-auto" outlined elevation="5">
+    <v-card class="mx-auto" outlined elevation="5" :to="to" @click="submit">
       <v-list-item three-line>
         <v-list-item-content>
           <v-list-item-title
@@ -14,7 +14,7 @@
         </v-list-item-avatar>
       </v-list-item>
       <v-divider></v-divider>
-      <v-btn block :to="to" @click="submit" v-text="btn"></v-btn>
+      <v-btn block v-text="btn"></v-btn>
     </v-card>
   </v-col>
 </template>
