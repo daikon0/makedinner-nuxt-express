@@ -19,11 +19,11 @@
             <v-card-title v-text="dish.dishName"></v-card-title>
           </v-img>
         </div>
-        <v-btn v-if="dish.dishUrl" block color="info" dark>
-          <a :href="dish.dishUrl" target="_blank" class="white--text align-end">
+        <a :href="dish.dishUrl" target="_blank" class="white--text align-end">
+          <v-btn v-if="dish.dishUrl" block color="info" dark>
             レシピを見る
-          </a>
-        </v-btn>
+          </v-btn>
+        </a>
       </div>
     </v-card>
   </v-container>
