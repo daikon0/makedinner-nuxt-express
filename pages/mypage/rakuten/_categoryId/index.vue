@@ -10,7 +10,6 @@
           <v-card class="mt-5">
             <div>
               <v-list rounded subheader>
-                <v-subheader>recipes!!</v-subheader>
                 <v-list-item
                   v-for="recipe in recipes"
                   :key="recipe.recipeId"

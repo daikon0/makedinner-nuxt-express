@@ -12,7 +12,6 @@
               <v-row justify="center">
                 <v-col>
                   <v-list rounded subheader>
-                    <v-subheader inset>rakuten category</v-subheader>
                     <v-list-item-group>
                       <v-list-item
                         v-for="category in categories"
