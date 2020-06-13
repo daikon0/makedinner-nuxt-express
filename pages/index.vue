@@ -1,89 +1,71 @@
 <template>
   <v-app>
+    <div>
+      <v-img :src="require('@/assets/foodlbg.jpg')" height="300px">
+        <div id="title" class="text-center title">
+          <p class="mt-12 display-1 white--text">
+            今晩の献立
+            <br />
+            Make Dinner
+          </p>
+        </div>
+        <div>
+          <div id="btn" class="text-center">
+            <v-btn class="mx-9" to="/register">新規登録</v-btn>
+            <v-btn class="mx-9" to="/login">ログイン</v-btn>
+          </div>
+          <div id="btn" class="text-center">
+            <form action="/routes/auth/local" method="post">
+              <input type="hidden" name="username" value="GuestUser" />
+              <input type="hidden" name="password" value="GuestPass" />
+              <input type="hidden" name="_csrf" :value="csrf" />
+              <v-btn class="mt-9" tile large type="submit">
+                <v-icon>mdi-shield-account</v-icon>
+                ゲストユーザーでログイン
+              </v-btn>
+            </form>
+          </div>
+        </div>
+      </v-img>
+    </div>
     <v-container fluid>
       <v-row justify="center">
-        <v-col cols="12" md="6" sm="8">
+        <v-col class="mx-6" cols="12" md="5" sm="8">
           <v-card class="mt-5" elevation="5">
-            <div>
-              <v-row justify="center">
-                <v-col cols="12" md="10">
-                  <v-card-title>
-                    <v-icon large>mdi-nuxt</v-icon>
-                    Make Dinner
-                  </v-card-title>
-                  <v-card-text>
-                    <v-form ref="test_form">
-                      <v-text-field
-                        v-model="username"
-                        label="usernmae"
-                        :rules="[required]"
-                      ></v-text-field>
-                      <v-text-field
-                        v-model="password"
-                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                        :type="show1 ? 'text' : 'password'"
-                        label="password"
-                        :rules="[required, limit_length]"
-                        counter="8"
-                        @click:append="show1 = !show1"
-                      ></v-text-field>
-                    </v-form>
-                    <form
-                      class="text-center"
-                      action="/routes/auth/local"
-                      method="post"
-                    >
-                      <input
-                        id="username"
-                        v-model="username"
-                        type="hidden"
-                        name="username"
-                      />
-                      <input
-                        id="password"
-                        v-model="password"
-                        type="hidden"
-                        name="password"
-                      />
-                      <input type="hidden" name="_csrf" :value="csrf" />
-                      <v-btn
-                        id="login"
-                        block
-                        large
-                        :disabled="!username || !(password.length >= 8)"
-                        class="my-5"
-                        type="submit"
-                      >
-                        ログイン
-                      </v-btn>
-                    </form>
-                  </v-card-text>
-                  <v-divider></v-divider>
-                  <div class="text-center my-5">
-                    <form action="/routes/auth/local" method="post">
-                      <input type="hidden" name="username" value="GuestUser" />
-                      <input type="hidden" name="password" value="GuestPass" />
-                      <input type="hidden" name="_csrf" :value="csrf" />
-                      <v-btn class="mt-9" tile color="info" large type="submit">
-                        <v-icon>mdi-shield-account</v-icon>
-                        ゲストユーザーでログイン
-                      </v-btn>
-                    </form>
-                  </div>
-                </v-col>
-              </v-row>
-            </div>
-          </v-card>
-          <v-card class="my-5 text-center" elevation="5">
-            <div class="pa-1">
-              <div class="pt-3">
-                <p class="subtitle-2">
-                  <v-icon class="pb-1">mdi-help-circle-outline</v-icon>
-                  アカウントをお持ちではないですか？
-                  <a href="/register">登録する</a>
+            <v-list-item three-line>
+              <v-list-item-content>
+                <p class="title my-1 text-justify">
+                  レシピを探す！
                 </p>
-              </div>
-            </div>
+                <p class="text--secondary">
+                  様々なカテゴリーの料理を準備しております。
+                  <br />
+                  日々、新しい料理を発見していただけます。
+                </p>
+              </v-list-item-content>
+              <v-list-item-avatar tile size="180" color="grey">
+                <img :src="require('@/assets/display.jpg')" />
+              </v-list-item-avatar>
+            </v-list-item>
+          </v-card>
+        </v-col>
+        <v-col class="mx-6" cols="12" md="5" sm="8">
+          <v-card class="mt-5" elevation="5">
+            <v-list-item three-line>
+              <v-list-item-content>
+                <p class="title my-1 text-justify">
+                  献立を決める！
+                </p>
+                <p class="text--secondary">
+                  登録した料理から献立をご提案します。
+                  <br />
+                  和・洋・中から選択していただけます。
+                </p>
+              </v-list-item-content>
+              <v-list-item-avatar tile size="180" color="grey">
+                <img :src="require('@/assets/pick.png')" />
+              </v-list-item-avatar>
+            </v-list-item>
           </v-card>
         </v-col>
       </v-row>
@@ -102,24 +84,20 @@ export default {
   },
   data() {
     return {
-      username: '',
-      password: '',
-      csrf: '',
-      show1: false,
-      success: false,
-      required: (value) => !!value || '必ず入力してください',
-      limit_length: (value) =>
-        value.length >= 8 || '8文字以上で入力してください'
+      csrf: ''
     }
   },
   created() {
-    this.$store.dispatch('setTitle', '今晩の献立　〜Make Dinner〜')
+    this.$store.dispatch('setTitle', '今晩の献立　Make Dinner')
   }
 }
 </script>
 
 <style>
-a {
-  text-decoration: none;
+#title {
+  opacity: 0.9;
+}
+#btn {
+  opacity: 0.5;
 }
 </style>
