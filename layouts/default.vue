@@ -5,6 +5,9 @@
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
         <v-toolbar-title>{{ $store.state.title }}</v-toolbar-title>
+        <v-btn id="top" icon dark to="/mypage">
+          <v-icon large>mdi-home</v-icon>
+        </v-btn>
       </v-app-bar>
       <nuxt />
 
@@ -90,3 +93,9 @@ export default {
   }
 }
 </script>
+
+<style>
+#top {
+  margin-left: auto;
+}
+</style>
