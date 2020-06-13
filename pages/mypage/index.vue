@@ -78,7 +78,7 @@ export default {
     Information
   },
   created() {
-    this.$store.dispatch('setTitle', '今晩の献立　〜Make Dinner〜')
+    this.$store.dispatch('setTitle', '今晩の献立　Make Dinner')
     this.$store.dispatch('reset')
   },
   methods: {
