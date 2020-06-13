@@ -11,25 +11,22 @@
                   <v-card-text>
                     <v-list-item-group>
                       <template v-for="(memo, index) in memos">
-                        <v-list-item :key="memo.id">
+                        <v-list-item :key="memo.id" @click="edit(memo.id)">
                           <v-list-item-action>
                             <v-checkbox
                               id="edit"
                               :input-value="memo.done"
-                              @click="edit(memo.id)"
                             ></v-checkbox>
                           </v-list-item-action>
                           <v-list-item-content>
                             <v-list-item-title
                               v-if="memo.done"
                               class="line title"
-                              @click="edit(memo.id)"
                               v-text="memo.name"
                             ></v-list-item-title>
                             <v-list-item-title
                               v-else
                               class="title"
-                              @click="edit(memo.id)"
                               v-text="memo.name"
                             ></v-list-item-title>
                           </v-list-item-content>
