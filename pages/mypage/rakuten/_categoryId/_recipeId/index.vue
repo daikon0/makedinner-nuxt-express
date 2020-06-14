@@ -19,15 +19,17 @@
               <div class="ma-1">戻る</div>
             </v-btn>
             <v-card>
-              <div class="subheading">
-                <v-img
-                  class="white--text align-end"
-                  :src="recipe.mediumImageUrl"
-                  max-height="400"
-                >
-                  <v-card-title v-text="recipe.recipeTitle"></v-card-title>
-                </v-img>
-              </div>
+              <v-list-item>
+                <v-list-item-avatar class="my-5" size="100">
+                  <img :src="recipe.mediumImageUrl" alt="" />
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title
+                    class="title"
+                    v-text="recipe.recipeTitle"
+                  ></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
               <v-card-subtitle
                 class="pb-0"
                 v-text="recipe.nickname + endname"
@@ -50,15 +52,15 @@
                   <p class="mb-3">コメント：</p>
                   <p class="mb-3" v-text="recipe.recipeDescription"></p>
                 </v-card-text>
-                <v-btn color="info" rounded class="ma-3">
-                  <a
-                    :href="recipe.recipeUrl"
-                    target="_blank"
-                    class="white--text align-end"
-                  >
+                <a
+                  :href="recipe.recipeUrl"
+                  target="_blank"
+                  class="white--text align-end"
+                >
+                  <v-btn color="info" rounded class="ma-3">
                     レシピを見る
-                  </a>
-                </v-btn>
+                  </v-btn>
+                </a>
                 <v-btn
                   color="primary"
                   rounded
