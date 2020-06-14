@@ -23,16 +23,16 @@
                 </v-img>
               </div>
               <div class="grey lighten-2">
-                <v-btn v-if="dish.dishUrl" color="info" rounded class="ma-3">
-                  <v-icon>mdi-apple-airplay</v-icon>
-                  <a
-                    :href="dish.dishUrl"
-                    target="_blank"
-                    class="white--text align-end"
-                  >
+                <a
+                  :href="dish.dishUrl"
+                  target="_blank"
+                  class="white--text align-end"
+                >
+                  <v-btn v-if="dish.dishUrl" color="info" rounded class="ma-3">
+                    <v-icon>mdi-apple-airplay</v-icon>
                     レシピを見る
-                  </a>
-                </v-btn>
+                  </v-btn>
+                </a>
                 <v-btn
                   :to="{
                     name: 'mypage-menu-dishId-edit',
@@ -58,10 +58,12 @@
                   <v-icon>mdi-image-edit</v-icon>
                   <div class="ma-1">画像を変える</div>
                 </v-btn>
-                <v-btn color="info" rounded class="ma-3" @click="deleteDish">
-                  <v-icon>mdi-trash-can-outline</v-icon>
-                  <div class="ma-1">削除</div>
-                </v-btn>
+                <v-dialog v-model="dialog" width="500">
+                  <v-btn color="info" rounded class="ma-3" @click="deleteDish">
+                    <v-icon>mdi-trash-can-outline</v-icon>
+                    <div class="ma-1">削除</div>
+                  </v-btn>
+                </v-dialog>
               </div>
             </v-card>
           </v-col>
