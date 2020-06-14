@@ -58,11 +58,36 @@
                   <v-icon>mdi-image-edit</v-icon>
                   <div class="ma-1">画像を変える</div>
                 </v-btn>
-                <v-dialog v-model="dialog" width="500">
-                  <v-btn color="info" rounded class="ma-3" @click="deleteDish">
-                    <v-icon>mdi-trash-can-outline</v-icon>
-                    <div class="ma-1">削除</div>
-                  </v-btn>
+                <v-btn
+                  color="info"
+                  rounded
+                  class="ma-3"
+                  @click.stop="dialog = true"
+                >
+                  <v-icon>mdi-trash-can-outline</v-icon>
+                  <div class="ma-1">削除</div>
+                </v-btn>
+                <v-dialog v-model="dialog" width="300">
+                  <v-card>
+                    <v-card-title>
+                      本当に削除しますか？
+                    </v-card-title>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn class="ma-1" color="info" text @click="deleteDish">
+                        <v-icon>mdi-trash-can-outline</v-icon>
+                        <div class="ma-1">削除</div>
+                      </v-btn>
+                      <v-btn
+                        class="ma-1"
+                        color="info"
+                        text
+                        @click="dialog = false"
+                      >
+                        やめる
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
                 </v-dialog>
               </div>
             </v-card>
@@ -82,7 +107,8 @@ export default {
     return {
       dish,
       img: require('@/static/no-image.jpeg'),
-      csrf
+      csrf,
+      dialog: false
     }
   },
   created() {
