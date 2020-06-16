@@ -30,51 +30,29 @@
     </div>
     <v-container fluid>
       <v-row justify="center">
-        <v-col class="mx-6" cols="12" md="5" sm="8">
-          <v-card class="mt-5" elevation="5">
-            <v-list-item three-line>
-              <v-list-item-content>
-                <p class="title my-1 text-justify">
-                  レシピを探す！
-                </p>
-                <p class="text--secondary">
-                  様々なカテゴリーの料理を準備しております。
-                  <br />
-                  日々、新しい料理を発見していただけます。
-                </p>
-              </v-list-item-content>
-              <v-list-item-avatar tile size="180" color="grey">
-                <img :src="require('@/assets/display.jpg')" />
-              </v-list-item-avatar>
-            </v-list-item>
-          </v-card>
-        </v-col>
-        <v-col class="mx-6" cols="12" md="5" sm="8">
-          <v-card class="mt-5" elevation="5">
-            <v-list-item three-line>
-              <v-list-item-content>
-                <p class="title my-1 text-justify">
-                  献立を決める！
-                </p>
-                <p class="text--secondary">
-                  登録した料理から献立をご提案します。
-                  <br />
-                  和・洋・中から選択していただけます。
-                </p>
-              </v-list-item-content>
-              <v-list-item-avatar tile size="180" color="grey">
-                <img :src="require('@/assets/pick.png')" />
-              </v-list-item-avatar>
-            </v-list-item>
-          </v-card>
-        </v-col>
+        <Topinformation
+          title="レシピを探す！"
+          subtitle="様々なカテゴリーの料理を準備しております。"
+          undersubtitle="日々、新しい料理を発見していただけます。"
+          image="display.jpg"
+        />
+        <Topinformation
+          title="献立を決める！"
+          subtitle="登録した料理から献立をご提案します。"
+          undersubtitle="和・洋・中から選択していただけます。"
+          image="pick.png"
+        />
       </v-row>
     </v-container>
   </v-app>
 </template>
 
 <script>
+import Topinformation from '@/components/Topinformation'
 export default {
+  components: {
+    Topinformation
+  },
   layout: 'signout',
   async asyncData({ app }) {
     const csrf = await app.$axios.$get('/routes/csrf')
