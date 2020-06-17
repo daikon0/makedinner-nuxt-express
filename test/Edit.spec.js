@@ -46,9 +46,4 @@ describe('pages/mypage/menu/_dishId/edit.vue', () => {
     expect(wrapper.vm.dishName).toBe('dishName')
     expect(wrapper.vm.dishUrl).toBe('dishUrl')
   })
-
-  // test('クリック時に$route.pushが実行される', () => {
-  //   wrapper.find('.v-btn').trigger('click')
-  //   expect(mockRouterPush.push).toBeCalledWith('/mypage/menu')
-  // })
 })
