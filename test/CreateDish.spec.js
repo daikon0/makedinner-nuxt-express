@@ -48,10 +48,4 @@ describe('pages/mypage/createDish.vue', () => {
     wrapper.vm.prevent()
     expect(wrapper.vm.submit).toBe(true)
   })
-
-  // test('a', () => {
-  //   wrapper.setMethods({ prevent: mock })
-  //   wrapper.vm.prevent()
-  //   expect(mock).toHaveBeenCalled()
-  // })
 })
