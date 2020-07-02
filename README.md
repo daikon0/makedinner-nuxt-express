@@ -9,12 +9,14 @@
 
 
 ## 使用技術
-- Nuxt.js(SPA, SSR)
+- Vue.js
+- node.js
+- Nuxt.js(SPA)
 - Express
 - Vuetify
 - PostgreSQL
 - Nginx
-- AWS(EC2, RDS, S3, VPC, Route53, ALB, ACM)
+- AWS(EC2, RDS, S3, Route53, ALB, ACM)
 - Docker
 - Jest
 - CircleCi
