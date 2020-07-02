@@ -10,8 +10,8 @@
 
 ## 使用技術
 - Vue.js
-- node.js
 - Nuxt.js(SPA)
+- Node.js
 - Express
 - Vuetify
 - PostgreSQL
