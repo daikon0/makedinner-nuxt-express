@@ -91,8 +91,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   layout: 'signout',
   async asyncData({ app }) {
     const csrf = await app.$axios.$get('/routes/csrf')
@@ -115,7 +117,7 @@ export default {
   created() {
     this.$store.dispatch('setTitle', '今晩の献立　〜Make Dinner〜')
   }
-}
+})
 </script>
 
 <style>

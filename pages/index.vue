@@ -47,9 +47,11 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import Topinformation from '@/components/Topinformation'
-export default {
+
+export default Vue.extend({
   components: {
     Topinformation
   },
@@ -68,7 +70,7 @@ export default {
   created() {
     this.$store.dispatch('setTitle', '今晩の献立　Make Dinner')
   }
-}
+})
 </script>
 
 <style>
