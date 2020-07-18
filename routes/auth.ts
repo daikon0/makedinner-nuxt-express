@@ -1,8 +1,10 @@
-const express = require('express')
-const router = express.Router()
-const passport = require('passport')
+import express, { Request, Response, NextFunction } from 'express'
+import passport from 'passport'
+import local from 'passport-local'
 
-const LocalStrategy = require('passport-local').Strategy
+const router = express.Router()
+
+const LocalStrategy = local.Strategy
 
 const db = require('../models/index')
 
@@ -31,7 +33,7 @@ function localAuth() {
             .findOne({
               where: { username, password }
             })
-            .then((user, err) => {
+            .then((user: object, err: Error) => {
               if (err) {
                 return done(err)
               }
