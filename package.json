@@ -14,12 +14,14 @@
     "type-check": "npx tsc -p . --noEmit"
   },
   "dependencies": {
+    "@nuxt/types": "^2.13.3",
     "@nuxt/typescript-build": "^2.0.0",
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@types/express": "^4.17.7",
     "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.23",
     "@types/passport": "^1.0.4",
     "aws-cli": "0.0.2",
     "aws-sdk": "^2.678.0",
