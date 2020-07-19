@@ -2,8 +2,10 @@
   <div></div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   data() {
     return {
       user: null
@@ -20,5 +22,5 @@ export default {
       return { id: res.data.user.name.id, name: res.data.user.name.username }
     }
   }
-}
+})
 </script>
