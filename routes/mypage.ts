@@ -1,12 +1,11 @@
-const express = require('express')
+import express, { Request, Response, NextFunction } from 'express'
+import csrf from 'csurf'
+import multer from 'multer'
+import s3Storage from 'multer-sharp-s3'
+import aws from 'aws-sdk'
+
 const router = express.Router()
-
-const csrf = require('csurf')
 const csrfProtection = csrf({ cookie: true })
-
-const multer = require('multer')
-const s3Storage = require('multer-sharp-s3')
-const aws = require('aws-sdk')
 aws.config.update({ region: 'ap-northeast-1' })
 const s3 = new aws.S3()
 const storage = s3Storage({
@@ -22,25 +21,25 @@ const upload = multer({ storage })
 const db = require('../models/index')
 
 // メニュー一覧表示
-router.get('/menu', async (req, res, next) => {
+router.get('/menu', async (req: any, res: Response, next: NextFunction) => {
   const dish = await db.dish
     .findAll({
       where: { createdBy: req.user.name.id },
       order: [['"updatedAt"', 'DESC']]
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
   res.send(dish)
 })
 
 // 料理の画面表示
-router.get('/menu/:dishId', async (req, res, next) => {
+router.get('/menu/:dishId', async (req: Request, res: Response, next: NextFunction) => {
   const dish = await db.dish
     .findOne({
       where: { dishId: req.params.dishId }
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
       return res.status(404)
     })
@@ -48,12 +47,12 @@ router.get('/menu/:dishId', async (req, res, next) => {
 })
 
 // 料理の編集
-router.post('/menu/:dishId/edit', csrfProtection, async (req, res, next) => {
+router.post('/menu/:dishId/edit', csrfProtection, async (req: Request, res: Response, next: NextFunction) => {
   const dish = await db.dish
     .findOne({
       where: { dishId: req.params.dishId }
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
   dish
@@ -61,7 +60,7 @@ router.post('/menu/:dishId/edit', csrfProtection, async (req, res, next) => {
       dishName: req.body.dishName,
       dishUrl: req.body.dishUrl
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
   res.redirect('/mypage/menu')
@@ -72,7 +71,7 @@ router.post(
   '/editFile',
   upload.single('dishFile'),
   csrfProtection,
-  async (req, res, next) => {
+  async (req: any, res: Response, next: NextFunction) => {
     const dish = await db.dish.findOne({
       where: { dishId: req.body.dishId }
     })
@@ -80,7 +79,7 @@ router.post(
       .update({
         dishFile: req.file.Location || null
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         next(err)
       })
     res.redirect('/mypage/menu')
@@ -88,25 +87,25 @@ router.post(
 )
 
 // 料理の削除
-router.post('/menu/:dishId/delete', csrfProtection, async (req, res, next) => {
-  await deleteDish(req.params.dishId).catch((err) => {
+router.post('/menu/:dishId/delete', csrfProtection, async (req: Request, res: Response, next: NextFunction) => {
+  await deleteDish(req.params.dishId).catch((err: Error) => {
     next(err)
   })
   res.redirect('/mypage/menu')
 })
 
-async function deleteDish(dishId, done, err) {
+async function deleteDish(dishId: string) {
   const dish = await db.dish.findAll({
     where: { dishId }
   })
-  const promises = dish.map((d) => {
+  const promises = dish.map((d: any) => {
     return d.destroy()
   })
   return Promise.all(promises)
 }
 
-router.get('/selectGenre', async (req, res, next) => {
-  const genre = req.query.genre
+router.get('/selectGenre', async (req: any, res: Response, next: NextFunction) => {
+  const genre: string = req.query.genre
   const maindish = await selectDish(req, genre, 'main')
   const subdish = await selectDish(req, genre, 'sub')
   const soup = await selectDish(req, genre, 'soup')
@@ -119,7 +118,7 @@ router.get('/selectGenre', async (req, res, next) => {
 })
 
 // ジャンルが選択された際に料理を渡す
-async function selectDish(req, genre, role) {
+async function selectDish(req: any, genre: string, role: string) {
   const dishArray = await db.dish.findAll({
     where: {
       dishGenre: genre,
@@ -130,7 +129,7 @@ async function selectDish(req, genre, role) {
   return rondomDish(dishArray)
 }
 
-function rondomDish(dishArray) {
+function rondomDish(dishArray: object[]) {
   return dishArray[Math.floor(Math.random() * dishArray.length)]
 }
 
