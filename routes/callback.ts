@@ -7,4 +7,4 @@ router.get('/', (req: any, res: Response, next: NextFunction) => {
   res.json({ user: req.user })
 })
 
-module.exports = router
+export { router }

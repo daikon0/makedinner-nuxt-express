@@ -59,4 +59,4 @@ function handleSession() {
   })
 }
 
-module.exports = router
+export { router }
