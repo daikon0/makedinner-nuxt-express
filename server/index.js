@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser')
 
 const mypageRouter = require('../routes/mypage')
 const registerRouter = require('../routes/register')
-const createDishRouter = require('../routes/createDish')
+const createDishRouter = require('../dist/createDish')
 const signoutRouter = require('../routes/signout')
 const callbackRouter = require('../dist/callback')
 const authRouter = require('../dist/auth')
