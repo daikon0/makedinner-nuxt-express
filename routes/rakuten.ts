@@ -1,8 +1,9 @@
-const express = require('express')
+import express, { Request, Response, NextFunction } from 'express'
+import axios from 'axios'
+
 const router = express.Router()
-const axios = require('axios')
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   const secret = process.env.RAKUTEN_SECRET
   await axios
     .get(
@@ -11,12 +12,12 @@ router.get('/', async (req, res, next) => {
     .then((category) => {
       res.send(category.data.result.large)
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
 })
 
-router.get('/category', async (req, res, next) => {
+router.get('/category', async (req: Request, res: Response, next: NextFunction) => {
   const secret = process.env.RAKUTEN_SECRET
   await axios
     .get(
@@ -25,12 +26,12 @@ router.get('/category', async (req, res, next) => {
     .then((category) => {
       res.send(category.data.result.large)
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
 })
 
-router.get('/ranking', async (req, res, next) => {
+router.get('/ranking', async (req: Request, res: Response, next: NextFunction) => {
   const secret = process.env.RAKUTEN_SECRET
   const categoryId = req.query.categoryId
   await axios
@@ -40,12 +41,12 @@ router.get('/ranking', async (req, res, next) => {
     .then((recipes) => {
       res.send(recipes.data.result)
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
 })
 
-router.get('/recipe', async (req, res, next) => {
+router.get('/recipe', async (req: Request, res: Response, next: NextFunction) => {
   const secret = process.env.RAKUTEN_SECRET
   const categoryId = req.query.categoryId
   await axios
@@ -55,12 +56,12 @@ router.get('/recipe', async (req, res, next) => {
     .then((recipes) => {
       res.send(recipes.data.result)
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
 })
 
-router.get('/recipe/edit', async (req, res, next) => {
+router.get('/recipe/edit', async (req: Request, res: Response, next: NextFunction) => {
   const secret = process.env.RAKUTEN_SECRET
   const categoryId = req.query.categoryId
   await axios
@@ -70,7 +71,7 @@ router.get('/recipe/edit', async (req, res, next) => {
     .then((recipes) => {
       res.send(recipes.data.result)
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       next(err)
     })
 })
