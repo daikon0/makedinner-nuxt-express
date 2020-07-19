@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express'
 import csrf from 'csurf'
-import uuid from 'uuid'
+import * as uuid from 'uuid'
 import multer from 'multer'
 import s3Storage from 'multer-sharp-s3'
 import aws from 'aws-sdk'
