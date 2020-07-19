@@ -1,14 +1,13 @@
-const express = require('express')
+import express, { Request, Response, NextFunction } from 'express'
+import csrf from 'csurf'
+import uuid from 'uuid'
+import multer from 'multer'
+import s3Storage from 'multer-sharp-s3'
+import aws from 'aws-sdk'
+
 const router = express.Router()
-
-const csrf = require('csurf')
 const csrfProtection = csrf({ cookie: true })
-
-const uuid = require('uuid')
 const updatedAt = new Date()
-const multer = require('multer')
-const s3Storage = require('multer-sharp-s3')
-const aws = require('aws-sdk')
 aws.config.update({ region: 'ap-northeast-1' })
 const s3 = new aws.S3()
 
@@ -28,7 +27,7 @@ router.post(
   '/',
   upload.single('dishFile'),
   csrfProtection,
-  async (req, res, next) => {
+  async (req: any, res: Response, next: NextFunction) => {
     const fileCheck = req.file
     const dishId = uuid.v4()
     // fileをnullにしている
@@ -44,7 +43,7 @@ router.post(
           createdBy: req.user.name.id,
           updatedAt
         })
-        .catch((err) => {
+        .catch((err: Error) => {
           next(err)
         })
       res.redirect('/mypage/menu')
@@ -61,7 +60,7 @@ router.post(
           createdBy: req.user.name.id,
           updatedAt
         })
-        .catch((err) => {
+        .catch((err: Error) => {
           next(err)
         })
 
@@ -71,7 +70,7 @@ router.post(
 )
 
 // 楽天はFileが必ずあるのでfileCheckしない
-router.post('/rakuten', csrfProtection, async (req, res, next) => {
+router.post('/rakuten', csrfProtection, async (req: any, res: Response, next: NextFunction) => {
   const dishId = uuid.v4()
   await db.dish
     .create({
@@ -84,7 +83,7 @@ router.post('/rakuten', csrfProtection, async (req, res, next) => {
       createdBy: req.user.name.id,
       updatedAt
     })
-    .catch((err) => {
+    .catch((err:Error) => {
       next(err)
     })
 
