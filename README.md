@@ -9,6 +9,7 @@
 
 
 ## 使用技術
+- TypeScript
 - Vue.js
 - Nuxt.js(SPA)
 - Node.js
