@@ -49,7 +49,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Topinformation from '@/components/Topinformation'
+import Topinformation from '@/components/Topinformation.vue'
+
+interface DataType {
+  csrf: string
+}
 
 export default Vue.extend({
   components: {
@@ -62,7 +66,7 @@ export default Vue.extend({
       csrf
     }
   },
-  data() {
+  data(): DataType {
     return {
       csrf: ''
     }
