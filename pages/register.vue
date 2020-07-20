@@ -50,8 +50,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   layout: 'signout',
   async asyncData({ app }) {
     const csrf = await app.$axios.$get('/routes/csrf')
@@ -66,8 +68,8 @@ export default {
       csrf: '',
       show1: false,
       success: false,
-      required: (value) => !!value || '必ず入力してください',
-      limit_length: (value) =>
+      required: (value: string) => !!value || '必ず入力してください',
+      limit_length: (value: string) =>
         value.length >= 8 || '8文字以上で入力してください'
     }
   },
@@ -82,10 +84,10 @@ export default {
           password: this.password,
           _csrf: this.csrf
         })
-        .then((res) => {
+        .then(() => {
           this.$router.push('/')
         })
     }
   }
-}
+})
 </script>
