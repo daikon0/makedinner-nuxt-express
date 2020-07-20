@@ -108,8 +108,8 @@ export default Vue.extend({
       password: '',
       csrf: '',
       show1: false,
-      required: (value) => !!value || '必ず入力してください',
-      limit_length: (value) =>
+      required: (value: string) => !!value || '必ず入力してください',
+      limit_length: (value: string) =>
         value.length >= 8 || '8文字以上で入力してください'
     }
   },
