@@ -89,8 +89,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ app }) {
     const memos = await app.$axios.$get('/routes/memo')
     const csrf = await app.$axios.$get('/routes/csrf')
@@ -103,7 +105,8 @@ export default {
     return {
       name: '',
       memos: [],
-      required: (value) => !!value || '入力しないと追加ボタンを押せません',
+      required: (value: string) =>
+        !!value || '入力しないと追加ボタンを押せません',
       csrf: ''
     }
   },
@@ -111,7 +114,7 @@ export default {
     this.$store.dispatch('setTitle', 'メモ')
   },
   methods: {
-    async edit(id) {
+    async edit(id: number) {
       await this.$axios
         .$post('/routes/memo/edit', {
           memoId: id,
@@ -121,7 +124,7 @@ export default {
           location.reload()
         })
     },
-    async memoDelete(id) {
+    async memoDelete(id: number) {
       await this.$axios
         .$post('/routes/memo/delete', {
           memoId: id,
@@ -141,7 +144,7 @@ export default {
         })
     }
   }
-}
+})
 </script>
 
 <style>
