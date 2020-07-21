@@ -77,23 +77,22 @@ export default Vue.extend({
     allDish() {
       this.dishes = this.res
     },
-    findJapanDish() {
-      const dish = this.res.filter((item: any) => {
-        if (item.dishGenre === 'japan') return true
+    findDish(genre: string) {
+      return this.res.filter((dish: any) => {
+        if (dish.dishGenre === genre) return true
       })
-      this.dishes = dish
+    },
+    findJapanDish() {
+      const japanDish = this.findDish('japan')
+      this.dishes = japanDish
     },
     findWesternDish() {
-      const dish = this.res.filter((item: any) => {
-        if (item.dishGenre === 'western') return true
-      })
-      this.dishes = dish
+      const westernDish = this.findDish('western')
+      this.dishes = westernDish
     },
     findChinaDish() {
-      const dish = this.res.filter((item: any) => {
-        if (item.dishGenre === 'china') return true
-      })
-      this.dishes = dish
+      const chinaDish = this.findDish('china')
+      this.dishes = chinaDish
     }
   }
 })
