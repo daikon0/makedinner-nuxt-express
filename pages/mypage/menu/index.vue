@@ -51,8 +51,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ app }) {
     const res = await app.$axios.$get('/routes/mypage/menu')
     return {
@@ -93,5 +95,5 @@ export default {
       this.dishes = dish
     }
   }
-}
+})
 </script>
