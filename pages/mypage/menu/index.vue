@@ -64,7 +64,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      dishes: []
+      dishes: [],
+      res: []
     }
   },
   created() {
@@ -77,19 +78,19 @@ export default Vue.extend({
       this.dishes = this.res
     },
     findJapanDish() {
-      const dish = this.res.filter((item) => {
+      const dish = this.res.filter((item: any) => {
         if (item.dishGenre === 'japan') return true
       })
       this.dishes = dish
     },
     findWesternDish() {
-      const dish = this.res.filter((item) => {
+      const dish = this.res.filter((item: any) => {
         if (item.dishGenre === 'western') return true
       })
       this.dishes = dish
     },
     findChinaDish() {
-      const dish = this.res.filter((item) => {
+      const dish = this.res.filter((item: any) => {
         if (item.dishGenre === 'china') return true
       })
       this.dishes = dish
