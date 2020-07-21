@@ -69,10 +69,12 @@
   </v-app>
 </template>
 
-<script>
-import Loading from '@/components/Loading'
-import Information from '@/components/Information'
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import Loading from '@/components/Loading.vue'
+import Information from '@/components/Information.vue'
+
+export default Vue.extend({
   components: {
     Loading,
     Information
@@ -86,5 +88,5 @@ export default {
       this.$store.dispatch('setLoading')
     }
   }
-}
+})
 </script>
