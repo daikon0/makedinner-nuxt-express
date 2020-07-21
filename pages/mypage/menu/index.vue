@@ -6,10 +6,10 @@
           <v-col cols="12" md="8">
             <v-card elevation="8">
               <v-tabs grow>
-                <v-tab @click="all">すべて</v-tab>
-                <v-tab @click="onlyJapan">和食</v-tab>
-                <v-tab @click="onlyWestern">洋食</v-tab>
-                <v-tab @click="onlyChina">中華</v-tab>
+                <v-tab @click="allDish">すべて</v-tab>
+                <v-tab @click="findJapanDish">和食</v-tab>
+                <v-tab @click="findWesternDish">洋食</v-tab>
+                <v-tab @click="findChinaDish">中華</v-tab>
               </v-tabs>
 
               <v-list subheader class="ma-3" rounded>
@@ -73,22 +73,22 @@ export default Vue.extend({
   },
   methods: {
     // クリックされたボタンのジャンルだけをdishに渡す
-    all() {
+    allDish() {
       this.dishes = this.res
     },
-    onlyJapan() {
+    findJapanDish() {
       const dish = this.res.filter((item) => {
         if (item.dishGenre === 'japan') return true
       })
       this.dishes = dish
     },
-    onlyWestern() {
+    findWesternDish() {
       const dish = this.res.filter((item) => {
         if (item.dishGenre === 'western') return true
       })
       this.dishes = dish
     },
-    onlyChina() {
+    findChinaDish() {
       const dish = this.res.filter((item) => {
         if (item.dishGenre === 'china') return true
       })
