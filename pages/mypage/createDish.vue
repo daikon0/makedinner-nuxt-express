@@ -77,8 +77,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ app }) {
     const csrf = await app.$axios.$get('/routes/csrf')
     return {
@@ -93,7 +95,7 @@ export default {
       dishGenre: '',
       dishRole: '',
       csrf: '',
-      required: (value) => !!value || '必ず入力してください'
+      required: (value: string) => !!value || '必ず入力してください'
     }
   },
   created() {
@@ -101,11 +103,11 @@ export default {
   },
   methods: {
     prevent() {
-      if (this.submit) {
+      if (this.submit && event) {
         return event.preventDefault()
       }
       this.submit = true
     }
   }
-}
+})
 </script>
