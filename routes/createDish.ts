@@ -28,15 +28,14 @@ router.post(
   upload.single('dishFile'),
   csrfProtection,
   async (req: any, res: Response, next: NextFunction) => {
-    const fileCheck = req.file
+    const hasFile = req.file
     const dishId = uuid.v4()
-    // fileをnullにしている
-    if (fileCheck === undefined) {
+    if (hasFile) {
       await db.dish
         .create({
           dishId,
           dishName: req.body.dishName,
-          dishFile: null,
+          dishFile: req.file.Location || null,
           dishUrl: req.body.dishUrl,
           dishGenre: req.body.dishGenre,
           dishRole: req.body.dishRole,
@@ -48,12 +47,12 @@ router.post(
         })
       res.redirect('/mypage/menu')
     } else {
-      // fileあり
+      // fileをnullにしている
       await db.dish
         .create({
           dishId,
           dishName: req.body.dishName,
-          dishFile: req.file.Location || null,
+          dishFile: null,
           dishUrl: req.body.dishUrl,
           dishGenre: req.body.dishGenre,
           dishRole: req.body.dishRole,
@@ -69,7 +68,7 @@ router.post(
   }
 )
 
-// 楽天はFileが必ずあるのでfileCheckしない
+// 楽天はFileが必ずある
 router.post('/rakuten', csrfProtection, async (req: any, res: Response, next: NextFunction) => {
   const dishId = uuid.v4()
   await db.dish
