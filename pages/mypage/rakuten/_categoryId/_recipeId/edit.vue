@@ -91,9 +91,11 @@
   </v-app>
 </template>
 
-<script>
-import Loading from '@/components/Loading'
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import Loading from '@/components/Loading.vue'
+
+export default Vue.extend({
   components: {
     Loading
   },
@@ -105,7 +107,7 @@ export default {
         categoryId
       }
     })
-    const recipe = recipes.filter((item) => {
+    const recipe = recipes.filter((item: any) => {
       if (item.recipeId === recipeId) return true
     })
     const csrf = await app.$axios.$get('/routes/csrf')
@@ -114,7 +116,14 @@ export default {
       dishGenre: '',
       dishRole: '',
       csrf,
-      required: (value) => !!value || '必ず入力してください'
+      required: (value: string) => !!value || '必ず入力してください'
+    }
+  },
+  data() {
+    return {
+      recipe: {
+        recipeTitle: ''
+      }
     }
   },
   created() {
@@ -126,5 +135,5 @@ export default {
       this.$store.dispatch('setLoading')
     }
   }
-}
+})
 </script>
