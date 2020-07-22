@@ -98,8 +98,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ app }) {
     const dishId = app.context.params.dishId
     const dish = await app.$axios.$get(`/routes/mypage/menu/${dishId}`)
@@ -109,6 +111,14 @@ export default {
       img: require('@/static/no-image.jpeg'),
       csrf,
       dialog: false
+    }
+  },
+  data() {
+    return {
+      csrf: '',
+      dish: {
+        dishName: ''
+      }
     }
   },
   created() {
@@ -126,7 +136,7 @@ export default {
         })
     }
   }
-}
+})
 </script>
 
 <style>
