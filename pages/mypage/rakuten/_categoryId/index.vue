@@ -43,9 +43,11 @@
   </v-app>
 </template>
 
-<script>
-import Loading from '@/components/Loading'
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import Loading from '@/components/Loading.vue'
+
+export default Vue.extend({
   components: {
     Loading
   },
@@ -57,7 +59,7 @@ export default {
         categoryId
       }
     })
-    const title = categories.filter((item) => {
+    const title = categories.filter((item: any) => {
       if (item.categoryId === categoryId) return true
     })
     const recipes = await await app.$axios.$get('/routes/rakuten/ranking', {
@@ -70,6 +72,11 @@ export default {
       title: title[0].categoryName
     }
   },
+  data() {
+    return {
+      title: ''
+    }
+  },
   created() {
     this.$store.dispatch('setTitle', this.title)
     this.$store.dispatch('reset')
@@ -79,5 +86,5 @@ export default {
       this.$store.dispatch('setLoading')
     }
   }
-}
+})
 </script>
