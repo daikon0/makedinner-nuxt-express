@@ -37,8 +37,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ app }) {
     const dishId = app.context.params.dishId
     const dish = await app.$axios.$get(`/routes/mypage/menu/${dishId}`)
@@ -53,7 +55,8 @@ export default {
     return {
       dishName: '',
       dishUrl: '',
-      required: (value) => !!value || '必ず入力してください'
+      csrf: '',
+      required: (value: string) => !!value || '必ず入力してください'
     }
   },
   created() {
@@ -73,5 +76,5 @@ export default {
         })
     }
   }
-}
+})
 </script>
