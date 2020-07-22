@@ -33,9 +33,11 @@
   </v-app>
 </template>
 
-<script>
-import Dish from '@/components/Dish'
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import Dish from '@/components/Dish.vue'
+
+export default Vue.extend({
   components: {
     Dish
   },
@@ -45,7 +47,11 @@ export default {
       noodles: false,
       light: false,
       heavy: false,
-      dish: null,
+      dish: {
+        dishName: '',
+        dishFile: '',
+        dishUrl: ''
+      },
       oyakodon: {
         dishName: '親子丼',
         dishFile: require('@/static/oyakodon.jpg'),
@@ -106,7 +112,7 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style>
