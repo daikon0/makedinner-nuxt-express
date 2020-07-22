@@ -38,8 +38,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ app }) {
     const dishId = app.context.params.dishId
     const csrf = await app.$axios.$get('/routes/csrf')
@@ -47,16 +49,21 @@ export default {
       dishId,
       file: '',
       csrf,
-      required: (value) => !!value || '画像を選択してください'
+      required: (value: string) => !!value || '画像を選択してください'
+    }
+  },
+  data() {
+    return {
+      file: ''
     }
   },
   created() {
     this.$store.dispatch('setTitle', '画像の変更')
   },
   methods: {
-    hasFile(file) {
+    hasFile(file: string) {
       this.file = file
     }
   }
-}
+})
 </script>
