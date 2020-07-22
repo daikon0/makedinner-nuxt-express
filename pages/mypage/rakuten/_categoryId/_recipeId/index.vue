@@ -86,9 +86,11 @@
   </v-app>
 </template>
 
-<script>
-import Loading from '@/components/Loading'
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import Loading from '@/components/Loading.vue'
+
+export default Vue.extend({
   components: {
     Loading
   },
@@ -100,12 +102,19 @@ export default {
         categoryId
       }
     })
-    const recipe = recipes.filter((item) => {
+    const recipe = recipes.filter((item: any) => {
       if (item.recipeId === recipeId) return true
     })
     return {
       recipe: recipe[0],
       endname: 'さん'
+    }
+  },
+  data() {
+    return {
+      recipe: {
+        recipeTitle: ''
+      }
     }
   },
   created() {
@@ -117,7 +126,7 @@ export default {
       this.$store.dispatch('setLoading')
     }
   }
-}
+})
 </script>
 
 <style>
