@@ -7,6 +7,12 @@
 
 ![make_dinner](https://user-images.githubusercontent.com/54714572/82800992-8bcea180-9eb7-11ea-9aeb-21fbb9883e8c.gif)
 
+## 制作背景
+毎日違うメニューの献立を考えることが苦痛でした。
+この苦痛は主婦の方などの多くの方々の悩みでもあると考え、その悩みを解決すべく制作いたしました。
+
+## URL
+https://makedinner-infra.work
 
 ## 使用技術
 - TypeScript
@@ -22,8 +28,9 @@
 - Jest
 - CircleCi
 
-## URL
-https://makedinner-infra.work
+## アプリケーション構成図
+![aws ](https://user-images.githubusercontent.com/54714572/88359833-11cf7180-cdaf-11ea-9669-0981068920ac.png)
+
 
 ## 機能一覧
 - ユーザー登録・ログイン
@@ -32,7 +39,3 @@ https://makedinner-infra.work
 - 献立の提案
 - お手軽献立レシピ提案
 - お買い物用メモ
-
-## 制作背景
-毎日違うメニューの献立を考えることが苦痛でした。
-この苦痛は主婦の方などの多くの方々の悩みでもあると考え、その悩みを解決すべく制作いたしました。
