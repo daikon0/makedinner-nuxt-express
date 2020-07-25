@@ -77,9 +77,11 @@
   </v-app>
 </template>
 
-<script>
-import Dish from '@/components/Dish'
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import Dish from '@/components/Dish.vue'
+
+export default Vue.extend({
   components: {
     Dish
   },
@@ -95,12 +97,12 @@ export default {
   created() {
     this.$store.dispatch('setTitle', '今日の献立')
   },
-  beforeRouteUpdate(to, from, next) {
+  beforeRouteUpdate(to: any, from, next) {
     this.setDish(to.query.genre)
     next()
   },
   methods: {
-    async setDish(params) {
+    async setDish(params: string) {
       const dish = await this.$axios.$get(`/routes/mypage/selectGenre`, {
         params: {
           genre: params
@@ -123,7 +125,7 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style>
