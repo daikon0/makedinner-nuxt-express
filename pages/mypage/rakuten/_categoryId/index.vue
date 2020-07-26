@@ -59,8 +59,8 @@ export default Vue.extend({
         categoryId
       }
     })
-    const title = categories.filter((item: any) => {
-      if (item.categoryId === categoryId) return true
+    const category = categories.filter((category: any) => {
+      if (category.categoryId === categoryId) return true
     })
     const recipes = await await app.$axios.$get('/routes/rakuten/ranking', {
       params: {
@@ -69,7 +69,7 @@ export default Vue.extend({
     })
     return {
       recipes,
-      title: title[0].categoryName
+      title: category[0].categoryName
     }
   },
   data() {

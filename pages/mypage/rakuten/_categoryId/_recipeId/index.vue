@@ -102,8 +102,8 @@ export default Vue.extend({
         categoryId
       }
     })
-    const recipe = recipes.filter((item: any) => {
-      if (item.recipeId === recipeId) return true
+    const recipe = recipes.filter((recipe: any) => {
+      if (recipe.recipeId === recipeId) return true
     })
     return {
       recipe: recipe[0],
