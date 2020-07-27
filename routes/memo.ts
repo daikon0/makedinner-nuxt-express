@@ -59,7 +59,7 @@ router.post('/delete', csrfProtection, async (req: any, res: Response, next: Nex
 })
 
 router.post('/deleteAll', csrfProtection, async (req: any, res: Response, next: NextFunction) => {
-  await deleteAll(req.user.name.id).catch((err: Error) => {
+  await deleteAllMemo(req.user.name.id).catch((err: Error) => {
     next(err)
   })
   res.redirect('/mypage/memo')
@@ -75,7 +75,7 @@ async function deleteMemo(id: bigint) {
   return Promise.all(promises)
 }
 
-async function deleteAll(createdBy: bigint) {
+async function deleteAllMemo(createdBy: bigint) {
   const memo = await db.memo.findAll({
     where: { createdBy }
   })
