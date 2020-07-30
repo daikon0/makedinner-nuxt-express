@@ -41,7 +41,7 @@ module.exports = {
     [
       '@nuxt/typescript-build',
       {
-        typeCheck: true,
+        typeCheck: false,
         ignoreNotFoundWarnings: true
       }
     ]
