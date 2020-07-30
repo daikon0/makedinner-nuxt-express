@@ -10,7 +10,7 @@
       <div class="top"></div>
       <nuxt />
 
-      <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-navigation-drawer v-model="drawer" fixed temporary>
         <v-list nav dense>
           <v-list-item-group
             v-model="group"
