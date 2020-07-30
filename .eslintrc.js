@@ -18,6 +18,11 @@ module.exports = {
     'prettier'
   ],
   // add your custom rules here
+  ignorePatterns: [
+    "node_modules",
+    "dist",
+    "public"
+  ],
   rules: {
     'nuxt/no-cjs-in-config': 'off',
     'prettier/prettier': [
