@@ -1,20 +1,24 @@
 <template>
   <v-app>
     <div>
-      <v-img :src="require('@/assets/foodlbg.jpg')" height="300px">
+      <v-img :src="require('@/assets/bg.jpg')" height="350px">
         <div id="title" class="text-center title">
-          <p class="mt-12 display-1 white--text">
+          <p class="mt-10 display-1 font-weight-bold">
             今晩の献立
             <br />
             Make Dinner
           </p>
         </div>
         <div>
-          <div id="btn" class="text-center">
-            <v-btn class="mx-9" to="/register">新規登録</v-btn>
-            <v-btn class="mx-9" to="/login">ログイン</v-btn>
+          <div id="btn" class="text-center mt-10">
+            <span class="mx-7">
+              <v-btn to="/register">新規登録</v-btn>
+            </span>
+            <span class="mx-7">
+              <v-btn to="/login">ログイン</v-btn>
+            </span>
           </div>
-          <div id="btn" class="text-center">
+          <div id="btn" class="text-center mt-4">
             <form action="/routes/auth/local" method="post">
               <input type="hidden" name="username" value="GuestUser" />
               <input type="hidden" name="password" value="GuestPass" />
@@ -40,7 +44,7 @@
           title="献立を決める！"
           subtitle="登録した料理から献立をご提案します。"
           undersubtitle="和・洋・中から選択していただけます。"
-          image="pick.png"
+          image="pick_p.jpg"
         />
       </v-row>
     </v-container>
@@ -59,7 +63,7 @@ export default Vue.extend({
   components: {
     Topinformation
   },
-  layout: 'signout',
+  layout: 'signout_top',
   async asyncData({ app }) {
     const csrf = await app.$axios.$get('/routes/csrf')
     return {
@@ -82,6 +86,6 @@ export default Vue.extend({
   opacity: 0.9;
 }
 #btn {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 </style>
