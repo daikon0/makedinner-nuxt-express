@@ -21,6 +21,7 @@ module.exports = {
   ignorePatterns: [
     "node_modules",
     "dist",
+    "tsdist",
     "public"
   ],
   rules: {
