@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-card class="overflow-hidden" min-height="650">
-      <v-app-bar color="info" dark>
+      <v-app-bar fixed color="info" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
         <v-toolbar-title>{{ $store.state.title }}</v-toolbar-title>
@@ -9,6 +9,7 @@
           <v-icon large>mdi-home</v-icon>
         </v-btn>
       </v-app-bar>
+      <div class="fix"></div>
       <nuxt />
 
       <v-navigation-drawer v-model="drawer" absolute temporary>
@@ -99,5 +100,8 @@ export default Vue.extend({
 <style>
 #top {
   margin-left: auto;
+}
+.fix {
+  height: 56px;
 }
 </style>

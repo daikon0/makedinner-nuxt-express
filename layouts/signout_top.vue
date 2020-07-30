@@ -1,11 +1,13 @@
 <template>
   <v-app>
     <v-card class="overflow-hidden" min-height="650">
-      <v-app-bar color="info" dark>
-        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-
-        <v-toolbar-title>{{ $store.state.title }}</v-toolbar-title>
-      </v-app-bar>
+      <div>
+        <v-app-bar fixed color="info" dark>
+          <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+          <v-toolbar-title>{{ $store.state.title }}</v-toolbar-title>
+        </v-app-bar>
+      </div>
+      <div class="top"></div>
       <nuxt />
 
       <v-navigation-drawer v-model="drawer" absolute temporary>
@@ -66,3 +68,9 @@ export default Vue.extend({
   })
 })
 </script>
+
+<style>
+.top {
+  height: 56px;
+}
+</style>
