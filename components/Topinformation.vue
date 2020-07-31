@@ -22,6 +22,13 @@
           </v-list-item-content>
         </div>
       </v-list-item>
+      <v-divider></v-divider>
+      <form action="/routes/auth/local" method="post">
+        <input type="hidden" name="username" value="GuestUser" />
+        <input type="hidden" name="password" value="GuestPass" />
+        <input type="hidden" name="_csrf" :value="csrf" />
+        <v-btn block large type="submit">ゲストユーザーでお試しログイン</v-btn>
+      </form>
     </v-card>
   </v-col>
 </template>
@@ -44,6 +51,17 @@ export default {
     image: {
       type: String,
       default: null
+    }
+  },
+  async asyncData({ app }) {
+    const csrf = await app.$axios.$get('/routes/csrf')
+    return {
+      csrf
+    }
+  },
+  data() {
+    return {
+      csrf: ''
     }
   }
 }
