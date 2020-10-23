@@ -62,7 +62,7 @@
                   color="info"
                   rounded
                   class="ma-3"
-                  @click.stop="dialog = true"
+                  @click.stop="dialog = true"aaaaaaaaaaaaaaaaa
                 >
                   <v-icon>mdi-trash-can-outline</v-icon>
                   <div class="ma-1">削除</div>
